@@ -81,7 +81,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/b86142e6/middenweg",
     "lat": 52.3552424,
     "lng": 4.9285191,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/b86142e6-3d6e-5ca6-ab2f-923e08537458/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-02-27",
@@ -137,7 +137,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/8eafb4c2/mr-p-n-arntzeniusweg",
     "lat": 52.3550537,
     "lng": 4.935813,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/8eafb4c2-9782-5708-b5e3-1fb1f309eb4b/be6f2b784ec81ce923109b698d548fa6.jpg?width=600&amp;auto=webp"
+    "photo_url": null
   },
   {
     "date_found": "2026-03-05",
@@ -403,6 +403,48 @@
     "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/2f0b4514/lekstraat",
     "lat": 52.3446584,
     "lng": 4.9035921,
+    "photo_url": null
+  },
+  {
+    "date_found": "2026-04-04",
+    "address": "Preangerstraat 11 D, 1095 GZ Amsterdam (Indische Buurt-Oost)",
+    "price": "€1.710/mo",
+    "size": "95 m²",
+    "rooms": "3",
+    "furnished": "Unfurnished",
+    "available": "~end of April",
+    "summary": "Spacious 2-bedroom apartment on the 3rd floor with lift, loggia, and built-in kitchen in the Indische Buurt — available around end of April.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/dd97cbee/preangerstraat",
+    "lat": null,
+    "lng": null,
+    "photo_url": null
+  },
+  {
+    "date_found": "2026-04-04",
+    "address": "Middenweg 27 2, 1098 AB Amsterdam (Middenmeer/Watergraafsmeer)",
+    "price": "€2.495/mo",
+    "size": "77 m²",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "Per direct",
+    "summary": "Well-maintained apartment on the lively Middenweg with a spacious terrace, built-in kitchen, and immediate availability.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/214ec439/middenweg",
+    "lat": 52.3552424,
+    "lng": 4.9285191,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/214ec439-0952-5463-b218-4a0d447d4825/5700eef1a5558ea7fec133153467b7ac.jpg?width=600&amp;auto=webp"
+  },
+  {
+    "date_found": "2026-04-04",
+    "address": "John Blankensteinstraat 137 A, 1095 MB Amsterdam (Zeeburgereiland)",
+    "price": "€2.250/mo (first 3mo), then €2.750/mo",
+    "size": "122 m²",
+    "rooms": "4",
+    "furnished": "Unfurnished",
+    "available": "In overleg",
+    "summary": "Spacious modern maisonette with 3 bedrooms, private garden, and luxury bathroom on Zeeburgereiland near tram 26.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/97b3f107/john-blankensteinstraat",
+    "lat": null,
+    "lng": null,
     "photo_url": null
   }
 ]
