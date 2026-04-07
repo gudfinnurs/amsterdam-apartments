@@ -95,7 +95,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/b86142e6/middenweg",
     "lat": 52.3552424,
     "lng": 4.9285191,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/b86142e6-3d6e-5ca6-ab2f-923e08537458/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-02-27",
@@ -123,7 +123,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/1651b31a/john-blankensteinstraat",
     "lat": 52.3740531,
     "lng": 4.9677843,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1651b31a-57b9-5bff-9d98-426996179e0b/5680854b7e8ad7301a3263f3551d4b7b.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-02-28",
@@ -137,7 +137,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/8eafb4c2/mr-p-n-arntzeniusweg",
     "lat": 52.3550537,
     "lng": 4.935813,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/8eafb4c2-9782-5708-b5e3-1fb1f309eb4b/be6f2b784ec81ce923109b698d548fa6.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-03-05",
@@ -151,7 +151,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/111e9245/kea-boumanstraat",
     "lat": 52.3744141,
     "lng": 4.9682601,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/111e9245-b15e-5248-b74c-8b95d650f148/62353ff02053e4ddc6532febe64baed0.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-03-05",
@@ -179,7 +179,7 @@
     "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/27a5ad6f/pantograafstraat",
     "lat": 52.3696156,
     "lng": 4.9548485,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/27a5ad6f-f0ec-5c95-9df5-f3190a251b74/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-03-07",
@@ -263,7 +263,7 @@
     "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/8804114d/kea-boumanstraat",
     "lat": 52.3737942,
     "lng": 4.9691872,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/8804114d-2ec4-5086-ba40-b17d1ae0ae26/62353ff02053e4ddc6532febe64baed0.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-03-13",
@@ -361,7 +361,7 @@
     "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/cef01eac/eerste-helmersstraat",
     "lat": 52.364039,
     "lng": 4.8776266,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/cef01eac-8716-55f8-a575-a8a4165fc511/ac05d82561d134ac6707f4b032267297.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-03-27",
@@ -403,7 +403,7 @@
     "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/2f0b4514/lekstraat",
     "lat": 52.3446584,
     "lng": 4.9035921,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/2f0b4514-2168-59f4-9a4a-132085e393dc/3ecbbb9a8ca150d57c1c799559de20e1.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-04-04",
@@ -431,7 +431,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/214ec439/middenweg",
     "lat": 52.3552424,
     "lng": 4.9285191,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/214ec439-0952-5463-b218-4a0d447d4825/5700eef1a5558ea7fec133153467b7ac.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-04-04",
@@ -445,6 +445,6 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/97b3f107/john-blankensteinstraat",
     "lat": null,
     "lng": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/97b3f107-ca88-5d9a-a0bf-9a950daa6347/5680854b7e8ad7301a3263f3551d4b7b.jpg?width=600&amp;auto=webp"
+    "photo_url": null
   }
 ]
