@@ -445,7 +445,7 @@
     "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/97b3f107/john-blankensteinstraat",
     "lat": null,
     "lng": null,
-    "photo_url": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/97b3f107-ca88-5d9a-a0bf-9a950daa6347/5680854b7e8ad7301a3263f3551d4b7b.jpg?width=600&amp;auto=webp"
   },
   {
     "date_found": "2026-04-10",
@@ -471,6 +471,34 @@
     "available": "From 30-04-2026",
     "summary": "Newer (2019) terraced house on Zeeburgereiland with 79m², 2 bedrooms, energy label A, available from April 30th.",
     "url": "https://www.pararius.nl/house-for-rent/amsterdam/25d14ff6/faas-wilkesstraat",
+    "lat": null,
+    "lng": null,
+    "photo_url": null
+  },
+  {
+    "date_found": "2026-04-11",
+    "address": "Senefelderstraat 45, 1097 CW Amsterdam (Frankendael)",
+    "price": "€2,300/mo",
+    "size": "59 m²",
+    "rooms": "2",
+    "furnished": "Unfurnished (shell)",
+    "available": "In overleg",
+    "summary": "Brand-new 2025 corner apartment on 5th floor opposite Park Frankendael, A++++ energy label, unfurnished shell — tenant provides floor finish.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/e76d1cb7/senefelderstraat",
+    "lat": null,
+    "lng": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/e76d1cb7-e862-52c6-82d5-56aba5b8e47e/9e64a86dae00356d1f7e54dd27b05494.jpg?width=600&amp;auto=webp"
+  },
+  {
+    "date_found": "2026-04-11",
+    "address": "Senefelderstraat 31, 1097 CW Amsterdam (Frankendael)",
+    "price": "€2,550/mo",
+    "size": "70 m²",
+    "rooms": "3",
+    "furnished": "Unfurnished (shell)",
+    "available": "In overleg",
+    "summary": "Brand-new 2025 corner apartment with 2 bedrooms on 1st floor opposite Park Frankendael, A+++ energy label, unfurnished shell — tenant provides floor finish.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/054e0858/senefelderstraat",
     "lat": null,
     "lng": null,
     "photo_url": null
