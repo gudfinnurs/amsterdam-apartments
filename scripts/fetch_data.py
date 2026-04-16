@@ -70,34 +70,62 @@ def geocode(address):
     return None, None
 
 # ── Photo fetch ───────────────────────────────────────────────────────────────
+def _extract_og(html):
+    """Pull og:image or first large Pararius CDN image from HTML."""
+    for pat in [
+        r'property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+        r'content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+    ]:
+        m = re.search(pat, html)
+        if m and m.group(1).startswith('http'):
+            return m.group(1)
+    for pat in [
+        r'(https://images\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp))',
+        r'(https://cdn\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp))',
+    ]:
+        hits = [x for x in re.findall(pat, html, re.I)
+                if not any(t in x for t in ['thumb','100x','200x','icon','logo'])]
+        if hits: return hits[0]
+    return None
+
 def fetch_photo(url):
-    """Try to get og:image from a Pararius listing page."""
+    """Fetch the main photo for a Pararius listing. Tries cloudscraper first, then urllib."""
     if not url or 'pararius' not in url:
         return None
+
+    # Strategy 1 - cloudscraper (handles Cloudflare JS challenges)
+    try:
+        import cloudscraper  # type: ignore
+        scraper = cloudscraper.create_scraper(
+            browser={'browser': 'chrome', 'platform': 'darwin', 'mobile': False}
+        )
+        r = scraper.get(url, timeout=25, headers={'Accept-Language': 'nl-NL,nl;q=0.9'})
+        if r.status_code == 200:
+            result = _extract_og(r.text)
+            if result:
+                return result
+    except ImportError:
+        pass  # cloudscraper not installed, fall through
+    except Exception as e:
+        print(f'    cloudscraper: {e}')
+
+    # Strategy 2 - urllib with realistic Chrome desktop headers
     try:
         req = urllib.request.Request(url, headers={
-            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15',
-            'Accept': 'text/html,application/xhtml+xml',
-            'Accept-Language': 'nl-NL,nl;q=0.9,en;q=0.8',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7',
+            'DNT': '1',
+            'Upgrade-Insecure-Requests': '1',
         })
         with urllib.request.urlopen(req, timeout=20) as r:
             html = r.read().decode('utf-8', errors='ignore')
-
-        # og:image first (most reliable)
-        og = re.search(r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', html)
-        if og: return og.group(1)
-
-        og2 = re.search(r'<meta\s+content=["\']([^"\']+)["\']\s+property=["\']og:image["\']', html)
-        if og2: return og2.group(1)
-
-        # Pararius CDN fallback
-        for pat in [r'(https://images\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp))',
-                    r'(https://cdn\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp))']:
-            m = re.findall(pat, html, re.I)
-            good = [x for x in m if not any(t in x for t in ['thumb','100x','200x','icon'])]
-            if good: return good[0]
+        result = _extract_og(html)
+        if result:
+            return result
     except Exception as e:
-        print(f'    Photo error: {e}')
+        print(f'    urllib: {e}')
+
     return None
 
 # ── Main ──────────────────────────────────────────────────────────────────────

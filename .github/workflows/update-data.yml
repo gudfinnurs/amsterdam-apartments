@@ -21,7 +21,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install gspread google-auth requests
+        run: pip install gspread google-auth requests cloudscraper
 
       - name: Fetch listings, geocode, compute distances
         env:
