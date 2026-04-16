@@ -316,6 +316,19 @@
     .spin { width: 34px; height: 34px; border: 3px solid var(--b2); border-top-color: var(--blue); border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 12px; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* ─── LANDMARK LABELS ───────────────────────────────────────────── */
+    .lmark {
+      background: rgba(4,13,26,.82); border-radius: 5px; padding: 2px 8px;
+      font-size: 10px; font-weight: 500; white-space: nowrap;
+      pointer-events: none; user-select: none;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      border: 1px solid transparent; letter-spacing: .02em;
+    }
+    .lmark.park    { color: rgba(80,210,80,.9);   border-color: rgba(80,210,80,.18);  }
+    .lmark.station { color: rgba(110,165,245,.9); border-color: rgba(110,165,245,.18);}
+    .lmark.poi     { color: rgba(230,185,90,.9);  border-color: rgba(230,185,90,.18); }
+    .lmark.water   { color: rgba(80,160,230,.75); border-color: rgba(80,160,230,.15); font-style: italic; }
+
     /* ─── MAP STYLES ─────────────────────────────────────────────────── */
     .mpin { color: #fff; padding: 5px 10px; border-radius: 14px; font-size: 11.5px; font-weight: 700; white-space: nowrap; box-shadow: 0 3px 12px rgba(0,0,0,.5); border: 1.5px solid rgba(255,255,255,.18); cursor: pointer; transition: transform .15s, box-shadow .15s; }
     .mpin.sel { transform: scale(1.15); box-shadow: 0 4px 20px rgba(61,136,240,.5), 0 0 0 3px rgba(61,136,240,.3); }
@@ -530,6 +543,10 @@ function initMap() {
 
   pinLayer = L.layerGroup().addTo(map);
 
+  // Landmarks + parks/water (non-blocking)
+  addLandmarks();
+  loadMapFeatures();
+
   // Tapping map background dismisses preview
   map.on('click', () => {
     closePreview();
@@ -584,10 +601,11 @@ function showPreview(l) {
   const existMay = imgWrap.querySelector('.pv-may');
   if (existMay) existMay.remove();
 
-  if (l.photo_url) {
+  const pvPhoto = l.photo_url || getCachedPhoto(l.url);
+  if (pvPhoto) {
     const img = document.createElement('img');
-    img.src = l.photo_url;
-    img.onerror = () => { img.remove(); const ph=document.createElement('div'); ph.className='pv-ph'; ph.style.background=st.g; ph.textContent=st.e; imgWrap.insertBefore(ph,gradDiv); };
+    img.src = pvPhoto;
+    img.onerror = () => { img.remove(); const ph2=document.createElement('div'); ph2.className='pv-ph'; ph2.style.background=st.g; ph2.textContent=st.e; imgWrap.insertBefore(ph2,gradDiv); };
     imgWrap.insertBefore(img, gradDiv);
   } else {
     const ph = document.createElement('div');
@@ -745,8 +763,9 @@ function cardHTML(l, idx) {
   const st=GRADS[l._i%GRADS.length];
   const may=isMay(l), newL=isNew7(l), old=isOld(l);
 
-  const img = l.photo_url
-    ? `<img src="${l.photo_url}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="cph" style="background:${st.g};display:none">${st.e}</div>`
+  const photoUrl = l.photo_url || getCachedPhoto(l.url);
+  const img = photoUrl
+    ? `<img src="${photoUrl}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="cph" style="background:${st.g};display:none">${st.e}</div>`
     : `<div class="cph" style="background:${st.g}">${st.e}</div>`;
 
   const djStr = dj!=null ? `<span class="tag ${dj<=1.5?'near':dj<=3?'mid':''}">📍 ${dj.toFixed(1)} km</span>` : '';
@@ -929,43 +948,63 @@ function checkData(list, meta) {
 }
 
 // ── Load ───────────────────────────────────────────────────────────────────
-async function load() {
+// ── Data loading with stale-while-revalidate ──────────────────────────────────
+const DATA_CACHE = 'ams_data_v3';
+const DATA_TTL   = 90 * 60 * 1000; // show cached, refresh after 90 min
+
+function boot(listings, meta) {
+  ALL = listings.map((l,i) => ({...l, _i:i}));
+  document.getElementById('hdr-n').textContent = ALL.length;
+  const upd = document.getElementById('hpill-upd');
+  if (meta?.updated) {
+    const age = (Date.now()-new Date(meta.updated))/3600000;
+    upd.textContent = new Date(meta.updated).toLocaleDateString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    upd.className = `hpill ${age>26?'err':'ok'}`;
+  }
+  checkData(ALL, meta);
+  render();
+  if (isMobile()) collapseSheet();
+  geocodeAll(ALL);
+  setTimeout(() => runPhotoQueue(ALL), 1200);
+}
+
+async function fetchFresh(background) {
   try {
     const [dRes, mRes] = await Promise.all([
       fetch(DATA_URL + '?t=' + Math.floor(Date.now()/3600000)),
       fetch(META_URL + '?t=' + Math.floor(Date.now()/3600000)).catch(()=>null),
     ]);
     if (!dRes.ok) throw new Error(`HTTP ${dRes.status}`);
-    const list = await dRes.json();
+    const listings = await dRes.json();
     const meta = mRes?.ok ? await mRes.json() : null;
-
-    ALL = list.map((l,i) => ({...l,_i:i}));
-    document.getElementById('hdr-n').textContent = ALL.length;
-
-    const upd = document.getElementById('hpill-upd');
-    if (meta?.updated) {
-      const age = (Date.now()-new Date(meta.updated))/3600000;
-      upd.textContent = new Date(meta.updated).toLocaleDateString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
-      upd.className = `hpill ${age>26?'err':'ok'}`;
-    }
-
-    checkData(ALL, meta);
-    render();
-
-    // Init sheet position
-    if (isMobile()) collapseSheet();
-
-    geocodeAll(ALL);
-
-    // Start progressive photo loading in the background
-    // Applies cached photos immediately, fetches missing ones via CORS proxy
-    setTimeout(() => runPhotoQueue(ALL), 1500);
-
+    try { localStorage.setItem(DATA_CACHE, JSON.stringify({ listings, meta, savedAt: Date.now() })); } catch {}
+    if (!background) boot(listings, meta);
+    else if (ALL.length === 0) boot(listings, meta); // fallback if cache was empty
   } catch(err) {
-    document.getElementById('grid').innerHTML =
-      `<div class="state"><div style="font-size:2em">⚠️</div><div style="margin-top:12px">Could not load listings<br><small style="opacity:.6">${err.message}</small></div></div>`;
-    if (isMobile()) collapseSheet();
+    if (!background) {
+      document.getElementById('grid').innerHTML =
+        `<div class="state"><div style="font-size:2em">⚠️</div><div style="margin-top:12px">Could not load listings<br><small style="opacity:.6">${err.message}</small></div></div>`;
+      if (isMobile()) collapseSheet();
+    }
   }
+}
+
+async function load() {
+  // Show cached data immediately (instant load on repeat visits)
+  try {
+    const raw = localStorage.getItem(DATA_CACHE);
+    if (raw) {
+      const { listings, meta, savedAt } = JSON.parse(raw);
+      if (listings?.length) {
+        boot(listings, meta);
+        // Refresh in background if stale
+        if (Date.now() - savedAt > DATA_TTL) fetchFresh(true);
+        return;
+      }
+    }
+  } catch {}
+  // No usable cache — fetch fresh
+  await fetchFresh(false);
 }
 
 // ── Client-side progressive photo loading ───────────────────────────────────
@@ -1048,6 +1087,102 @@ async function runPhotoQueue(listings) {
     await new Promise(r => setTimeout(r, 700)); // rate limit
   }
   _photoQueueRunning = false;
+}
+
+// ── Synchronous photo cache lookup (for render) ────────────────────────────
+function getCachedPhoto(url) {
+  if (!url) return null;
+  const v = pCacheGet()[pCacheKey(url)];
+  return v || null; // '' = tried & failed => null
+}
+
+// ── Landmarks (parks, stations, POIs) ───────────────────────────────────────
+const LANDMARKS = [
+  // Parks
+  { pos:[52.3606,4.9244], label:'Oosterpark',     type:'park',    icon:'🌿' },
+  { pos:[52.3665,4.9641], label:'Flevopark',      type:'park',    icon:'🌿' },
+  { pos:[52.3578,4.8680], label:'Vondelpark',     type:'park',    icon:'🌿' },
+  { pos:[52.3499,4.9388], label:'Frankendael',    type:'park',    icon:'🌿' },
+  { pos:[52.3541,4.8988], label:'Sarphatipark',   type:'park',    icon:'🌿' },
+  // Stations
+  { pos:[52.3791,4.9003], label:'Centraal',       type:'station', icon:'🚉' },
+  { pos:[52.3586,4.9365], label:'Muiderpoort',    type:'station', icon:'🚉' },
+  { pos:[52.3556,4.9474], label:'Science Park',   type:'station', icon:'🚉' },
+  // POIs
+  { pos:[52.3661,4.9162], label:'Artis',          type:'poi',     icon:'🦁' },
+  { pos:[52.3740,4.9124], label:'NEMO',           type:'poi',     icon:'🔬' },
+  { pos:[52.3600,4.8852], label:'Rijksmuseum',    type:'poi',     icon:'🏛️' },
+  { pos:[52.3583,4.9187], label:'Tropenmuseum',   type:'poi',     icon:'🌍' },
+  // Water labels
+  { pos:[52.3810,4.9150], label:'IJ',             type:'water',   icon:'🌊' },
+  { pos:[52.3450,4.9065], label:'Amstel',         type:'water',   icon:'🌊' },
+];
+
+function addLandmarks() {
+  LANDMARKS.forEach(({ pos, label, type, icon }) => {
+    const html = `<div class="lmark ${type}">${icon} ${label}</div>`;
+    L.marker(pos, {
+      icon: L.divIcon({ className:'', html, iconAnchor:[0,8] }),
+      interactive: false,
+      zIndexOffset: -500,
+    }).addTo(map);
+  });
+}
+
+// ── Parks & water overlay from OpenStreetMap (cached 7 days) ───────────────────
+const FEAT_CACHE = 'ams_features_v3';
+const FEAT_TTL   = 7 * 24 * 3600 * 1000;
+const OVP_QUERY  = `[out:json][timeout:25];(
+way["leisure"="park"](52.28,4.82,52.44,5.02);
+way["landuse"="park"](52.28,4.82,52.44,5.02);
+way["landuse"="recreation_ground"](52.28,4.82,52.44,5.02);
+way["natural"="water"]["water"!="pond"](52.28,4.82,52.44,5.02);
+way["waterway"="riverbank"](52.28,4.82,52.44,5.02);
+);out geom;`;
+
+function renderMapFeatures(elements) {
+  const features = (elements || []).filter(e => e.type==='way' && e.geometry?.length > 3).map(e => ({
+    type: 'Feature',
+    properties: e.tags || {},
+    geometry: {
+      type: 'Polygon',
+      coordinates: [[...e.geometry.map(n => [n.lon, n.lat]),
+                     [e.geometry[0].lon, e.geometry[0].lat]]]
+    }
+  }));
+
+  L.geoJSON({ type:'FeatureCollection', features }, {
+    style: f => {
+      const t = f.properties;
+      if (t.leisure==='park' || t.landuse==='park' || t.landuse==='recreation_ground')
+        return { fillColor:'#1b4a1b', fillOpacity:.3, color:'#2d6e2d', weight:.7, opacity:.6 };
+      if (t.natural==='water' || t.waterway==='riverbank')
+        return { fillColor:'#0a2848', fillOpacity:.5, color:'#1a4878', weight:.7, opacity:.7 };
+      return { opacity:0, fillOpacity:0 };
+    },
+    onEachFeature: () => {} // no popups
+  }).addTo(map);
+}
+
+async function loadMapFeatures() {
+  // Try cache first
+  try {
+    const raw = localStorage.getItem(FEAT_CACHE);
+    if (raw) {
+      const { elements, expires } = JSON.parse(raw);
+      if (Date.now() < expires) { renderMapFeatures(elements); return; }
+    }
+  } catch {}
+  // Fetch from Overpass
+  try {
+    const res = await fetch('https://overpass-api.de/api/interpreter', {
+      method:'POST', body: OVP_QUERY
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    try { localStorage.setItem(FEAT_CACHE, JSON.stringify({ elements: data.elements, expires: Date.now()+FEAT_TTL })); } catch {}
+    renderMapFeatures(data.elements);
+  } catch {} // silently ignore — map still works without features
 }
 
 // ── Boot ───────────────────────────────────────────────────────────────────
