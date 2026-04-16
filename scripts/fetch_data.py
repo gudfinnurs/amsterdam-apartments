@@ -71,22 +71,96 @@ def geocode(address):
 
 # ── Photo fetch ───────────────────────────────────────────────────────────────
 def _extract_og(html):
-    """Pull og:image or first large Pararius CDN image from HTML."""
-    for pat in [
-        r'property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
-        r'content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
-    ]:
+    """Legacy single-photo extraction — returns first photo URL."""
+    d = _extract_listing_details(html)
+    return d['photo_urls'][0] if d['photo_urls'] else None
+
+def _extract_listing_details(html):
+    """Extract photos array, available_from, min_contract from Pararius HTML."""
+    seen, photos = set(), []
+    def add(u):
+        if u and u.startswith('http') and u not in seen:
+            seen.add(u); photos.append(u)
+
+    # og:image (canonical main photo)
+    for pat in [r'property=["\'']og:image["\''][^>]+content=["\'']([^"\']+)["\'']',
+                r'content=["\'']([^"\']+)["\''][^>]+property=["\'']og:image["\'']']:
         m = re.search(pat, html)
-        if m and m.group(1).startswith('http'):
-            return m.group(1)
-    for pat in [
-        r'(https://images\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp))',
-        r'(https://cdn\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp))',
-    ]:
-        hits = [x for x in re.findall(pat, html, re.I)
-                if not any(t in x for t in ['thumb','100x','200x','icon','logo'])]
-        if hits: return hits[0]
-    return None
+        if m: add(m.group(1)); break
+
+    # JSON-LD image arrays (often the full gallery)
+    for block in re.findall(r'<script[^>]+type=["\'']application/ld\+json["\''][^>]*>([\s\S]*?)</script>', html, re.I):
+        try:
+            import json as _json
+            obj = _json.loads(block)
+            imgs = obj.get('image', [])
+            if isinstance(imgs, str): imgs = [imgs]
+            for u in imgs:
+                if isinstance(u, str): add(u)
+        except Exception:
+            pass
+
+    # Pararius CDN direct
+    for u in re.findall(r'https://images\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp)', html, re.I):
+        if not any(t in u for t in ['thumb','100x','200x','icon','logo']): add(u)
+
+    # Available from — Dutch/English patterns
+    available_from = None
+    avail_pats = [
+        r'(?:Beschikbaar\s*per|Aanvaarding)\s*[:\s]*([^<\n]{3,35})',
+        r'(?:Available\s+from)\s*[:\s]*([^<\n]{3,35})',
+        r'"availableFrom"\s*:\s*"([^"]{3,35})"',
+        r'(Per\s+direct)',
+        r'(In\s+overleg)',
+    ]
+    for pat in avail_pats:
+        m = re.search(pat, html, re.I)
+        if m:
+            txt = re.sub(r'<[^>]+>', '', m.group(1) if m.lastindex else m.group(0)).strip()
+            if 2 < len(txt) < 40:
+                available_from = txt; break
+
+    # Min contract — Dutch patterns
+    min_contract = None
+    contract_pats = [
+        r'(?:Minimum\s*huur(?:periode|duur)|Minimumduur\s*huurovereenkomst|Contractduur)\s*[:\s]*([^<\n]{2,30})',
+        r'"minimumRentalPeriod"\s*:\s*"?([^",}\n]{2,20})"?',
+        r'(\d+\s*(?:maanden|jaar|months|years))',
+    ]
+    for pat in contract_pats:
+        m = re.search(pat, html, re.I)
+        if m:
+            txt = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+            if 1 < len(txt) < 30:
+                min_contract = txt; break
+
+    return {'photo_urls': photos[:10], 'available_from': available_from, 'min_contract': min_contract}
+
+
+def fetch_listing_details(url):
+    """Fetch photos, available_from, min_contract for a Pararius listing. Returns dict or None."""
+    if not url or 'pararius' not in url:
+        return None
+    html = None
+    try:
+        import cloudscraper  # type: ignore
+        scraper = cloudscraper.create_scraper(browser={'browser':'chrome','platform':'darwin','mobile':False})
+        r = scraper.get(url, timeout=25, headers={'Accept-Language':'nl-NL,nl;q=0.9'})
+        if r.status_code == 200: html = r.text
+    except ImportError: pass
+    except Exception as e: print(f'    cloudscraper: {e}')
+    if not html:
+        try:
+            req = urllib.request.Request(url, headers={
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,*/*;q=0.8',
+                'Accept-Language': 'nl-NL,nl;q=0.9',
+            })
+            with urllib.request.urlopen(req, timeout=20) as r:
+                html = r.read().decode('utf-8', errors='ignore')
+        except Exception as e: print(f'    urllib: {e}')
+    if not html: return None
+    return _extract_listing_details(html)
 
 def fetch_photo(url):
     """Fetch the main photo for a Pararius listing. Tries cloudscraper first, then urllib."""
@@ -175,7 +249,10 @@ def main():
             'lat':         None,
             'lng':         None,
             'distance_km': None,
-            'photo_url':   row.get('Photo URL') or None,  # From sheet if cron stored it
+            'photo_url':   row.get('Photo URL') or None,
+            'photo_urls':  None,
+            'available_from': row.get('Available From') or None,
+            'min_contract':   row.get('Min Contract') or None,
         }
 
         # ── Validate basic criteria ──
@@ -204,19 +281,26 @@ def main():
         if listing['lat'] and listing['lng']:
             listing['distance_km'] = round(haversine(JAVAPLEIN[0], JAVAPLEIN[1], listing['lat'], listing['lng']), 2)
 
-        # ── Photo ──
-        # Only fetch if not already in sheet or cache; Pararius often 403s
-        if not listing['photo_url']:
-            if key in photo_cache:
-                listing['photo_url'] = photo_cache[key]
+        # ── Photos + rental details (available_from, min_contract) ──
+        needs_fetch = url and (not listing['photo_url'] or not listing['available_from'] or not listing['min_contract'])
+        if needs_fetch:
+            if key in photo_cache and listing['photo_url']:
+                pass  # already have photo from cache/sheet
             elif url:
-                print(f'  [{i+1}/{len(rows)}] 📸 fetching photo…')
-                listing['photo_url'] = fetch_photo(url)
-                if listing['photo_url']:
-                    photo_cache[key] = listing['photo_url']
-                    print(f'       ✅ {listing["photo_url"][:60]}')
+                print(f'  [{i+1}/{len(rows)}] 📸 fetching details & photos…')
+                details = fetch_listing_details(url)
+                if details:
+                    if not listing['photo_url'] and details['photo_urls']:
+                        listing['photo_url']  = details['photo_urls'][0]
+                        listing['photo_urls'] = details['photo_urls']
+                        photo_cache[key] = details['photo_urls'][0]
+                        print(f'       ✅ {len(details["photo_urls"])} photos')
+                    if not listing['available_from'] and details['available_from']:
+                        listing['available_from'] = details['available_from']
+                    if not listing['min_contract'] and details['min_contract']:
+                        listing['min_contract'] = details['min_contract']
                 else:
-                    print(f'       ❌ no photo')
+                    print(f'       ❌ no details fetched')
                 time.sleep(0.5)
 
         listings.append(listing)
