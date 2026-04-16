@@ -11,343 +11,345 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #040d1a;
-      --sheet:   #07121f;
-      --card:    #0b1d30;
-      --card2:   #0f2438;
-      --b:       rgba(255,255,255,0.06);
-      --b2:      rgba(255,255,255,0.12);
-      --blue:    #3d88f0;
-      --blue2:   #6ba5f5;
-      --green:   #1fcc97;
-      --amber:   #f0a020;
-      --red:     #f06060;
-      --text:    #dce8fa;
-      --m1:      #52708f;
-      --m2:      #2d4a62;
-      --hdr-h:   54px;
-      --sheet-r: 20px;
-      --safe-b:  env(safe-area-inset-bottom, 0px);
+      --bg:     #040d1a;
+      --sheet:  #07121f;
+      --card:   #0b1d30;
+      --card2:  #0f2438;
+      --b:      rgba(255,255,255,0.06);
+      --b2:     rgba(255,255,255,0.13);
+      --blue:   #3d88f0;
+      --blue2:  #6ba5f5;
+      --green:  #1fcc97;
+      --amber:  #f0a020;
+      --red:    #ef4444;
+      --text:   #dce8fa;
+      --m1:     #52708f;
+      --m2:     #2d4a62;
+      --hh:     54px;
+      --safe-b: env(safe-area-inset-bottom, 0px);
+      --peek:   76px;
     }
 
-    html, body { height: 100%; }
+    html, body { height: 100%; overflow: hidden; }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: var(--bg); color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
-      overflow: hidden; /* prevents body scroll — sheet handles it */
     }
 
-    /* ═══ HEADER ═══════════════════════════════════════════════════════════ */
+    /* ─── HEADER ──────────────────────────────────────────────────────── */
     #hdr {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      height: var(--hdr-h);
-      padding-top: env(safe-area-inset-top, 0px);
-      background: rgba(4,13,26,0.92);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: var(--hh); padding-top: env(safe-area-inset-top,0px);
+      background: rgba(4,13,26,.94);
       backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--b);
       display: flex; align-items: center;
     }
-    #hdr-inner {
+    #hdr-in {
       width: 100%; max-width: 1200px; margin: 0 auto;
       padding: 0 16px; display: flex; align-items: center; gap: 10px;
     }
-    #hdr-title {
-      font-size: 16px; font-weight: 700; letter-spacing: -.4px; flex: 1;
-    }
-    #hdr-title span {
-      background: linear-gradient(90deg, var(--blue2), var(--green));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .htitle { font-size: 16px; font-weight: 700; letter-spacing: -.4px; flex: 1; }
+    .htitle span { background: linear-gradient(90deg,var(--blue2),var(--green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
     .hpill {
-      padding: 4px 11px; border-radius: 20px; font-size: 11px;
-      background: var(--card); border: 1px solid var(--b2);
-      white-space: nowrap;
+      padding: 4px 11px; border-radius: 20px; font-size: 11px; white-space: nowrap;
+      background: var(--card); border: 1px solid var(--b2); color: var(--m1);
     }
     .hpill b { color: var(--text); }
-    .hpill.ok  { border-color: rgba(31,204,151,.3); color: var(--green); }
-    .hpill.err { border-color: rgba(240,96,96,.3);  color: var(--red); }
-    #hpill-upd { color: var(--m1); }
+    .hpill.ok  { color: var(--green); border-color: rgba(31,204,151,.3); }
+    .hpill.err { color: var(--red);   border-color: rgba(239,68,68,.3); }
 
-    /* ═══ MAP ═══════════════════════════════════════════════════════════════ */
+    /* ─── MAP ─────────────────────────────────────────────────────────── */
     #map {
-      position: fixed;
-      top: var(--hdr-h); left: 0; right: 0; bottom: 0;
-      z-index: 0;
-    }
-    .map-hint {
-      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-      z-index: 10;
-      background: rgba(4,13,26,.85); backdrop-filter: blur(12px);
-      border: 1px solid var(--b2); border-radius: 8px;
-      padding: 5px 13px; font-size: 11px; color: var(--m1); white-space: nowrap;
+      position: fixed; top: var(--hh); left: 0; right: 0; bottom: 0; z-index: 0;
     }
 
-    /* ═══ BOTTOM SHEET (mobile) ═════════════════════════════════════════════ */
+    /* ─── FLOATING FILTERS (over map, mobile only) ─────────────────────── */
+    #mf-wrap {
+      position: fixed; top: var(--hh); left: 0; right: 0; z-index: 100;
+      background: linear-gradient(to bottom, rgba(4,13,26,.85) 60%, transparent);
+      padding: 10px 12px 20px;
+      pointer-events: none;
+    }
+    #mf-scroll {
+      display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none;
+      pointer-events: all;
+      -webkit-overflow-scrolling: touch;
+    }
+    #mf-scroll::-webkit-scrollbar { display: none; }
+    .mchip {
+      flex-shrink: 0; padding: 7px 15px; border-radius: 22px; font-size: 12.5px; font-weight: 500;
+      cursor: pointer; white-space: nowrap; -webkit-tap-highlight-color: transparent;
+      background: rgba(7,18,31,.88); border: 1px solid var(--b2); color: var(--m1);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: all .15s;
+    }
+    .mchip.on { color: var(--blue); border-color: var(--blue); background: rgba(61,136,240,.15); }
+
+    /* ─── "SHOW LIST" BUTTON (over map, mobile) ──────────────────────── */
+    #list-btn {
+      position: fixed; bottom: calc(var(--peek) + 20px); left: 50%; transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(7,18,31,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--b2); border-radius: 24px;
+      padding: 10px 24px; font-size: 13px; font-weight: 600; color: var(--text);
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.5);
+      transition: opacity .2s, transform .2s;
+    }
+    #list-btn:active { transform: translateX(-50%) scale(.96); }
+    #list-btn.hidden { opacity: 0; pointer-events: none; }
+
+    /* ─── PREVIEW CARD (slides up when pin is tapped) ─────────────────── */
+    #preview {
+      position: fixed; left: 12px; right: 12px; z-index: 200;
+      bottom: calc(var(--peek) + 12px);
+      background: var(--card);
+      border: 1px solid var(--b2); border-radius: 18px;
+      box-shadow: 0 -4px 40px rgba(0,0,0,.6), 0 8px 32px rgba(0,0,0,.4);
+      transform: translateY(calc(100% + 80px));
+      transition: transform .38s cubic-bezier(.25,.46,.45,.94);
+      overflow: hidden;
+    }
+    #preview.show { transform: translateY(0); }
+
+    .pv-img {
+      position: relative; height: 130px; overflow: hidden; background: var(--card2);
+    }
+    .pv-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pv-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 44px; }
+    .pv-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.65)); }
+    .pv-price {
+      position: absolute; bottom: 10px; left: 12px;
+      font-size: 20px; font-weight: 800; color: #fff;
+      text-shadow: 0 1px 8px rgba(0,0,0,.6); line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .pv-price sub { font-size: 11px; font-weight: 400; opacity: .7; vertical-align: baseline; }
+    .pv-may {
+      position: absolute; top: 10px; right: 10px;
+      background: rgba(31,204,151,.2); border: 1px solid rgba(31,204,151,.4);
+      color: var(--green); font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 7px;
+      backdrop-filter: blur(8px);
+    }
+    #pv-close {
+      position: absolute; top: 10px; left: 10px;
+      width: 28px; height: 28px; border-radius: 50%; border: none; cursor: pointer;
+      background: rgba(0,0,0,.5); backdrop-filter: blur(8px); color: rgba(255,255,255,.8);
+      display: flex; align-items: center; justify-content: center; font-size: 14px; z-index: 5;
+    }
+    .pv-body { padding: 12px 14px 14px; }
+    .pv-addr { font-size: 14px; font-weight: 650; margin-bottom: 7px; line-height: 1.3; }
+    .pv-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 11px; }
+    .pv-tag {
+      padding: 3px 9px; border-radius: 6px; font-size: 11px;
+      background: var(--card2); border: 1px solid var(--b); color: var(--m1);
+    }
+    .pv-tag.near { color: var(--green); border-color: rgba(31,204,151,.2); background: rgba(31,204,151,.05); }
+    .pv-tag.mid  { color: var(--blue2); border-color: rgba(61,136,240,.2);  background: rgba(61,136,240,.05); }
+    .pv-actions { display: flex; gap: 8px; }
+    .pv-mapbtn {
+      flex: 0 0 auto; padding: 9px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
+      background: var(--card2); border: 1px solid var(--b2); color: var(--m1); cursor: pointer;
+      -webkit-tap-highlight-color: transparent; transition: all .15s;
+    }
+    .pv-view {
+      flex: 1; padding: 9px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
+      text-decoration: none; color: #fff; text-align: center;
+      background: linear-gradient(135deg, var(--blue), #5ba8ff);
+      box-shadow: 0 2px 12px rgba(61,136,240,.3);
+      -webkit-tap-highlight-color: transparent; transition: opacity .15s;
+    }
+    .pv-view:active, .pv-mapbtn:active { opacity: .8; }
+
+    /* ─── BOTTOM SHEET ────────────────────────────────────────────────── */
     #sheet {
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
-      top: var(--hdr-h);
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 150;
+      top: var(--hh);
       display: flex; flex-direction: column;
       background: var(--sheet);
-      border-radius: var(--sheet-r) var(--sheet-r) 0 0;
-      box-shadow: 0 -4px 40px rgba(0,0,0,.6);
-      /* default: peek state — overridden by JS */
-      transform: translateY(calc(100% - 240px));
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -4px 40px rgba(0,0,0,.7);
+      transform: translateY(calc(100% - var(--peek)));
       transition: transform .38s cubic-bezier(.25,.46,.45,.94);
       will-change: transform;
     }
-    #sheet.dragging { transition: none; }
+    #sheet.no-anim { transition: none; }
 
-    /* drag handle */
+    /* handle */
     #sh-handle {
-      flex-shrink: 0; padding: 14px 16px 0; cursor: grab; touch-action: none;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-    }
-    #sh-handle:active { cursor: grabbing; }
-    #sh-pip {
-      width: 36px; height: 4px; border-radius: 2px;
-      background: var(--m2);
-    }
-    #sh-row {
-      width: 100%; display: flex; align-items: center; justify-content: space-between;
-    }
-    #sh-count {
-      font-size: 15px; font-weight: 700; letter-spacing: -.3px;
-    }
-    #sh-map-btn {
-      display: none; /* shown when expanded on mobile */
-      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
-      background: var(--card2); border: 1px solid var(--b2); color: var(--blue2);
-      cursor: pointer;
-    }
-    #sh-map-btn.vis { display: block; }
-
-    /* filter chips */
-    #filters {
-      flex-shrink: 0; display: flex; gap: 7px;
-      padding: 10px 16px 4px; overflow-x: auto; scrollbar-width: none;
-    }
-    #filters::-webkit-scrollbar { display: none; }
-    .chip {
-      flex-shrink: 0; padding: 7px 15px; border-radius: 22px;
-      border: 1px solid var(--b); background: var(--card);
-      color: var(--m1); font-size: 12.5px; font-weight: 500;
-      cursor: pointer; white-space: nowrap; transition: all .15s;
+      flex-shrink: 0; padding: 10px 16px 8px;
+      touch-action: none; cursor: grab; user-select: none;
       -webkit-tap-highlight-color: transparent;
     }
-    .chip.on {
-      border-color: var(--blue); color: var(--blue);
-      background: rgba(61,136,240,.1);
+    #sh-handle:active { cursor: grabbing; }
+    #sh-pip-wrap { display: flex; justify-content: center; margin-bottom: 10px; }
+    #sh-pip { width: 36px; height: 4px; border-radius: 2px; background: var(--m2); }
+    #sh-top { display: flex; align-items: center; justify-content: space-between; }
+    #sh-count { font-size: 15px; font-weight: 700; letter-spacing: -.3px; }
+    #sh-mapbtn {
+      display: none; padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      background: var(--card2); border: 1px solid var(--b2); color: var(--blue2);
+      -webkit-tap-highlight-color: transparent;
     }
+    #sh-mapbtn.vis { display: flex; align-items: center; gap: 5px; }
 
-    /* sort bar */
-    #sort-bar {
-      flex-shrink: 0; display: flex; align-items: center; gap: 6px;
-      padding: 6px 16px 8px; font-size: 12px; color: var(--m1);
-      border-bottom: 1px solid var(--b);
+    /* filter / sort in sheet */
+    #sh-filters {
+      flex-shrink: 0; display: flex; gap: 7px;
+      padding: 6px 14px 4px; overflow-x: auto; scrollbar-width: none;
+      border-top: 1px solid var(--b);
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s;
     }
-    #sort-bar select {
+    #sh-filters::-webkit-scrollbar { display: none; }
+    #sh-filters.vis { opacity: 1; pointer-events: all; }
+    .schip {
+      flex-shrink: 0; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500;
+      cursor: pointer; white-space: nowrap; transition: all .15s;
+      background: var(--card); border: 1px solid var(--b); color: var(--m1);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .schip.on { color: var(--blue); border-color: var(--blue); background: rgba(61,136,240,.1); }
+
+    #sh-sort {
+      flex-shrink: 0; display: flex; align-items: center; gap: 6px;
+      padding: 5px 14px 8px; font-size: 11.5px; color: var(--m1);
+      border-bottom: 1px solid var(--b);
+      opacity: 0; pointer-events: none; transition: opacity .2s;
+    }
+    #sh-sort.vis { opacity: 1; pointer-events: all; }
+    #sh-sort select {
       background: transparent; border: none; color: var(--blue2);
-      font-size: 12px; cursor: pointer; outline: none; -webkit-appearance: none;
+      font-size: 11.5px; cursor: pointer; outline: none; -webkit-appearance: none;
     }
     #rc { margin-left: auto; font-size: 11px; }
 
-    /* card grid */
+    /* cards */
     #grid-wrap {
       flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
-      padding: 10px 12px calc(20px + var(--safe-b));
+      padding: 10px 12px calc(24px + var(--safe-b));
     }
-    #grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
+    #grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
 
-    /* ═══ CARDS ═════════════════════════════════════════════════════════════ */
+    /* ─── CARD ────────────────────────────────────────────────────────── */
     .card {
-      background: var(--card);
-      border: 1px solid var(--b);
-      border-radius: 16px; overflow: hidden;
-      cursor: pointer;
-      transition: border-color .2s, box-shadow .2s, transform .15s;
+      background: var(--card); border: 1px solid var(--b); border-radius: 16px;
+      overflow: hidden; cursor: pointer;
+      transition: border-color .2s, opacity .2s;
       -webkit-tap-highlight-color: transparent;
       animation: fadeUp .3s ease both;
+      text-decoration: none; display: block; color: inherit;
     }
-    .card:active { transform: scale(.975); }
+    .card:active { opacity: .88; }
     .card.hl {
       border-color: var(--blue);
-      box-shadow: 0 0 0 1px rgba(61,136,240,.4), 0 8px 40px rgba(61,136,240,.15);
+      box-shadow: 0 0 0 1px rgba(61,136,240,.35), 0 8px 32px rgba(61,136,240,.12);
     }
-    .card.old { opacity: .5; }
+    .card.old { opacity: .48; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* card image */
     .cimg {
-      position: relative; height: 175px; overflow: hidden;
-      background: var(--card2);
+      position: relative; height: 170px; overflow: hidden; background: var(--card2);
     }
-    .cimg img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform .4s ease;
-    }
-    .card:hover .cimg img { transform: scale(1.04); }
-    .cph {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 52px; user-select: none;
-    }
-    .cgrad { /* full-height overlay for text legibility */
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.08) 0%, rgba(0,0,0,.55) 100%);
-    }
+    .cimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 50px; }
+    .cgrad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.06) 0%, rgba(0,0,0,.58) 100%); }
 
-    /* price */
     .cprice {
       position: absolute; bottom: 10px; left: 12px;
       font-size: 20px; font-weight: 800; color: #fff;
-      text-shadow: 0 1px 8px rgba(0,0,0,.6);
-      font-variant-numeric: tabular-nums; line-height: 1;
+      text-shadow: 0 1px 8px rgba(0,0,0,.6); line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
     .cprice sub { font-size: 11px; font-weight: 400; opacity: .7; vertical-align: baseline; }
 
-    /* badges */
     .cbadge {
       position: absolute; top: 10px; right: 10px;
       font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 7px;
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     }
     .cbadge.may  { background: rgba(31,204,151,.2);  border: 1px solid rgba(31,204,151,.4); color: var(--green); }
-    .cbadge.new  { position: absolute; top:10px; left:12px; background: rgba(61,136,240,.2); border: 1px solid rgba(61,136,240,.4); color: var(--blue2); }
-    .cbadge.aged { background: rgba(82,112,143,.15); border: 1px solid rgba(82,112,143,.3); color: var(--m1); }
+    .cbadge.new  { position:absolute; top:10px; left:12px; background: rgba(61,136,240,.2); border: 1px solid rgba(61,136,240,.4); color: var(--blue2); }
+    .cbadge.aged { background: rgba(82,112,143,.12); border: 1px solid rgba(82,112,143,.25); color: var(--m1); }
 
-    /* body */
-    .cbody { padding: 13px 14px 14px; }
-    .caddr {
-      font-size: 14px; font-weight: 650; margin-bottom: 7px;
-      line-height: 1.3; color: var(--text);
-    }
+    .cbody { padding: 12px 14px 13px; }
+    .caddr { font-size: 14px; font-weight: 650; margin-bottom: 6px; line-height: 1.3; }
 
-    .ctags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 9px; }
-    .tag {
-      background: var(--card2); border: 1px solid var(--b);
-      padding: 3px 9px; border-radius: 6px; font-size: 11px; color: var(--m1);
-    }
+    .ctags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .tag { padding: 3px 9px; border-radius: 6px; font-size: 11px; background: var(--card2); border: 1px solid var(--b); color: var(--m1); }
     .tag.near { color: var(--green); border-color: rgba(31,204,151,.2); background: rgba(31,204,151,.05); }
     .tag.mid  { color: var(--blue2); border-color: rgba(61,136,240,.2);  background: rgba(61,136,240,.05); }
 
     .csum {
-      font-size: 12.5px; color: var(--m1); line-height: 1.55; margin-bottom: 11px;
+      font-size: 12.5px; color: var(--m1); line-height: 1.55; margin-bottom: 10px;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
     .cfoot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .cdate { font-size: 11px; color: var(--m2); }
+    .cactions { display: flex; align-items: center; gap: 7px; }
 
-    .vbtn {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 8px 18px; border-radius: 10px; font-size: 13px; font-weight: 600;
+    .mapbtn {
+      padding: 7px 12px; border-radius: 9px; font-size: 12px;
+      background: var(--card2); border: 1px solid var(--b2); color: var(--m1);
+      cursor: pointer; -webkit-tap-highlight-color: transparent; white-space: nowrap;
+    }
+    .viewbtn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
       text-decoration: none; color: #fff;
       background: linear-gradient(135deg, var(--blue), #5ba8ff);
-      box-shadow: 0 2px 12px rgba(61,136,240,.3);
-      transition: opacity .15s, box-shadow .15s;
+      box-shadow: 0 2px 10px rgba(61,136,240,.3);
+      -webkit-tap-highlight-color: transparent; white-space: nowrap;
     }
-    .vbtn:active { opacity: .85; }
+    .mapbtn:active, .viewbtn:active { opacity: .8; }
 
-    /* ═══ STATES ════════════════════════════════════════════════════════════ */
-    .state { text-align: center; padding: 60px 20px; color: var(--m1); grid-column: 1/-1; }
-    .spin {
-      width: 34px; height: 34px; border: 3px solid var(--b2); border-top-color: var(--blue);
-      border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 12px;
-    }
+    /* ─── STATES ─────────────────────────────────────────────────────── */
+    .state { text-align: center; padding: 56px 20px; color: var(--m1); grid-column: 1/-1; }
+    .spin { width: 34px; height: 34px; border: 3px solid var(--b2); border-top-color: var(--blue); border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 12px; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ═══ FAB ═══════════════════════════════════════════════════════════════ */
-    #fab {
-      position: fixed; right: 16px; z-index: 150;
-      bottom: calc(16px + var(--safe-b));
-      width: 44px; height: 44px; background: var(--blue); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(61,136,240,.5);
-      cursor: pointer; opacity: 0; pointer-events: none;
-      transition: opacity .25s; font-size: 17px;
-    }
+    /* ─── MAP STYLES ─────────────────────────────────────────────────── */
+    .mpin { color: #fff; padding: 5px 10px; border-radius: 14px; font-size: 11.5px; font-weight: 700; white-space: nowrap; box-shadow: 0 3px 12px rgba(0,0,0,.5); border: 1.5px solid rgba(255,255,255,.18); cursor: pointer; transition: transform .15s, box-shadow .15s; }
+    .mpin.sel { transform: scale(1.15); box-shadow: 0 4px 20px rgba(61,136,240,.5), 0 0 0 3px rgba(61,136,240,.3); }
+
+    .leaflet-popup-content-wrapper { display: none !important; } /* we use preview card instead */
+    .leaflet-popup-tip-container { display: none !important; }
+
+    /* ─── FAB ─────────────────────────────────────────────────────────── */
+    #fab { position: fixed; right: 16px; bottom: calc(var(--peek) + 16px); z-index: 160; width: 44px; height: 44px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(61,136,240,.5); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .25s; font-size: 17px; }
     #fab.vis { opacity: 1; pointer-events: all; }
 
-    /* ═══ VALIDATION BANNER ═════════════════════════════════════════════════ */
+    /* ─── VALIDATION BANNER ──────────────────────────────────────────── */
     #vbanner:not(:empty) {
-      position: fixed; top: var(--hdr-h); left: 0; right: 0; z-index: 150;
-      background: rgba(240,96,96,.1); border-bottom: 1px solid rgba(240,96,96,.25);
-      color: var(--red); font-size: 11.5px; padding: 7px 16px; text-align: center;
+      position: fixed; top: var(--hh); left: 0; right: 0; z-index: 250;
+      background: rgba(239,68,68,.1); border-bottom: 1px solid rgba(239,68,68,.2);
+      color: var(--red); font-size: 11px; padding: 6px 16px; text-align: center;
     }
 
-    /* ═══ MAP STYLES ════════════════════════════════════════════════════════ */
-    .mpin {
-      color: #fff; padding: 5px 10px; border-radius: 14px;
-      font-size: 11.5px; font-weight: 700; white-space: nowrap;
-      box-shadow: 0 3px 12px rgba(0,0,0,.5);
-      border: 1.5px solid rgba(255,255,255,.18);
-      cursor: pointer;
-    }
-    .mpin.sel {
-      transform: scale(1.15);
-      box-shadow: 0 4px 20px rgba(61,136,240,.5), 0 0 0 3px rgba(61,136,240,.3);
-    }
-    .leaflet-popup-content-wrapper {
-      background: var(--card) !important; border: 1px solid var(--b2) !important;
-      border-radius: 14px !important; box-shadow: 0 8px 32px rgba(0,0,0,.7) !important;
-      color: var(--text) !important;
-    }
-    .leaflet-popup-tip { background: var(--card) !important; }
-    .leaflet-popup-content { margin: 12px 16px !important; min-width: 160px; }
-    .pp { font-weight: 700; font-size: 16px; color: var(--blue2); }
-    .pa { font-size: 12px; color: var(--m1); margin-top: 3px; line-height: 1.4; }
-    .pd { font-size: 11px; color: var(--green); margin-top: 3px; }
-
-    /* ═══ DESKTOP OVERRIDES (≥ 768px) ══════════════════════════════════════ */
+    /* ─── DESKTOP ≥ 768px ────────────────────────────────────────────── */
     @media (min-width: 768px) {
-      body { overflow: auto; }
-      #map {
-        position: relative;
-        top: auto; left: auto; right: auto; bottom: auto;
-        height: 46vh; min-height: 260px; max-height: 420px;
-        margin-top: var(--hdr-h);
-      }
-      #sheet {
-        position: static;
-        transform: none !important;
-        border-radius: 0;
-        box-shadow: none;
-        background: var(--bg);
-        flex: none;
-      }
+      html, body { overflow: auto; }
+      #map { position: relative; top: auto; left: auto; right: auto; bottom: auto; height: 46vh; min-height: 260px; max-height: 420px; margin-top: var(--hh); }
+      #mf-wrap, #list-btn { display: none; }
+      #preview { display: none; }
+      #sheet { position: static; transform: none !important; border-radius: 0; box-shadow: none; background: var(--bg); flex: none; top: auto; }
       #sh-handle { display: none; }
-      #sh-map-btn { display: none !important; }
-      #grid-wrap {
-        overflow: visible;
-        padding: 14px 16px 80px;
-      }
-      #grid {
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 16px;
-        max-width: 1200px; margin: 0 auto;
-      }
-      #filters { max-width: 1200px; margin: 0 auto; padding: 12px 16px 4px; }
-      #sort-bar { max-width: 1200px; margin: 0 auto; }
+      #sh-mapbtn { display: none !important; }
+      #sh-filters { opacity: 1 !important; pointer-events: all !important; padding: 12px 16px 4px; max-width: 1200px; margin: 0 auto; border: none; }
+      #sh-sort { opacity: 1 !important; pointer-events: all !important; max-width: 1200px; margin: 0 auto; }
+      #grid-wrap { overflow: visible; padding: 12px 16px 80px; }
+      #grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; max-width: 1200px; margin: 0 auto; }
+      .card:hover { border-color: rgba(61,136,240,.3); box-shadow: 0 6px 24px rgba(0,0,0,.25); transform: translateY(-2px); }
+      .card { transition: border-color .2s, box-shadow .2s, transform .2s, opacity .2s; }
       #fab { bottom: 24px; }
-      .card:hover {
-        border-color: rgba(61,136,240,.35);
-        box-shadow: 0 8px 32px rgba(0,0,0,.3);
-        transform: translateY(-2px);
-      }
-    }
-
-    /* ═══ VERY SMALL PHONES ═════════════════════════════════════════════════ */
-    @media (max-width: 380px) {
-      .cprice { font-size: 17px; }
     }
   </style>
 </head>
@@ -355,56 +357,84 @@
 
 <!-- Header -->
 <header id="hdr">
-  <div id="hdr-inner">
-    <div id="hdr-title">🏠 <span>Amsterdam</span></div>
-    <span class="hpill" id="hpill-count"><b id="hdr-n">—</b> listings</span>
+  <div id="hdr-in">
+    <div class="htitle">🏠 <span>Amsterdam</span></div>
+    <span class="hpill"><b id="hdr-n">—</b> listings</span>
     <span class="hpill" id="hpill-upd">Loading…</span>
   </div>
 </header>
 
 <div id="vbanner"></div>
 
-<!-- Map -->
-<div id="map">
-  <div class="map-hint" id="map-hint">Loading pins…</div>
+<!-- Map (full screen behind everything on mobile) -->
+<div id="map"></div>
+
+<!-- Floating filter chips over map (mobile) -->
+<div id="mf-wrap">
+  <div id="mf-scroll">
+    <div class="mchip on" data-f="all">All</div>
+    <div class="mchip" data-f="may">⭐ May 1st</div>
+    <div class="mchip" data-f="u2k">Under €2,000</div>
+    <div class="mchip" data-f="2bed">2+ Bedrooms</div>
+    <div class="mchip" data-f="big">60 m²+</div>
+    <div class="mchip" data-f="close">Within 2 km</div>
+    <div class="mchip" data-f="new7">New (7d)</div>
+  </div>
 </div>
+
+<!-- Preview card (slides up when pin tapped, mobile) -->
+<div id="preview">
+  <div class="pv-img" id="pv-img">
+    <button id="pv-close" onclick="closePreview()">✕</button>
+  </div>
+  <div class="pv-body">
+    <div class="pv-addr" id="pv-addr"></div>
+    <div class="pv-tags" id="pv-tags"></div>
+    <div class="pv-actions">
+      <button class="pv-mapbtn" onclick="showInList()">☰ Show in list</button>
+      <a class="pv-view" id="pv-link" href="#" target="_blank" rel="noopener">View listing →</a>
+    </div>
+  </div>
+</div>
+
+<!-- "Show list" button over map (mobile) -->
+<button id="list-btn" onclick="expandSheet()">
+  <span>☰</span><span id="list-btn-txt">— listings</span>
+</button>
 
 <!-- Bottom sheet -->
 <div id="sheet">
-  <!-- Handle -->
-  <div id="sh-handle" id="sh-drag">
-    <div id="sh-pip"></div>
-    <div id="sh-row">
+  <div id="sh-handle">
+    <div id="sh-pip-wrap"><div id="sh-pip"></div></div>
+    <div id="sh-top">
       <span id="sh-count">— apartments</span>
-      <button id="sh-map-btn" onclick="collapseSheet()">← Map</button>
+      <button id="sh-mapbtn" onclick="collapseSheet()">← Map</button>
     </div>
   </div>
 
-  <!-- Filters -->
-  <div id="filters">
-    <div class="chip on" data-f="all">All</div>
-    <div class="chip" data-f="may">⭐ May 1st</div>
-    <div class="chip" data-f="u2k">Under €2,000</div>
-    <div class="chip" data-f="2bed">2+ Bedrooms</div>
-    <div class="chip" data-f="big">60 m²+</div>
-    <div class="chip" data-f="close">Within 2 km</div>
-    <div class="chip" data-f="new7">New (7 days)</div>
+  <!-- Filters inside sheet (visible when expanded) -->
+  <div id="sh-filters">
+    <div class="schip on" data-f="all">All</div>
+    <div class="schip" data-f="may">⭐ May 1st</div>
+    <div class="schip" data-f="u2k">Under €2,000</div>
+    <div class="schip" data-f="2bed">2+ Bedrooms</div>
+    <div class="schip" data-f="big">60 m²+</div>
+    <div class="schip" data-f="close">Within 2 km</div>
+    <div class="schip" data-f="new7">New (7d)</div>
   </div>
 
-  <!-- Sort -->
-  <div id="sort-bar">
+  <div id="sh-sort">
     <span>Sort by</span>
     <select id="sorter">
       <option value="new">Newest first</option>
       <option value="dist">Closest to Javaplein</option>
-      <option value="p↑">Price: low → high</option>
-      <option value="p↓">Price: high → low</option>
+      <option value="p↑">Price ↑</option>
+      <option value="p↓">Price ↓</option>
       <option value="sz↓">Largest first</option>
     </select>
     <span id="rc"></span>
   </div>
 
-  <!-- Cards -->
   <div id="grid-wrap">
     <div id="grid">
       <div class="state"><div class="spin"></div><div>Loading listings…</div></div>
@@ -412,63 +442,62 @@
   </div>
 </div>
 
-<!-- FAB -->
 <div id="fab">↑</div>
 
 <script>
-// ── Config ────────────────────────────────────────────────────────────────────
-const JAVAPLEIN = [52.3631, 4.9450];
-const DATA_URL  = 'data/listings.json';
-const META_URL  = 'data/meta.json';
-const GEO_KEY   = 'ams_geo_v4';
-const NOM_URL   = 'https://nominatim.openstreetmap.org/search';
+// ── Constants ──────────────────────────────────────────────────────────────
+const JAVAPLEIN    = [52.3631, 4.9450];
+const SCI_PARK     = [52.3529, 4.9483];
+const DATA_URL     = 'data/listings.json';
+const META_URL     = 'data/meta.json';
+const GEO_KEY      = 'ams_geo_v5';
 
-// Neighbourhood emoji + gradient for gradient placeholders
-const CARD_STYLES = [
-  { grad: 'linear-gradient(145deg,#0a1e38,#0d2a50)', em: '🏙️' },
-  { grad: 'linear-gradient(145deg,#0e1f15,#102a1c)', em: '🌿' },
-  { grad: 'linear-gradient(145deg,#1e1008,#2a1a0c)', em: '🧱' },
-  { grad: 'linear-gradient(145deg,#14082c,#1c0e3a)', em: '🌆' },
-  { grad: 'linear-gradient(145deg,#081820,#0c2030)', em: '🌊' },
-  { grad: 'linear-gradient(145deg,#1a1006,#221808)', em: '☀️' },
-  { grad: 'linear-gradient(145deg,#081a1c,#0c2428)', em: '🏗️' },
-  { grad: 'linear-gradient(145deg,#18080e,#200e16)', em: '🌸' },
+const GRADS = [
+  { g: 'linear-gradient(145deg,#0a1e38,#0d2a50)', e: '🏙️' },
+  { g: 'linear-gradient(145deg,#0e1f15,#102a1c)', e: '🌿' },
+  { g: 'linear-gradient(145deg,#1e1008,#2a1a0c)', e: '🧱' },
+  { g: 'linear-gradient(145deg,#14082c,#1c0e3a)', e: '🌆' },
+  { g: 'linear-gradient(145deg,#081820,#0c2030)', e: '🌊' },
+  { g: 'linear-gradient(145deg,#1a1006,#221808)', e: '☀️' },
+  { g: 'linear-gradient(145deg,#081a1c,#0c2428)', e: '🏗️' },
+  { g: 'linear-gradient(145deg,#18080e,#200e16)', e: '🌸' },
 ];
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────────────────────────
 const price = l => parseInt((l.price||'').toString().replace(/\D/g,'')) || 0;
 const size  = l => parseInt((l.size||'').toString().replace(/\D/g,''))  || 0;
 const rooms = l => parseInt((l.rooms||'').toString().replace(/\D/g,'')) || 0;
 const fmtP  = p => p > 0 ? `€${p.toLocaleString('nl-NL')}` : '—';
 
 function hav(lat1,lng1,lat2,lng2) {
-  const R=6371, r=x=>x*Math.PI/180;
+  const R=6371,r=x=>x*Math.PI/180;
   const a=Math.sin(r(lat2-lat1)/2)**2+Math.cos(r(lat1))*Math.cos(r(lat2))*Math.sin(r(lng2-lng1)/2)**2;
   return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
 }
-const dist = l => l.distance_km ?? (l.lat && l.lng ? hav(JAVAPLEIN[0],JAVAPLEIN[1],l.lat,l.lng) : null);
+const distJava  = l => l.distance_km ?? (l.lat&&l.lng ? hav(JAVAPLEIN[0],JAVAPLEIN[1],l.lat,l.lng) : null);
+const distWork  = l => l.lat && l.lng ? hav(SCI_PARK[0],SCI_PARK[1],l.lat,l.lng) : null;
 
 function daysAgo(d) {
   if (!d) return '';
-  const days = Math.floor((Date.now()-new Date(d))/86400000);
-  return days===0?'Today':days===1?'Yesterday':`${days}d ago`;
+  const n = Math.floor((Date.now()-new Date(d))/86400000);
+  return n===0?'Today':n===1?'Yesterday':`${n}d ago`;
 }
 const isNew7 = l => l.date_found && (Date.now()-new Date(l.date_found)) < 7*86400000;
 const isOld  = l => l.date_found && (Date.now()-new Date(l.date_found)) > 30*86400000;
 const isMay  = l => /^yes$/i.test((l.available||'').trim());
 
 function pinColor(p) {
-  if (p < 2000) return ['#1fcc97','#12a87a'];
-  if (p < 2500) return ['#3d88f0','#2563c8'];
+  if (p<2000) return ['#1fcc97','#12a87a'];
+  if (p<2500) return ['#3d88f0','#2563c8'];
   return ['#f0a020','#c07c10'];
 }
 
-// ── Geo cache ─────────────────────────────────────────────────────────────────
-const gcGet = () => { try { return JSON.parse(localStorage.getItem(GEO_KEY)||'{}'); } catch { return {}; } };
-const gcSet = c => { try { localStorage.setItem(GEO_KEY, JSON.stringify(c)); } catch {} };
+// ── Geo cache ──────────────────────────────────────────────────────────────
+const gcGet=()=>{try{return JSON.parse(localStorage.getItem(GEO_KEY)||'{}')}catch{return{}}};
+const gcSet=c=>{try{localStorage.setItem(GEO_KEY,JSON.stringify(c))}catch{}};
 
-// ── Map ───────────────────────────────────────────────────────────────────────
-let map, pinLayer, markers = [];
+// ── Map ────────────────────────────────────────────────────────────────────
+let map, pinLayer, markers = [], activeListing = null;
 
 function initMap() {
   map = L.map('map', { center: JAVAPLEIN, zoom: 13, zoomControl: false, attributionControl: false });
@@ -476,39 +505,42 @@ function initMap() {
     subdomains: 'abcd', maxZoom: 20
   }).addTo(map);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
-  L.control.attribution({ position: 'bottomleft', prefix: '© OpenStreetMap © CARTO' }).addTo(map);
+  L.control.attribution({ position: 'bottomleft', prefix: '©OSM ©CARTO' }).addTo(map);
 
-  // 3km radius
+  // 3km search radius
   L.circle(JAVAPLEIN, {
     radius: 3000, color: '#3d88f0', fillColor: '#3d88f0',
-    fillOpacity: 0.04, weight: 1.5, dashArray: '6 4', opacity: 0.45
+    fillOpacity: 0.04, weight: 1.5, dashArray: '6 4', opacity: 0.4
   }).addTo(map);
 
-  // Amsterdam Science Park — work marker
-  L.marker([52.3529, 4.9483], {
-    icon: L.divIcon({
-      className: '',
-      html: `<div style="
-        background: linear-gradient(135deg,#ef4444,#b91c1c);
-        color:#fff; width:34px; height:34px; border-radius:50%;
-        display:flex; align-items:center; justify-content:center;
-        font-size:15px; font-weight:700;
-        box-shadow:0 3px 14px rgba(239,68,68,.55),0 0 0 2px rgba(239,68,68,.25);
-        border:2px solid rgba(255,255,255,.2);
-      ">💼</div>`,
-      iconAnchor: [17, 17],
-    })
-  }).bindPopup('<div class="pp" style="color:#f87171">💼 Work</div><div class="pa">Amsterdam Science Park</div>').addTo(map);
+  // Science Park — work marker
+  const workIcon = L.divIcon({
+    className: '',
+    html: `<div style="background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 3px 14px rgba(239,68,68,.55),0 0 0 2px rgba(239,68,68,.25);border:2px solid rgba(255,255,255,.2)">💼</div>`,
+    iconAnchor: [17, 17],
+  });
+  L.marker(SCI_PARK, { icon: workIcon, zIndexOffset: 1000 })
+    .bindPopup('<div class="pp" style="color:#f87171">💼 Work</div><div class="pa">Amsterdam Science Park</div>')
+    .addTo(map);
 
   // Javaplein dot
   L.circleMarker(JAVAPLEIN, {
-    radius: 7, color: '#3d88f0', fillColor: '#3d88f0', fillOpacity: 1, weight: 2,
-  }).bindPopup('<div class="pp">📍 Javaplein</div><div class="pa">Search centre · 3 km radius shown</div>').addTo(map);
+    radius: 7, color: '#3d88f0', fillColor: '#3d88f0', fillOpacity: 1, weight: 2, zIndexOffset: 1000,
+  }).bindPopup('<div class="pp">📍 Javaplein</div><div class="pa">Search centre · 3 km radius</div>').addTo(map);
 
   pinLayer = L.layerGroup().addTo(map);
+
+  // Tapping map background dismisses preview
+  map.on('click', () => {
+    closePreview();
+    clearSelPin();
+  });
 }
 
-let selPin = null;
+function clearSelPin() {
+  markers.forEach(({m}) => m._icon?.querySelector('.mpin')?.classList.remove('sel'));
+}
+
 function addPin(l) {
   if (!l.lat || !l.lng) return;
   const p = price(l);
@@ -518,135 +550,187 @@ function addPin(l) {
     html: `<div class="mpin" style="background:linear-gradient(135deg,${c1},${c2})">${fmtP(p)}</div>`,
     iconAnchor: [30, 14],
   });
-  const d = dist(l);
-  const m = L.marker([l.lat, l.lng], { icon })
-    .bindPopup(`
-      <div class="pp">${fmtP(p)}/mo</div>
-      <div class="pa">${l.address||''}</div>
-      ${d != null ? `<div class="pd">📍 ${d.toFixed(1)} km from Javaplein</div>` : ''}
-    `, { maxWidth: 240, autoPan: false })
-    .addTo(pinLayer);
+  const m = L.marker([l.lat, l.lng], { icon }).addTo(pinLayer);
 
-  m.on('click', () => {
-    // Highlight pin
-    if (selPin) selPin._icon?.querySelector('.mpin')?.classList.remove('sel');
+  m.on('click', e => {
+    L.DomEvent.stopPropagation(e);
+    clearSelPin();
     m._icon?.querySelector('.mpin')?.classList.add('sel');
-    selPin = m;
-    // Snap sheet open + scroll to card
-    expandSheet();
-    setTimeout(() => scrollToCard(l._i), 380);
+    activeListing = l;
+    showPreview(l);
   });
 
   markers.push({ m, l });
 }
 
-function scrollToCard(i) {
-  const el = document.querySelector(`[data-i="${i}"]`);
-  if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  el.classList.add('hl');
-  setTimeout(() => el.classList.remove('hl'), 2400);
+// ── Preview card (mobile) ──────────────────────────────────────────────────
+let previewListing = null;
+
+function showPreview(l) {
+  previewListing = l;
+  const st = GRADS[l._i % GRADS.length];
+  const p  = price(l);
+  const dj = distJava(l);
+  const dw = distWork(l);
+
+  // Image
+  const imgWrap = document.getElementById('pv-img');
+  const existImg = imgWrap.querySelector('img, .pv-ph');
+  if (existImg) existImg.remove();
+  const gradDiv = imgWrap.querySelector('.pv-grad') || (() => { const d=document.createElement('div'); d.className='pv-grad'; imgWrap.appendChild(d); return d; })();
+  const priceEl = imgWrap.querySelector('.pv-price') || (() => { const d=document.createElement('div'); d.className='pv-price'; imgWrap.appendChild(d); return d; })();
+  const existMay = imgWrap.querySelector('.pv-may');
+  if (existMay) existMay.remove();
+
+  if (l.photo_url) {
+    const img = document.createElement('img');
+    img.src = l.photo_url;
+    img.onerror = () => { img.remove(); const ph=document.createElement('div'); ph.className='pv-ph'; ph.style.background=st.g; ph.textContent=st.e; imgWrap.insertBefore(ph,gradDiv); };
+    imgWrap.insertBefore(img, gradDiv);
+  } else {
+    const ph = document.createElement('div');
+    ph.className = 'pv-ph'; ph.style.background = st.g; ph.textContent = st.e;
+    imgWrap.insertBefore(ph, gradDiv);
+  }
+
+  priceEl.innerHTML = `${fmtP(p)}<sub>/mo</sub>`;
+  if (isMay(l)) { const b=document.createElement('div'); b.className='pv-may'; b.textContent='⭐ May 1st'; imgWrap.appendChild(b); }
+
+  // Body
+  document.getElementById('pv-addr').textContent = l.address || 'Amsterdam';
+  const tags = document.getElementById('pv-tags');
+  tags.innerHTML = '';
+  const addTag = (txt, cls='') => { const s=document.createElement('span'); s.className=`pv-tag${cls?' '+cls:''}`; s.textContent=txt; tags.appendChild(s); };
+  if (l.size)  addTag(`📐 ${l.size} m²`);
+  if (l.rooms) addTag(`🛏 ${l.rooms} rooms`);
+  if (dj!=null) addTag(`📍 ${dj.toFixed(1)} km`, dj<=1.5?'near':dj<=3?'mid':'');
+  if (dw!=null) addTag(`🚲 ${dw.toFixed(1)} km to work`, dw<=2?'near':'');
+
+  document.getElementById('pv-link').href = l.url || '#';
+
+  document.getElementById('preview').classList.add('show');
+  // Keep list button hidden while preview is showing
+  document.getElementById('list-btn').classList.add('hidden');
 }
 
-window._fly = function(i) {
+function closePreview() {
+  document.getElementById('preview').classList.remove('show');
+  previewListing = null;
+  clearSelPin();
+  if (isMobile() && !sheetExpanded) {
+    document.getElementById('list-btn').classList.remove('hidden');
+  }
+}
+window.closePreview = closePreview;
+
+function showInList() {
+  if (!previewListing) return;
+  const i = previewListing._i;
+  closePreview();
+  expandSheet();
+  setTimeout(() => {
+    const el = document.querySelector(`[data-i="${i}"]`);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.add('hl');
+    setTimeout(() => el.classList.remove('hl'), 2400);
+  }, 400);
+}
+window.showInList = showInList;
+
+// Show a listing on map from list (called by card's map button)
+window._showOnMap = function(i) {
   const mk = markers.find(x => x.l._i === i);
-  if (!mk || !mk.l.lat) return;
-  map.flyTo([mk.l.lat, mk.l.lng], 16, { duration: 0.7 });
-  mk.m.openPopup();
-  if (selPin) selPin._icon?.querySelector('.mpin')?.classList.remove('sel');
-  mk.m._icon?.querySelector('.mpin')?.classList.add('sel');
-  selPin = mk.m;
+  if (!mk) return;
   collapseSheet();
+  closePreview();
+  setTimeout(() => {
+    map.flyTo([mk.l.lat, mk.l.lng], 16, { duration: 0.6 });
+    clearSelPin();
+    mk.m._icon?.querySelector('.mpin')?.classList.add('sel');
+    activeListing = mk.l;
+    setTimeout(() => showPreview(mk.l), 650);
+  }, isMobile() ? 350 : 0);
 };
 
-// ── Geocoding ─────────────────────────────────────────────────────────────────
-let gQ = [], gRunning = false;
+// ── Geocoding ──────────────────────────────────────────────────────────────
+let gQ=[], gRunning=false;
 function geocode(addr) {
-  const cache = gcGet(), key = addr.toLowerCase().trim();
-  if (cache[key]) return Promise.resolve(cache[key]);
-  return new Promise(r => { gQ.push({addr,key,r}); runGQ(); });
+  const c=gcGet(), k=addr.toLowerCase().trim();
+  if (c[k]) return Promise.resolve(c[k]);
+  return new Promise(r => { gQ.push({addr,k,r}); runGQ(); });
 }
 async function runGQ() {
   if (gRunning || !gQ.length) return;
   gRunning = true;
   while (gQ.length) {
-    const {addr,key,r} = gQ.shift();
+    const {addr,k,r} = gQ.shift();
     const clean = addr.replace(/\s*\([^)]+\)/g,'').trim();
     try {
       const q = encodeURIComponent(`${clean}, Amsterdam, Netherlands`);
-      const res = await fetch(`${NOM_URL}?q=${q}&format=json&limit=1&countrycodes=nl`,
-        { headers: { 'User-Agent': 'ApartmentFinder/1.0' } });
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${q}&format=json&limit=1&countrycodes=nl`,
+        { headers: {'User-Agent':'ApartmentFinder/1.0'} });
       const d = await res.json();
-      if (d[0]) {
-        const c = [parseFloat(d[0].lat), parseFloat(d[0].lon)];
-        const cache = gcGet(); cache[key]=c; gcSet(cache); r(c);
-      } else r(null);
+      if (d[0]) { const c2=[parseFloat(d[0].lat),parseFloat(d[0].lon)]; const cc=gcGet(); cc[k]=c2; gcSet(cc); r(c2); }
+      else r(null);
     } catch { r(null); }
-    if (gQ.length) await new Promise(x => setTimeout(x,1100));
+    if (gQ.length) await new Promise(x=>setTimeout(x,1100));
   }
   gRunning = false;
 }
-async function geocodeAll(listings) {
+async function geocodeAll(list) {
   let n = 0;
-  for (const l of listings) {
+  for (const l of list) {
     if (l.lat && l.lng) { addPin(l); n++; continue; }
     if (!l.address) continue;
     const c = await geocode(l.address);
     if (c) { l.lat=c[0]; l.lng=c[1]; addPin(l); n++; }
   }
-  document.getElementById('map-hint').textContent = `${n} pins · 3 km radius from Javaplein`;
 }
 
-// ── Filter / sort ─────────────────────────────────────────────────────────────
-let ALL = [], activeF = 'all';
+// ── Filter / sort ──────────────────────────────────────────────────────────
+let ALL=[], activeF='all';
 
 function filtered() {
-  let r = [...ALL];
-  switch (activeF) {
-    case 'may':   r = r.filter(isMay); break;
-    case 'u2k':   r = r.filter(l => price(l)>0 && price(l)<2000); break;
-    case '2bed':  r = r.filter(l => rooms(l)>=2); break;
-    case 'big':   r = r.filter(l => size(l)>=60); break;
-    case 'close': r = r.filter(l => { const d=dist(l); return d!=null && d<=2; }); break;
-    case 'new7':  r = r.filter(isNew7); break;
+  let r=[...ALL];
+  switch(activeF) {
+    case 'may':   r=r.filter(isMay); break;
+    case 'u2k':   r=r.filter(l=>price(l)>0&&price(l)<2000); break;
+    case '2bed':  r=r.filter(l=>rooms(l)>=2); break;
+    case 'big':   r=r.filter(l=>size(l)>=60); break;
+    case 'close': r=r.filter(l=>{const d=distJava(l);return d!=null&&d<=2;}); break;
+    case 'new7':  r=r.filter(isNew7); break;
   }
-  const s = document.getElementById('sorter').value;
-  switch (s) {
-    case 'dist': r.sort((a,b) => (dist(a)??99)-(dist(b)??99)); break;
-    case 'p↑':   r.sort((a,b) => price(a)-price(b)); break;
-    case 'p↓':   r.sort((a,b) => price(b)-price(a)); break;
-    case 'sz↓':  r.sort((a,b) => size(b)-size(a)); break;
-    default:     r.sort((a,b) => new Date(b.date_found||0)-new Date(a.date_found||0));
+  switch(document.getElementById('sorter').value) {
+    case 'dist': r.sort((a,b)=>(distJava(a)??99)-(distJava(b)??99)); break;
+    case 'p↑':   r.sort((a,b)=>price(a)-price(b)); break;
+    case 'p↓':   r.sort((a,b)=>price(b)-price(a)); break;
+    case 'sz↓':  r.sort((a,b)=>size(b)-size(a)); break;
+    default:     r.sort((a,b)=>new Date(b.date_found||0)-new Date(a.date_found||0));
   }
   return r;
 }
 
-// ── Card ──────────────────────────────────────────────────────────────────────
+// ── Render ─────────────────────────────────────────────────────────────────
 function cardHTML(l, idx) {
-  const p = price(l), d = dist(l);
-  const st = CARD_STYLES[l._i % CARD_STYLES.length];
-  const may = isMay(l), newL = isNew7(l), old = isOld(l);
-  const dStr = d != null ? d.toFixed(1) : null;
-  const dClass = d!=null ? (d<=1.5?'near':d<=3?'mid':'') : '';
+  const p=price(l), dj=distJava(l), dw=distWork(l);
+  const st=GRADS[l._i%GRADS.length];
+  const may=isMay(l), newL=isNew7(l), old=isOld(l);
 
-  const imgPart = l.photo_url
-    ? `<img src="${l.photo_url}" alt="" loading="lazy"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-       ><div class="cph" style="background:${st.grad};display:none">${st.em}</div>`
-    : `<div class="cph" style="background:${st.grad}">${st.em}</div>`;
+  const img = l.photo_url
+    ? `<img src="${l.photo_url}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="cph" style="background:${st.g};display:none">${st.e}</div>`
+    : `<div class="cph" style="background:${st.g}">${st.e}</div>`;
 
-  const tags = [
-    l.size  ? `<span class="tag">📐 ${l.size} m²</span>` : '',
-    l.rooms ? `<span class="tag">🛏 ${l.rooms}</span>` : '',
-    dStr    ? `<span class="tag ${dClass}">📍 ${dStr} km</span>` : '',
-  ].filter(Boolean).join('');
+  const djStr = dj!=null ? `<span class="tag ${dj<=1.5?'near':dj<=3?'mid':''}">📍 ${dj.toFixed(1)} km</span>` : '';
+  const dwStr = dw!=null ? `<span class="tag ${dw<=2?'near':''}">🚲 ${dw.toFixed(1)} km</span>` : '';
 
+  // Card is an anchor — primary action is opening the listing
   return `
-    <div class="card${old&&!newL?' old':''}" data-i="${l._i}"
-         style="animation-delay:${Math.min(idx*35,300)}ms"
-         onclick="window._fly(${l._i})">
+    <a class="card${old&&!newL?' old':''}" data-i="${l._i}"
+       href="${l.url||'#'}" target="_blank" rel="noopener"
+       style="animation-delay:${Math.min(idx*30,250)}ms">
       <div class="cimg">
-        ${imgPart}
+        ${img}
         <div class="cgrad"></div>
         <div class="cprice">${fmtP(p)}<sub>/mo</sub></div>
         ${may  ? '<div class="cbadge may">⭐ May 1st</div>' : ''}
@@ -655,152 +739,167 @@ function cardHTML(l, idx) {
       </div>
       <div class="cbody">
         <div class="caddr">${l.address||'Amsterdam'}</div>
-        <div class="ctags">${tags}</div>
-        ${l.summary?`<div class="csum">${l.summary}</div>`:''}
+        <div class="ctags">
+          ${l.size  ? `<span class="tag">📐 ${l.size} m²</span>` : ''}
+          ${l.rooms ? `<span class="tag">🛏 ${l.rooms}</span>` : ''}
+          ${djStr}${dwStr}
+        </div>
+        ${l.summary ? `<div class="csum">${l.summary}</div>` : ''}
         <div class="cfoot">
           <div class="cdate">${daysAgo(l.date_found)}</div>
-          ${l.url?`<a class="vbtn" href="${l.url}" target="_blank" rel="noopener"
-            onclick="event.stopPropagation()">View →</a>`:''}
+          <div class="cactions">
+            ${l.lat ? `<button class="mapbtn" onclick="event.preventDefault();event.stopPropagation();window._showOnMap(${l._i})">🗺</button>` : ''}
+            <span class="viewbtn">View →</span>
+          </div>
         </div>
       </div>
-    </div>`;
+    </a>`;
 }
 
 function render() {
   const f = filtered();
+  const count = `${f.length} apartment${f.length!==1?'s':''}`;
   document.getElementById('rc').textContent = activeF!=='all' ? `${f.length} result${f.length!==1?'s':''}` : '';
-  document.getElementById('sh-count').textContent =
-    `${f.length} apartment${f.length!==1?'s':''}${activeF!=='all'?' (filtered)':''}`;
+  document.getElementById('sh-count').textContent = count + (activeF!=='all'?' (filtered)':'');
+  document.getElementById('list-btn-txt').textContent = count;
+
   const grid = document.getElementById('grid');
   if (!f.length) {
-    grid.innerHTML = '<div class="state"><div>🔍</div><div style="margin-top:12px">No listings match this filter</div></div>';
+    grid.innerHTML = '<div class="state"><div style="font-size:2em">🔍</div><div style="margin-top:12px">No listings match</div></div>';
     return;
   }
-  grid.innerHTML = f.map((l, idx) => cardHTML(l, idx)).join('');
+  grid.innerHTML = f.map((l,i)=>cardHTML(l,i)).join('');
 }
 
-// ── Bottom sheet drag ─────────────────────────────────────────────────────────
-const sheet = document.getElementById('sheet');
-const handle = document.getElementById('sh-handle');
-const mapBtn = document.getElementById('sh-map-btn');
+// ── Bottom sheet ───────────────────────────────────────────────────────────
+const sheet      = document.getElementById('sheet');
+const shHandle   = document.getElementById('sh-handle');
+const shMapBtn   = document.getElementById('sh-mapbtn');
+const shFilters  = document.getElementById('sh-filters');
+const shSort     = document.getElementById('sh-sort');
+const listBtn    = document.getElementById('list-btn');
 
-let isMobile = () => window.innerWidth < 768;
 let sheetExpanded = false;
+const isMobile = () => window.innerWidth < 768;
 
-function getSheetH() {
-  return window.innerHeight - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')) || 54;
-}
-const PEEK = 240; // px visible when collapsed
-
-function setSheetY(y, animate=true) {
-  if (!isMobile()) return;
-  if (!animate) sheet.classList.add('dragging');
-  else sheet.classList.remove('dragging');
-  const max = getSheetH() - PEEK;
-  const clamped = Math.max(0, Math.min(max, y));
-  sheet.style.transform = `translateY(${clamped}px)`;
+function getMaxTranslate() {
+  return sheet.offsetHeight - parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--peek')) || 76;
 }
 
 function expandSheet() {
   if (!isMobile()) return;
   sheetExpanded = true;
-  sheet.classList.remove('dragging');
+  sheet.classList.remove('no-anim');
   sheet.style.transform = 'translateY(0)';
-  mapBtn.classList.add('vis');
+  shMapBtn.classList.add('vis');
+  shFilters.classList.add('vis');
+  shSort.classList.add('vis');
+  listBtn.classList.add('hidden');
+  closePreview();
 }
+window.expandSheet = expandSheet;
 
 function collapseSheet() {
   if (!isMobile()) return;
   sheetExpanded = false;
-  sheet.classList.remove('dragging');
-  const max = getSheetH() - PEEK;
-  sheet.style.transform = `translateY(${max}px)`;
-  mapBtn.classList.remove('vis');
+  sheet.classList.remove('no-anim');
+  sheet.style.transform = `translateY(${getMaxTranslate()}px)`;
+  shMapBtn.classList.remove('vis');
+  shFilters.classList.remove('vis');
+  shSort.classList.remove('vis');
+  listBtn.classList.remove('hidden');
 }
-
 window.collapseSheet = collapseSheet;
 
-// Touch drag on handle
-let touchStartY = 0, touchStartTranslate = 0, dragging = false;
+// Tap on handle area when collapsed → expand
+shHandle.addEventListener('click', () => {
+  if (isMobile() && !sheetExpanded) expandSheet();
+});
 
-function getCurrentTranslate() {
+// Drag
+let ty0=0, ty1=0, shY0=0, dragging=false;
+
+function getCurrentY() {
   const t = new WebKitCSSMatrix(getComputedStyle(sheet).transform);
   return t.m42;
 }
 
-handle.addEventListener('touchstart', e => {
+shHandle.addEventListener('touchstart', e => {
   if (!isMobile()) return;
-  touchStartY = e.touches[0].clientY;
-  touchStartTranslate = getCurrentTranslate();
+  ty0 = ty1 = e.touches[0].clientY;
+  shY0 = getCurrentY();
   dragging = true;
-  sheet.classList.add('dragging');
+  sheet.classList.add('no-anim');
 }, { passive: true });
 
 document.addEventListener('touchmove', e => {
   if (!dragging || !isMobile()) return;
-  const dy = e.touches[0].clientY - touchStartY;
-  const newY = touchStartTranslate + dy;
-  const max = getSheetH() - PEEK;
-  sheet.style.transform = `translateY(${Math.max(0, Math.min(max, newY))}px)`;
+  ty1 = e.touches[0].clientY;
+  const dy = ty1 - ty0;
+  const newY = Math.max(0, Math.min(getMaxTranslate(), shY0 + dy));
+  sheet.style.transform = `translateY(${newY}px)`;
 }, { passive: true });
 
-document.addEventListener('touchend', e => {
+document.addEventListener('touchend', () => {
   if (!dragging || !isMobile()) return;
   dragging = false;
-  sheet.classList.remove('dragging');
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  const velocity = dy / 0.3; // rough
-  if (dy > 60 || velocity > 300) {
-    collapseSheet();
-  } else if (dy < -60 || velocity < -300) {
-    expandSheet();
-  } else {
-    // Snap to nearest
-    const cur = getCurrentTranslate();
-    const max = getSheetH() - PEEK;
-    if (cur < max / 2) expandSheet();
-    else collapseSheet();
-  }
+  const dy = ty1 - ty0;
+  const cur = getCurrentY();
+  const max = getMaxTranslate();
+  if (dy > 50 || cur > max * 0.55) collapseSheet();
+  else expandSheet();
+});
+
+// Also allow dragging the card list to collapse (when at top)
+const gridWrap = document.getElementById('grid-wrap');
+let listTouchY = 0;
+gridWrap.addEventListener('touchstart', e => { listTouchY = e.touches[0].clientY; }, { passive: true });
+gridWrap.addEventListener('touchmove', e => {
+  if (!isMobile() || !sheetExpanded) return;
+  const dy = e.touches[0].clientY - listTouchY;
+  if (gridWrap.scrollTop === 0 && dy > 40) collapseSheet();
 }, { passive: true });
 
-// Tapping the "peek" area (top of collapsed sheet) expands it
-handle.addEventListener('click', () => {
-  if (!isMobile()) return;
-  if (!sheetExpanded) expandSheet();
-});
-
-// Init sheet position after load
-function initSheet() {
-  if (isMobile()) collapseSheet();
-}
 window.addEventListener('resize', () => {
-  if (!isMobile()) {
-    sheet.style.transform = '';
-    sheet.classList.remove('dragging');
-  } else {
-    if (!sheetExpanded) collapseSheet();
-  }
+  if (!isMobile()) { sheet.style.transform = ''; sheet.classList.remove('no-anim'); }
+  else if (!sheetExpanded) collapseSheet();
 });
 
-// ── Grid scroll → FAB ────────────────────────────────────────────────────────
+// FAB
 const fab = document.getElementById('fab');
-const gridWrap = document.getElementById('grid-wrap');
-gridWrap.addEventListener('scroll', () => fab.classList.toggle('vis', gridWrap.scrollTop > 400));
+gridWrap.addEventListener('scroll', () => fab.classList.toggle('vis', gridWrap.scrollTop > 300));
 fab.addEventListener('click', () => gridWrap.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// ── Validation banner ─────────────────────────────────────────────────────────
-function checkData(listings, meta) {
+// ── Filter sync (both floating + sheet) ───────────────────────────────────
+function setFilter(f) {
+  activeF = f;
+  document.querySelectorAll('.mchip').forEach(c => c.classList.toggle('on', c.dataset.f === f));
+  document.querySelectorAll('.schip').forEach(c => c.classList.toggle('on', c.dataset.f === f));
+  render();
+}
+
+document.getElementById('mf-scroll').addEventListener('click', e => {
+  const c = e.target.closest('.mchip'); if (c) setFilter(c.dataset.f);
+});
+document.getElementById('sh-filters').addEventListener('click', e => {
+  const c = e.target.closest('.schip'); if (c) setFilter(c.dataset.f);
+});
+document.getElementById('sorter').addEventListener('change', render);
+
+// ── Validation ─────────────────────────────────────────────────────────────
+function checkData(list, meta) {
   const issues = [];
   if (meta?.updated) {
     const age = (Date.now()-new Date(meta.updated))/3600000;
-    if (age>26) issues.push(`⚠️ Data is ${Math.round(age)}h old — daily update may have failed`);
+    if (age > 26) issues.push(`⚠️ Data is ${Math.round(age)}h old — daily update may have failed`);
   }
-  const furn = listings.filter(l => /gemeubileerd|gestoffeerd/i.test(l.furnished||'') && !/unfurnished|kaal/i.test(l.furnished||''));
-  if (furn.length) issues.push(`⚠️ ${furn.length} possibly furnished listing(s) detected`);
+  const furn = list.filter(l => /gemeubileerd|gestoffeerd/i.test(l.furnished||'') && !/unfurnished|kaal/i.test(l.furnished||''));
+  if (furn.length) issues.push(`⚠️ ${furn.length} possibly furnished listing(s) in data`);
   document.getElementById('vbanner').textContent = issues.join(' · ');
 }
 
-// ── Load ──────────────────────────────────────────────────────────────────────
+// ── Load ───────────────────────────────────────────────────────────────────
 async function load() {
   try {
     const [dRes, mRes] = await Promise.all([
@@ -808,42 +907,35 @@ async function load() {
       fetch(META_URL + '?t=' + Math.floor(Date.now()/3600000)).catch(()=>null),
     ]);
     if (!dRes.ok) throw new Error(`HTTP ${dRes.status}`);
-    const listings = await dRes.json();
+    const list = await dRes.json();
     const meta = mRes?.ok ? await mRes.json() : null;
 
-    ALL = listings.map((l,i) => ({...l, _i:i}));
+    ALL = list.map((l,i) => ({...l,_i:i}));
     document.getElementById('hdr-n').textContent = ALL.length;
 
     const upd = document.getElementById('hpill-upd');
     if (meta?.updated) {
       const age = (Date.now()-new Date(meta.updated))/3600000;
-      upd.textContent = new Date(meta.updated).toLocaleDateString('en-GB', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+      upd.textContent = new Date(meta.updated).toLocaleDateString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
       upd.className = `hpill ${age>26?'err':'ok'}`;
-    } else { upd.textContent = 'Live'; upd.className = 'hpill'; }
+    }
 
     checkData(ALL, meta);
     render();
-    initSheet();
+
+    // Init sheet position
+    if (isMobile()) collapseSheet();
+
     geocodeAll(ALL);
 
   } catch(err) {
     document.getElementById('grid').innerHTML =
       `<div class="state"><div style="font-size:2em">⚠️</div><div style="margin-top:12px">Could not load listings<br><small style="opacity:.6">${err.message}</small></div></div>`;
-    document.getElementById('map-hint').textContent = 'Error loading data';
-    initSheet();
+    if (isMobile()) collapseSheet();
   }
 }
 
-// ── Events ────────────────────────────────────────────────────────────────────
-document.getElementById('filters').addEventListener('click', e => {
-  const c = e.target.closest('.chip'); if (!c) return;
-  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
-  c.classList.add('on'); activeF = c.dataset.f;
-  render();
-});
-document.getElementById('sorter').addEventListener('change', render);
-
-// ── Boot ──────────────────────────────────────────────────────────────────────
+// ── Boot ───────────────────────────────────────────────────────────────────
 initMap();
 load();
 </script>
