@@ -484,6 +484,22 @@ function initMap() {
     fillOpacity: 0.04, weight: 1.5, dashArray: '6 4', opacity: 0.45
   }).addTo(map);
 
+  // Amsterdam Science Park — work marker
+  L.marker([52.3529, 4.9483], {
+    icon: L.divIcon({
+      className: '',
+      html: `<div style="
+        background: linear-gradient(135deg,#ef4444,#b91c1c);
+        color:#fff; width:34px; height:34px; border-radius:50%;
+        display:flex; align-items:center; justify-content:center;
+        font-size:15px; font-weight:700;
+        box-shadow:0 3px 14px rgba(239,68,68,.55),0 0 0 2px rgba(239,68,68,.25);
+        border:2px solid rgba(255,255,255,.2);
+      ">💼</div>`,
+      iconAnchor: [17, 17],
+    })
+  }).bindPopup('<div class="pp" style="color:#f87171">💼 Work</div><div class="pa">Amsterdam Science Park</div>').addTo(map);
+
   // Javaplein dot
   L.circleMarker(JAVAPLEIN, {
     radius: 7, color: '#3d88f0', fillColor: '#3d88f0', fillOpacity: 1, weight: 2,
