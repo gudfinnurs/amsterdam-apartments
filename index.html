@@ -561,6 +561,8 @@ function addPin(l) {
   });
 
   markers.push({ m, l });
+  // Apply current filter to this newly-added pin
+  if (activeF !== 'all') updateMapPins();
 }
 
 // ── Preview card (mobile) ──────────────────────────────────────────────────
@@ -685,6 +687,32 @@ async function geocodeAll(list) {
     if (!l.address) continue;
     const c = await geocode(l.address);
     if (c) { l.lat=c[0]; l.lng=c[1]; addPin(l); n++; }
+  }
+}
+
+// ── Map pin visibility sync ───────────────────────────────────────────
+function updateMapPins() {
+  if (!markers.length) return;
+  const visible = new Set(filtered().map(l => l._i));
+  const allShown = activeF === 'all';
+
+  markers.forEach(({ m, l }) => {
+    const show = allShown || visible.has(l._i);
+    m.setOpacity(show ? 1 : 0);
+    if (m._icon) m._icon.style.pointerEvents = show ? '' : 'none';
+  });
+
+  // Fit map to visible pins when filter is active
+  if (!allShown) {
+    const pts = markers
+      .filter(({ l }) => visible.has(l._i) && l.lat && l.lng)
+      .map(({ l }) => [l.lat, l.lng]);
+    if (pts.length) {
+      map.fitBounds(pts, { padding: [60, 60], maxZoom: 15, animate: true });
+    }
+  } else {
+    // Reset to default view when clearing filter
+    map.flyTo(JAVAPLEIN, 13, { duration: 0.6 });
   }
 }
 
@@ -877,6 +905,7 @@ function setFilter(f) {
   document.querySelectorAll('.mchip').forEach(c => c.classList.toggle('on', c.dataset.f === f));
   document.querySelectorAll('.schip').forEach(c => c.classList.toggle('on', c.dataset.f === f));
   render();
+  updateMapPins();
 }
 
 document.getElementById('mf-scroll').addEventListener('click', e => {
