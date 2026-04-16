@@ -2,8 +2,8 @@ name: Update Listings Data
 
 on:
   schedule:
-    # 10:15 AM Amsterdam time (UTC+2 summer / UTC+1 winter)
-    # Runs after the 9 AM OpenClaw cron that adds new listings
+    # 8:15 AM UTC = ~10:15 AM Amsterdam time
+    # Runs after the 9 AM OpenClaw cron that finds new listings
     - cron: '15 8 * * *'
   workflow_dispatch:  # allow manual trigger
 
@@ -21,18 +21,22 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install gspread google-auth
+        run: pip install gspread google-auth requests
 
-      - name: Fetch listings, geocode, scrape photos
+      - name: Fetch listings, geocode, compute distances
         env:
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: python scripts/fetch_data.py
+
+      - name: Validate data quality
+        run: python scripts/validate_data.py
+        # Non-strict: warns but doesn't block commit on soft issues
 
       - name: Commit updated data
         run: |
           git config user.name  "Cleo Bot 🤖"
           git config user.email "apartments@openclaw.ai"
           git add data/
-          git diff --staged --quiet && echo "No changes to commit" || \
+          git diff --staged --quiet && echo "📭 No changes to commit" || \
             git commit -m "📊 Update listings $(date -u +'%Y-%m-%d %H:%M UTC')" && git push
