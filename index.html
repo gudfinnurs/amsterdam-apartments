@@ -3,388 +3,525 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#07101f">
-  <title>🏠 Amsterdam Search</title>
+  <meta name="theme-color" content="#040d1a">
+  <title>Amsterdam Apartments</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #07101f;
-      --s1: #0c1828;
-      --s2: #0f1f36;
-      --s3: #142540;
-      --b: rgba(255,255,255,0.07);
-      --b2: rgba(255,255,255,0.13);
-      --blue: #4a8ff5;
-      --green: #22d3a0;
-      --amber: #f59e0b;
-      --red: #f87171;
-      --purple: #a78bfa;
-      --text: #d4e2f7;
-      --m1: #5a7498;
-      --m2: #374f6b;
-      --r: 14px;
+      --bg:      #040d1a;
+      --sheet:   #07121f;
+      --card:    #0b1d30;
+      --card2:   #0f2438;
+      --b:       rgba(255,255,255,0.06);
+      --b2:      rgba(255,255,255,0.12);
+      --blue:    #3d88f0;
+      --blue2:   #6ba5f5;
+      --green:   #1fcc97;
+      --amber:   #f0a020;
+      --red:     #f06060;
+      --text:    #dce8fa;
+      --m1:      #52708f;
+      --m2:      #2d4a62;
+      --hdr-h:   54px;
+      --sheet-r: 20px;
+      --safe-b:  env(safe-area-inset-bottom, 0px);
     }
 
-    html { scroll-behavior: smooth; }
+    html, body { height: 100%; }
     body {
       background: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
-      min-height: 100dvh;
-      overflow-x: hidden;
+      overflow: hidden; /* prevents body scroll — sheet handles it */
     }
 
-    /* ── Header ── */
-    .hdr {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(7,16,31,0.94);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    /* ═══ HEADER ═══════════════════════════════════════════════════════════ */
+    #hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: var(--hdr-h);
+      padding-top: env(safe-area-inset-top, 0px);
+      background: rgba(4,13,26,0.92);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--b);
-      padding: env(safe-area-inset-top,0px) 0 0;
+      display: flex; align-items: center;
     }
-    .hdr-inner {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-      padding: 12px 16px;
-      max-width: 1100px; margin: 0 auto;
+    #hdr-inner {
+      width: 100%; max-width: 1200px; margin: 0 auto;
+      padding: 0 16px; display: flex; align-items: center; gap: 10px;
     }
-    .hdr-title { font-size: 16px; font-weight: 700; letter-spacing: -.3px; flex:1; min-width:120px; }
-    .hdr-title span { background: linear-gradient(90deg, var(--blue), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hdr-meta { font-size: 11px; color: var(--m1); display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-    .pill { background: var(--s2); border: 1px solid var(--b); border-radius: 20px; padding: 3px 10px; font-size: 11px; color: var(--m1); white-space:nowrap; }
-    .pill b { color: var(--text); }
-    .pill.fresh { border-color: rgba(34,211,160,.3); color: var(--green); }
-    .pill.stale { border-color: rgba(248,113,113,.3); color: var(--red); }
+    #hdr-title {
+      font-size: 16px; font-weight: 700; letter-spacing: -.4px; flex: 1;
+    }
+    #hdr-title span {
+      background: linear-gradient(90deg, var(--blue2), var(--green));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hpill {
+      padding: 4px 11px; border-radius: 20px; font-size: 11px;
+      background: var(--card); border: 1px solid var(--b2);
+      white-space: nowrap;
+    }
+    .hpill b { color: var(--text); }
+    .hpill.ok  { border-color: rgba(31,204,151,.3); color: var(--green); }
+    .hpill.err { border-color: rgba(240,96,96,.3);  color: var(--red); }
+    #hpill-upd { color: var(--m1); }
 
-    /* ── Map ── */
-    #map-wrap { position: relative; height: 42vh; min-height: 200px; max-height: 380px; }
-    #map { height: 100%; width: 100%; }
+    /* ═══ MAP ═══════════════════════════════════════════════════════════════ */
+    #map {
+      position: fixed;
+      top: var(--hdr-h); left: 0; right: 0; bottom: 0;
+      z-index: 0;
+    }
     .map-hint {
-      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-      z-index: 10; background: rgba(7,16,31,.85); backdrop-filter: blur(10px);
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      z-index: 10;
+      background: rgba(4,13,26,.85); backdrop-filter: blur(12px);
       border: 1px solid var(--b2); border-radius: 8px;
-      padding: 5px 12px; font-size: 11px; color: var(--m1); white-space: nowrap;
+      padding: 5px 13px; font-size: 11px; color: var(--m1); white-space: nowrap;
     }
 
-    /* ── Filters ── */
-    .filters {
-      display: flex; gap: 8px; padding: 11px 16px;
-      overflow-x: auto; scrollbar-width: none;
-      border-bottom: 1px solid var(--b);
-      background: var(--bg);
-      position: sticky; top: 53px; z-index: 100;
+    /* ═══ BOTTOM SHEET (mobile) ═════════════════════════════════════════════ */
+    #sheet {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+      top: var(--hdr-h);
+      display: flex; flex-direction: column;
+      background: var(--sheet);
+      border-radius: var(--sheet-r) var(--sheet-r) 0 0;
+      box-shadow: 0 -4px 40px rgba(0,0,0,.6);
+      /* default: peek state — overridden by JS */
+      transform: translateY(calc(100% - 240px));
+      transition: transform .38s cubic-bezier(.25,.46,.45,.94);
+      will-change: transform;
     }
-    .filters::-webkit-scrollbar { display:none; }
+    #sheet.dragging { transition: none; }
+
+    /* drag handle */
+    #sh-handle {
+      flex-shrink: 0; padding: 14px 16px 0; cursor: grab; touch-action: none;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    #sh-handle:active { cursor: grabbing; }
+    #sh-pip {
+      width: 36px; height: 4px; border-radius: 2px;
+      background: var(--m2);
+    }
+    #sh-row {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    #sh-count {
+      font-size: 15px; font-weight: 700; letter-spacing: -.3px;
+    }
+    #sh-map-btn {
+      display: none; /* shown when expanded on mobile */
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      background: var(--card2); border: 1px solid var(--b2); color: var(--blue2);
+      cursor: pointer;
+    }
+    #sh-map-btn.vis { display: block; }
+
+    /* filter chips */
+    #filters {
+      flex-shrink: 0; display: flex; gap: 7px;
+      padding: 10px 16px 4px; overflow-x: auto; scrollbar-width: none;
+    }
+    #filters::-webkit-scrollbar { display: none; }
     .chip {
       flex-shrink: 0; padding: 7px 15px; border-radius: 22px;
-      border: 1px solid var(--b); background: var(--s1);
-      color: var(--m1); font-size: 13px; font-weight: 500;
-      cursor: pointer; white-space: nowrap;
-      transition: all .15s; -webkit-tap-highlight-color: transparent;
-    }
-    .chip.on { border-color: var(--blue); color: var(--blue); background: rgba(74,143,245,.1); }
-
-    /* ── Sort bar ── */
-    .sort-bar {
-      display: flex; align-items: center; gap: 6px;
-      padding: 8px 16px; font-size: 12px; color: var(--m1);
-      border-bottom: 1px solid var(--b);
-    }
-    .sort-bar select {
-      background: transparent; border: none; color: var(--blue);
-      font-size: 12px; cursor: pointer; outline: none;
-      -webkit-appearance: none;
-    }
-    #rc { margin-left: auto; }
-
-    /* ── Grid ── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-      gap: 14px; padding: 14px 16px 100px;
-      max-width: 1100px; margin: 0 auto;
-    }
-
-    /* ── Card ── */
-    .card {
-      background: var(--s2); border: 1px solid var(--b);
-      border-radius: var(--r); overflow: hidden; cursor: pointer;
-      transition: border-color .2s, transform .15s;
+      border: 1px solid var(--b); background: var(--card);
+      color: var(--m1); font-size: 12.5px; font-weight: 500;
+      cursor: pointer; white-space: nowrap; transition: all .15s;
       -webkit-tap-highlight-color: transparent;
     }
-    .card:active { transform: scale(.98); }
-    .card.hl { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue), 0 8px 32px rgba(74,143,245,.15); }
-    .card.dim { opacity: .55; }
+    .chip.on {
+      border-color: var(--blue); color: var(--blue);
+      background: rgba(61,136,240,.1);
+    }
 
-    /* Card image */
+    /* sort bar */
+    #sort-bar {
+      flex-shrink: 0; display: flex; align-items: center; gap: 6px;
+      padding: 6px 16px 8px; font-size: 12px; color: var(--m1);
+      border-bottom: 1px solid var(--b);
+    }
+    #sort-bar select {
+      background: transparent; border: none; color: var(--blue2);
+      font-size: 12px; cursor: pointer; outline: none; -webkit-appearance: none;
+    }
+    #rc { margin-left: auto; font-size: 11px; }
+
+    /* card grid */
+    #grid-wrap {
+      flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+      padding: 10px 12px calc(20px + var(--safe-b));
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    /* ═══ CARDS ═════════════════════════════════════════════════════════════ */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--b);
+      border-radius: 16px; overflow: hidden;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, transform .15s;
+      -webkit-tap-highlight-color: transparent;
+      animation: fadeUp .3s ease both;
+    }
+    .card:active { transform: scale(.975); }
+    .card.hl {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 1px rgba(61,136,240,.4), 0 8px 40px rgba(61,136,240,.15);
+    }
+    .card.old { opacity: .5; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* card image */
     .cimg {
-      position: relative; height: 168px; overflow: hidden;
+      position: relative; height: 175px; overflow: hidden;
+      background: var(--card2);
     }
-    .cimg img { width:100%; height:100%; object-fit:cover; display:block; }
-    .cimg .ph {
-      width:100%; height:100%; display:flex; align-items:center; justify-content:center;
-      font-size: 48px;
+    .cimg img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .4s ease;
     }
-    .cimg-grad { position:absolute; inset:0; background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,.72)); }
+    .card:hover .cimg img { transform: scale(1.04); }
+    .cph {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px; user-select: none;
+    }
+    .cgrad { /* full-height overlay for text legibility */
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.08) 0%, rgba(0,0,0,.55) 100%);
+    }
 
-    /* Overlays */
-    .price-lbl {
-      position:absolute; bottom:10px; left:12px;
-      font-size: 19px; font-weight: 800; color: #fff;
-      text-shadow: 0 1px 6px rgba(0,0,0,.6);
-      font-variant-numeric: tabular-nums; line-height:1;
+    /* price */
+    .cprice {
+      position: absolute; bottom: 10px; left: 12px;
+      font-size: 20px; font-weight: 800; color: #fff;
+      text-shadow: 0 1px 8px rgba(0,0,0,.6);
+      font-variant-numeric: tabular-nums; line-height: 1;
     }
-    .price-lbl sub { font-size: 11px; font-weight: 400; opacity: .75; vertical-align: baseline; }
+    .cprice sub { font-size: 11px; font-weight: 400; opacity: .7; vertical-align: baseline; }
 
-    .badge {
+    /* badges */
+    .cbadge {
       position: absolute; top: 10px; right: 10px;
-      font-size: 11px; font-weight: 700;
-      padding: 3px 9px; border-radius: 7px;
+      font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 7px;
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     }
-    .badge.may  { background: rgba(34,211,160,.18); border: 1px solid rgba(34,211,160,.4); color: var(--green); }
-    .badge.new  { position:absolute; top:10px; left:10px; background: rgba(74,143,245,.2); border: 1px solid rgba(74,143,245,.4); color: var(--blue); }
-    .badge.old  { background: rgba(90,116,152,.15); border: 1px solid rgba(90,116,152,.3); color: var(--m1); }
+    .cbadge.may  { background: rgba(31,204,151,.2);  border: 1px solid rgba(31,204,151,.4); color: var(--green); }
+    .cbadge.new  { position: absolute; top:10px; left:12px; background: rgba(61,136,240,.2); border: 1px solid rgba(61,136,240,.4); color: var(--blue2); }
+    .cbadge.aged { background: rgba(82,112,143,.15); border: 1px solid rgba(82,112,143,.3); color: var(--m1); }
 
-    /* Card body */
+    /* body */
     .cbody { padding: 13px 14px 14px; }
-    .caddr { font-size: 14px; font-weight: 650; margin-bottom: 7px; line-height: 1.3; }
+    .caddr {
+      font-size: 14px; font-weight: 650; margin-bottom: 7px;
+      line-height: 1.3; color: var(--text);
+    }
+
     .ctags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 9px; }
     .tag {
-      background: var(--s3); border: 1px solid var(--b);
+      background: var(--card2); border: 1px solid var(--b);
       padding: 3px 9px; border-radius: 6px; font-size: 11px; color: var(--m1);
     }
-    .tag.dist { color: var(--purple); border-color: rgba(167,139,250,.2); background: rgba(167,139,250,.05); }
-    .tag.close { color: var(--green); border-color: rgba(34,211,160,.2); background: rgba(34,211,160,.05); }
+    .tag.near { color: var(--green); border-color: rgba(31,204,151,.2); background: rgba(31,204,151,.05); }
+    .tag.mid  { color: var(--blue2); border-color: rgba(61,136,240,.2);  background: rgba(61,136,240,.05); }
+
     .csum {
       font-size: 12.5px; color: var(--m1); line-height: 1.55; margin-bottom: 11px;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
-    .cfoot { display: flex; align-items: center; justify-content: space-between; gap:8px; }
+    .cfoot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .cdate { font-size: 11px; color: var(--m2); }
-    .vbtn {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
-      text-decoration: none; color: #fff;
-      background: linear-gradient(135deg, var(--blue), #7ab5ff);
-      transition: opacity .15s;
-    }
-    .vbtn:active { opacity: .8; }
 
-    /* ── Empty / Loading ── */
-    .state { text-align:center; padding:64px 20px; color: var(--m1); grid-column: 1/-1; }
-    .state-ico { font-size: 48px; margin-bottom: 12px; }
+    .vbtn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 8px 18px; border-radius: 10px; font-size: 13px; font-weight: 600;
+      text-decoration: none; color: #fff;
+      background: linear-gradient(135deg, var(--blue), #5ba8ff);
+      box-shadow: 0 2px 12px rgba(61,136,240,.3);
+      transition: opacity .15s, box-shadow .15s;
+    }
+    .vbtn:active { opacity: .85; }
+
+    /* ═══ STATES ════════════════════════════════════════════════════════════ */
+    .state { text-align: center; padding: 60px 20px; color: var(--m1); grid-column: 1/-1; }
     .spin {
-      width: 36px; height: 36px; border: 3px solid var(--b2); border-top-color: var(--blue);
-      border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 14px;
+      width: 34px; height: 34px; border: 3px solid var(--b2); border-top-color: var(--blue);
+      border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 12px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── FAB ── */
-    .fab {
-      position: fixed; bottom: calc(22px + env(safe-area-inset-bottom,0px)); right: 16px; z-index: 300;
-      width: 46px; height: 46px; background: var(--blue); border-radius: 50%;
+    /* ═══ FAB ═══════════════════════════════════════════════════════════════ */
+    #fab {
+      position: fixed; right: 16px; z-index: 150;
+      bottom: calc(16px + var(--safe-b));
+      width: 44px; height: 44px; background: var(--blue); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(74,143,245,.45);
+      box-shadow: 0 4px 20px rgba(61,136,240,.5);
       cursor: pointer; opacity: 0; pointer-events: none;
-      transition: opacity .25s; font-size: 18px;
+      transition: opacity .25s; font-size: 17px;
     }
-    .fab.show { opacity: 1; pointer-events: all; }
+    #fab.vis { opacity: 1; pointer-events: all; }
 
-    /* ── Map custom ── */
+    /* ═══ VALIDATION BANNER ═════════════════════════════════════════════════ */
+    #vbanner:not(:empty) {
+      position: fixed; top: var(--hdr-h); left: 0; right: 0; z-index: 150;
+      background: rgba(240,96,96,.1); border-bottom: 1px solid rgba(240,96,96,.25);
+      color: var(--red); font-size: 11.5px; padding: 7px 16px; text-align: center;
+    }
+
+    /* ═══ MAP STYLES ════════════════════════════════════════════════════════ */
     .mpin {
-      color: #fff; padding: 4px 9px; border-radius: 14px;
-      font-size: 11px; font-weight: 700; white-space: nowrap;
-      box-shadow: 0 2px 10px rgba(0,0,0,.45);
-      border: 1.5px solid rgba(255,255,255,.2);
+      color: #fff; padding: 5px 10px; border-radius: 14px;
+      font-size: 11.5px; font-weight: 700; white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(0,0,0,.5);
+      border: 1.5px solid rgba(255,255,255,.18);
+      cursor: pointer;
+    }
+    .mpin.sel {
+      transform: scale(1.15);
+      box-shadow: 0 4px 20px rgba(61,136,240,.5), 0 0 0 3px rgba(61,136,240,.3);
     }
     .leaflet-popup-content-wrapper {
-      background: var(--s2) !important; border: 1px solid var(--b2) !important;
-      border-radius: 12px !important; box-shadow: 0 8px 32px rgba(0,0,0,.6) !important;
+      background: var(--card) !important; border: 1px solid var(--b2) !important;
+      border-radius: 14px !important; box-shadow: 0 8px 32px rgba(0,0,0,.7) !important;
       color: var(--text) !important;
     }
-    .leaflet-popup-tip { background: var(--s2) !important; }
-    .leaflet-popup-content { margin: 10px 14px !important; }
-    .pop-p { font-weight: 700; font-size: 15px; color: var(--blue); }
-    .pop-a { font-size: 12px; color: var(--m1); margin-top: 2px; }
-    .pop-d { font-size: 11px; color: var(--purple); margin-top: 2px; }
+    .leaflet-popup-tip { background: var(--card) !important; }
+    .leaflet-popup-content { margin: 12px 16px !important; min-width: 160px; }
+    .pp { font-weight: 700; font-size: 16px; color: var(--blue2); }
+    .pa { font-size: 12px; color: var(--m1); margin-top: 3px; line-height: 1.4; }
+    .pd { font-size: 11px; color: var(--green); margin-top: 3px; }
 
-    /* Validation banner */
-    .val-warn {
-      background: rgba(248,113,113,.08); border-bottom: 1px solid rgba(248,113,113,.2);
-      color: var(--red); font-size: 12px; padding: 8px 16px; text-align: center;
+    /* ═══ DESKTOP OVERRIDES (≥ 768px) ══════════════════════════════════════ */
+    @media (min-width: 768px) {
+      body { overflow: auto; }
+      #map {
+        position: relative;
+        top: auto; left: auto; right: auto; bottom: auto;
+        height: 46vh; min-height: 260px; max-height: 420px;
+        margin-top: var(--hdr-h);
+      }
+      #sheet {
+        position: static;
+        transform: none !important;
+        border-radius: 0;
+        box-shadow: none;
+        background: var(--bg);
+        flex: none;
+      }
+      #sh-handle { display: none; }
+      #sh-map-btn { display: none !important; }
+      #grid-wrap {
+        overflow: visible;
+        padding: 14px 16px 80px;
+      }
+      #grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 16px;
+        max-width: 1200px; margin: 0 auto;
+      }
+      #filters { max-width: 1200px; margin: 0 auto; padding: 12px 16px 4px; }
+      #sort-bar { max-width: 1200px; margin: 0 auto; }
+      #fab { bottom: 24px; }
+      .card:hover {
+        border-color: rgba(61,136,240,.35);
+        box-shadow: 0 8px 32px rgba(0,0,0,.3);
+        transform: translateY(-2px);
+      }
+    }
+
+    /* ═══ VERY SMALL PHONES ═════════════════════════════════════════════════ */
+    @media (max-width: 380px) {
+      .cprice { font-size: 17px; }
     }
   </style>
 </head>
 <body>
 
-<header class="hdr">
-  <div class="hdr-inner">
-    <div class="hdr-title">🏠 <span>Amsterdam Search</span></div>
-    <div class="hdr-meta">
-      <span class="pill"><b id="hdr-count">—</b> listings</span>
-      <span class="pill" id="hdr-updated">Loading…</span>
-    </div>
+<!-- Header -->
+<header id="hdr">
+  <div id="hdr-inner">
+    <div id="hdr-title">🏠 <span>Amsterdam</span></div>
+    <span class="hpill" id="hpill-count"><b id="hdr-n">—</b> listings</span>
+    <span class="hpill" id="hpill-upd">Loading…</span>
   </div>
 </header>
 
-<div id="val-banner"></div>
+<div id="vbanner"></div>
 
-<div id="map-wrap">
-  <div id="map"></div>
+<!-- Map -->
+<div id="map">
   <div class="map-hint" id="map-hint">Loading pins…</div>
 </div>
 
-<div class="filters" id="filters">
-  <div class="chip on" data-f="all">All</div>
-  <div class="chip" data-f="may">⭐ May 1st</div>
-  <div class="chip" data-f="u2k">Under €2,000</div>
-  <div class="chip" data-f="2bed">2+ Bedrooms</div>
-  <div class="chip" data-f="big">60 m²+</div>
-  <div class="chip" data-f="close">Within 2 km</div>
-  <div class="chip" data-f="new7">New (7d)</div>
-</div>
+<!-- Bottom sheet -->
+<div id="sheet">
+  <!-- Handle -->
+  <div id="sh-handle" id="sh-drag">
+    <div id="sh-pip"></div>
+    <div id="sh-row">
+      <span id="sh-count">— apartments</span>
+      <button id="sh-map-btn" onclick="collapseSheet()">← Map</button>
+    </div>
+  </div>
 
-<div class="sort-bar">
-  <span>Sort</span>
-  <select id="sorter">
-    <option value="new">Newest first</option>
-    <option value="dist">Closest to Javaplein</option>
-    <option value="p↑">Price ↑</option>
-    <option value="p↓">Price ↓</option>
-    <option value="sz↓">Largest first</option>
-  </select>
-  <span id="rc"></span>
-</div>
+  <!-- Filters -->
+  <div id="filters">
+    <div class="chip on" data-f="all">All</div>
+    <div class="chip" data-f="may">⭐ May 1st</div>
+    <div class="chip" data-f="u2k">Under €2,000</div>
+    <div class="chip" data-f="2bed">2+ Bedrooms</div>
+    <div class="chip" data-f="big">60 m²+</div>
+    <div class="chip" data-f="close">Within 2 km</div>
+    <div class="chip" data-f="new7">New (7 days)</div>
+  </div>
 
-<div class="grid" id="grid">
-  <div class="state">
-    <div class="spin"></div>
-    <div>Fetching listings…</div>
+  <!-- Sort -->
+  <div id="sort-bar">
+    <span>Sort by</span>
+    <select id="sorter">
+      <option value="new">Newest first</option>
+      <option value="dist">Closest to Javaplein</option>
+      <option value="p↑">Price: low → high</option>
+      <option value="p↓">Price: high → low</option>
+      <option value="sz↓">Largest first</option>
+    </select>
+    <span id="rc"></span>
+  </div>
+
+  <!-- Cards -->
+  <div id="grid-wrap">
+    <div id="grid">
+      <div class="state"><div class="spin"></div><div>Loading listings…</div></div>
+    </div>
   </div>
 </div>
 
-<div class="fab" id="fab">↑</div>
+<!-- FAB -->
+<div id="fab">↑</div>
 
 <script>
-// ── Config ──────────────────────────────────────────────────────────────────
-const JAVAPLEIN  = [52.3631, 4.9450];
-const SEARCH_KM  = 3.0;
-const DATA_URL   = 'data/listings.json';
-const META_URL   = 'data/meta.json';
-const GEO_CACHE  = 'ams_geo_v3';
-const GEO_TTL    = 7 * 24 * 3600 * 1000;
-const NOMINATIM  = 'https://nominatim.openstreetmap.org/search';
+// ── Config ────────────────────────────────────────────────────────────────────
+const JAVAPLEIN = [52.3631, 4.9450];
+const DATA_URL  = 'data/listings.json';
+const META_URL  = 'data/meta.json';
+const GEO_KEY   = 'ams_geo_v4';
+const NOM_URL   = 'https://nominatim.openstreetmap.org/search';
 
-// Price-range pin colours
-function pinColor(price) {
-  const p = parseInt(price) || 0;
-  if (p < 2000) return ['#22d3a0', '#16a97e'];
-  if (p < 2500) return ['#4a8ff5', '#2563eb'];
-  return ['#f59e0b', '#d97706'];
-}
+// Neighbourhood emoji + gradient for gradient placeholders
+const CARD_STYLES = [
+  { grad: 'linear-gradient(145deg,#0a1e38,#0d2a50)', em: '🏙️' },
+  { grad: 'linear-gradient(145deg,#0e1f15,#102a1c)', em: '🌿' },
+  { grad: 'linear-gradient(145deg,#1e1008,#2a1a0c)', em: '🧱' },
+  { grad: 'linear-gradient(145deg,#14082c,#1c0e3a)', em: '🌆' },
+  { grad: 'linear-gradient(145deg,#081820,#0c2030)', em: '🌊' },
+  { grad: 'linear-gradient(145deg,#1a1006,#221808)', em: '☀️' },
+  { grad: 'linear-gradient(145deg,#081a1c,#0c2428)', em: '🏗️' },
+  { grad: 'linear-gradient(145deg,#18080e,#200e16)', em: '🌸' },
+];
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────────
 const price = l => parseInt((l.price||'').toString().replace(/\D/g,'')) || 0;
 const size  = l => parseInt((l.size||'').toString().replace(/\D/g,''))  || 0;
 const rooms = l => parseInt((l.rooms||'').toString().replace(/\D/g,'')) || 0;
+const fmtP  = p => p > 0 ? `€${p.toLocaleString('nl-NL')}` : '—';
 
-function fmtPrice(p) {
-  return p > 0 ? `€${p.toLocaleString('nl-NL')}` : '—';
+function hav(lat1,lng1,lat2,lng2) {
+  const R=6371, r=x=>x*Math.PI/180;
+  const a=Math.sin(r(lat2-lat1)/2)**2+Math.cos(r(lat1))*Math.cos(r(lat2))*Math.sin(r(lng2-lng1)/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+const dist = l => l.distance_km ?? (l.lat && l.lng ? hav(JAVAPLEIN[0],JAVAPLEIN[1],l.lat,l.lng) : null);
+
+function daysAgo(d) {
+  if (!d) return '';
+  const days = Math.floor((Date.now()-new Date(d))/86400000);
+  return days===0?'Today':days===1?'Yesterday':`${days}d ago`;
+}
+const isNew7 = l => l.date_found && (Date.now()-new Date(l.date_found)) < 7*86400000;
+const isOld  = l => l.date_found && (Date.now()-new Date(l.date_found)) > 30*86400000;
+const isMay  = l => /^yes$/i.test((l.available||'').trim());
+
+function pinColor(p) {
+  if (p < 2000) return ['#1fcc97','#12a87a'];
+  if (p < 2500) return ['#3d88f0','#2563c8'];
+  return ['#f0a020','#c07c10'];
 }
 
-function haversine(lat1, lng1, lat2, lng2) {
-  const R = 6371, toRad = x => x * Math.PI / 180;
-  const dLat = toRad(lat2 - lat1), dLng = toRad(lng2 - lng1);
-  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-}
+// ── Geo cache ─────────────────────────────────────────────────────────────────
+const gcGet = () => { try { return JSON.parse(localStorage.getItem(GEO_KEY)||'{}'); } catch { return {}; } };
+const gcSet = c => { try { localStorage.setItem(GEO_KEY, JSON.stringify(c)); } catch {} };
 
-function distFromJavaplein(l) {
-  // Use pre-computed distance if available
-  if (l.distance_km != null) return l.distance_km;
-  if (l.lat && l.lng) return haversine(JAVAPLEIN[0], JAVAPLEIN[1], l.lat, l.lng);
-  return null;
-}
-
-function daysSince(d) {
-  if (!d) return null;
-  const diff = Date.now() - new Date(d);
-  const days = Math.floor(diff / 86400000);
-  if (days === 0) return 'Today';
-  if (days === 1) return 'Yesterday';
-  return `${days}d ago`;
-}
-
-function isNew7(l) {
-  if (!l.date_found) return false;
-  return (Date.now() - new Date(l.date_found)) < 7 * 86400000;
-}
-
-function isOld(l) {
-  if (!l.date_found) return false;
-  return (Date.now() - new Date(l.date_found)) > 30 * 86400000;
-}
-
-function isMay(l) {
-  const a = (l.available || '').toString();
-  return /^yes$/i.test(a.trim());
-}
-
-// ── Geo cache ────────────────────────────────────────────────────────────────
-function gcGet() {
-  try { return JSON.parse(localStorage.getItem(GEO_CACHE) || '{}'); } catch { return {}; }
-}
-function gcSet(c) { try { localStorage.setItem(GEO_CACHE, JSON.stringify(c)); } catch {} }
-
-// ── Map ──────────────────────────────────────────────────────────────────────
-let map, layerGroup, markers = [];
+// ── Map ───────────────────────────────────────────────────────────────────────
+let map, pinLayer, markers = [];
 
 function initMap() {
-  map = L.map('map', { center: JAVAPLEIN, zoom: 13, zoomControl: false });
+  map = L.map('map', { center: JAVAPLEIN, zoom: 13, zoomControl: false, attributionControl: false });
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '©OpenStreetMap ©CARTO', subdomains: 'abcd', maxZoom: 20
+    subdomains: 'abcd', maxZoom: 20
   }).addTo(map);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+  L.control.attribution({ position: 'bottomleft', prefix: '© OpenStreetMap © CARTO' }).addTo(map);
 
-  // 3km search radius circle
+  // 3km radius
   L.circle(JAVAPLEIN, {
-    radius: SEARCH_KM * 1000,
-    color: '#4a8ff5', fillColor: '#4a8ff5',
-    fillOpacity: 0.04, weight: 1.5, dashArray: '6 4',
-    opacity: 0.5,
+    radius: 3000, color: '#3d88f0', fillColor: '#3d88f0',
+    fillOpacity: 0.04, weight: 1.5, dashArray: '6 4', opacity: 0.45
   }).addTo(map);
 
-  // Javaplein marker
+  // Javaplein dot
   L.circleMarker(JAVAPLEIN, {
-    radius: 6, color: '#4a8ff5', fillColor: '#4a8ff5', fillOpacity: 1, weight: 2,
-  }).bindPopup('<div class="pop-p">📍 Javaplein</div><div class="pop-a">Search centre (3 km radius)</div>').addTo(map);
+    radius: 7, color: '#3d88f0', fillColor: '#3d88f0', fillOpacity: 1, weight: 2,
+  }).bindPopup('<div class="pp">📍 Javaplein</div><div class="pa">Search centre · 3 km radius shown</div>').addTo(map);
 
-  layerGroup = L.layerGroup().addTo(map);
+  pinLayer = L.layerGroup().addTo(map);
 }
 
-function addPin(listing) {
-  if (!listing.lat || !listing.lng) return;
-  const p = price(listing);
-  const [c1, c2] = pinColor(p);
+let selPin = null;
+function addPin(l) {
+  if (!l.lat || !l.lng) return;
+  const p = price(l);
+  const [c1,c2] = pinColor(p);
   const icon = L.divIcon({
     className: '',
-    html: `<div class="mpin" style="background:linear-gradient(135deg,${c1},${c2})">${fmtPrice(p)}</div>`,
-    iconAnchor: [28, 14],
+    html: `<div class="mpin" style="background:linear-gradient(135deg,${c1},${c2})">${fmtP(p)}</div>`,
+    iconAnchor: [30, 14],
   });
-  const dist = distFromJavaplein(listing);
-  const distStr = dist != null ? `📍 ${dist.toFixed(1)} km` : '';
-  const m = L.marker([listing.lat, listing.lng], { icon })
+  const d = dist(l);
+  const m = L.marker([l.lat, l.lng], { icon })
     .bindPopup(`
-      <div class="pop-p">${fmtPrice(p)}/mo</div>
-      <div class="pop-a">${listing.address || ''}</div>
-      ${distStr ? `<div class="pop-d">${distStr} from Javaplein</div>` : ''}
-    `, { maxWidth: 230 }).addTo(layerGroup);
-  m.on('click', () => scrollToCard(listing._i));
-  markers.push({ m, listing });
+      <div class="pp">${fmtP(p)}/mo</div>
+      <div class="pa">${l.address||''}</div>
+      ${d != null ? `<div class="pd">📍 ${d.toFixed(1)} km from Javaplein</div>` : ''}
+    `, { maxWidth: 240, autoPan: false })
+    .addTo(pinLayer);
+
+  m.on('click', () => {
+    // Highlight pin
+    if (selPin) selPin._icon?.querySelector('.mpin')?.classList.remove('sel');
+    m._icon?.querySelector('.mpin')?.classList.add('sel');
+    selPin = m;
+    // Snap sheet open + scroll to card
+    expandSheet();
+    setTimeout(() => scrollToCard(l._i), 380);
+  });
+
+  markers.push({ m, l });
 }
 
 function scrollToCard(i) {
@@ -392,136 +529,122 @@ function scrollToCard(i) {
   if (!el) return;
   el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   el.classList.add('hl');
-  setTimeout(() => el.classList.remove('hl'), 2200);
+  setTimeout(() => el.classList.remove('hl'), 2400);
 }
 
 window._fly = function(i) {
-  const mk = markers.find(m => m.listing._i === i);
-  if (mk && mk.listing.lat) {
-    map.flyTo([mk.listing.lat, mk.listing.lng], 16, { duration: 0.7 });
-    mk.m.openPopup();
-  }
+  const mk = markers.find(x => x.l._i === i);
+  if (!mk || !mk.l.lat) return;
+  map.flyTo([mk.l.lat, mk.l.lng], 16, { duration: 0.7 });
+  mk.m.openPopup();
+  if (selPin) selPin._icon?.querySelector('.mpin')?.classList.remove('sel');
+  mk.m._icon?.querySelector('.mpin')?.classList.add('sel');
+  selPin = mk.m;
+  collapseSheet();
 };
 
-// ── Geocoding queue ──────────────────────────────────────────────────────────
-let geoQ = [], geoRunning = false;
-function geocode(address) {
-  const cache = gcGet();
-  const key = address.toLowerCase().trim();
+// ── Geocoding ─────────────────────────────────────────────────────────────────
+let gQ = [], gRunning = false;
+function geocode(addr) {
+  const cache = gcGet(), key = addr.toLowerCase().trim();
   if (cache[key]) return Promise.resolve(cache[key]);
-  return new Promise(r => { geoQ.push({ address, key, r }); runGeoQ(); });
+  return new Promise(r => { gQ.push({addr,key,r}); runGQ(); });
 }
-async function runGeoQ() {
-  if (geoRunning || !geoQ.length) return;
-  geoRunning = true;
-  while (geoQ.length) {
-    const { address, key, r } = geoQ.shift();
-    // Strip neighborhood suffixes like "(Oosterparkbuurt/...)"
-    const clean = address.replace(/\s*\([^)]+\)/g, '').trim();
+async function runGQ() {
+  if (gRunning || !gQ.length) return;
+  gRunning = true;
+  while (gQ.length) {
+    const {addr,key,r} = gQ.shift();
+    const clean = addr.replace(/\s*\([^)]+\)/g,'').trim();
     try {
       const q = encodeURIComponent(`${clean}, Amsterdam, Netherlands`);
-      const res = await fetch(`${NOMINATIM}?q=${q}&format=json&limit=1&countrycodes=nl`, {
-        headers: { 'User-Agent': 'ApartmentFinder/1.0 (gudfinnurs)' }
-      });
+      const res = await fetch(`${NOM_URL}?q=${q}&format=json&limit=1&countrycodes=nl`,
+        { headers: { 'User-Agent': 'ApartmentFinder/1.0' } });
       const d = await res.json();
       if (d[0]) {
         const c = [parseFloat(d[0].lat), parseFloat(d[0].lon)];
-        const cache = gcGet(); cache[key] = c; gcSet(cache);
-        r(c);
+        const cache = gcGet(); cache[key]=c; gcSet(cache); r(c);
       } else r(null);
     } catch { r(null); }
-    if (geoQ.length) await new Promise(x => setTimeout(x, 1100));
+    if (gQ.length) await new Promise(x => setTimeout(x,1100));
   }
-  geoRunning = false;
+  gRunning = false;
 }
-
 async function geocodeAll(listings) {
-  let pinned = 0;
-  const total = listings.filter(l => !l.lat).length;
+  let n = 0;
   for (const l of listings) {
-    if (l.lat && l.lng) { addPin(l); pinned++; continue; }
+    if (l.lat && l.lng) { addPin(l); n++; continue; }
     if (!l.address) continue;
     const c = await geocode(l.address);
-    if (c) { l.lat = c[0]; l.lng = c[1]; addPin(l); pinned++; }
+    if (c) { l.lat=c[0]; l.lng=c[1]; addPin(l); n++; }
   }
-  document.getElementById('map-hint').textContent = `${pinned} pins · 📍 3km radius from Javaplein`;
+  document.getElementById('map-hint').textContent = `${n} pins · 3 km radius from Javaplein`;
 }
 
-// ── Filter & sort ─────────────────────────────────────────────────────────────
-let all = [], activeFilter = 'all';
+// ── Filter / sort ─────────────────────────────────────────────────────────────
+let ALL = [], activeF = 'all';
 
 function filtered() {
-  let r = [...all];
-  switch (activeFilter) {
+  let r = [...ALL];
+  switch (activeF) {
     case 'may':   r = r.filter(isMay); break;
-    case 'u2k':   r = r.filter(l => price(l) > 0 && price(l) < 2000); break;
-    case '2bed':  r = r.filter(l => rooms(l) >= 2); break;
-    case 'big':   r = r.filter(l => size(l) >= 60); break;
-    case 'close': r = r.filter(l => { const d = distFromJavaplein(l); return d != null && d <= 2; }); break;
+    case 'u2k':   r = r.filter(l => price(l)>0 && price(l)<2000); break;
+    case '2bed':  r = r.filter(l => rooms(l)>=2); break;
+    case 'big':   r = r.filter(l => size(l)>=60); break;
+    case 'close': r = r.filter(l => { const d=dist(l); return d!=null && d<=2; }); break;
     case 'new7':  r = r.filter(isNew7); break;
   }
   const s = document.getElementById('sorter').value;
   switch (s) {
-    case 'dist': r.sort((a,b) => (distFromJavaplein(a)??99) - (distFromJavaplein(b)??99)); break;
-    case 'p↑':   r.sort((a,b) => price(a) - price(b)); break;
-    case 'p↓':   r.sort((a,b) => price(b) - price(a)); break;
-    case 'sz↓':  r.sort((a,b) => size(b) - size(a)); break;
-    default: r.sort((a,b) => new Date(b.date_found||0) - new Date(a.date_found||0));
+    case 'dist': r.sort((a,b) => (dist(a)??99)-(dist(b)??99)); break;
+    case 'p↑':   r.sort((a,b) => price(a)-price(b)); break;
+    case 'p↓':   r.sort((a,b) => price(b)-price(a)); break;
+    case 'sz↓':  r.sort((a,b) => size(b)-size(a)); break;
+    default:     r.sort((a,b) => new Date(b.date_found||0)-new Date(a.date_found||0));
   }
   return r;
 }
 
-// ── Render card ───────────────────────────────────────────────────────────────
-function cardHTML(l) {
-  const p = price(l);
-  const dist = distFromJavaplein(l);
-  const distStr = dist != null ? dist.toFixed(1) : '?';
-  const distClass = dist != null && dist <= 1.5 ? 'close' : 'dist';
-  const may = isMay(l);
-  const newListing = isNew7(l);
-  const old = isOld(l);
+// ── Card ──────────────────────────────────────────────────────────────────────
+function cardHTML(l, idx) {
+  const p = price(l), d = dist(l);
+  const st = CARD_STYLES[l._i % CARD_STYLES.length];
+  const may = isMay(l), newL = isNew7(l), old = isOld(l);
+  const dStr = d != null ? d.toFixed(1) : null;
+  const dClass = d!=null ? (d<=1.5?'near':d<=3?'mid':'') : '';
 
-  // Gradient based on index
-  const grads = [
-    ['#1a3a6b','#0c2040'], ['#1a4a3a','#0c2820'],
-    ['#3a2a1a','#201508'], ['#2a1a4a','#150828'],
-    ['#1a3a4a','#0c1f28'], ['#3a1a2a','#200810'],
-  ];
-  const [g1, g2] = grads[l._i % grads.length];
-
-  let imgHTML;
-  if (l.photo_url) {
-    imgHTML = `<img src="${l.photo_url}" alt="" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-    <div class="ph" style="background:linear-gradient(135deg,${g1},${g2});display:none">🏢</div>`;
-  } else {
-    imgHTML = `<div class="ph" style="background:linear-gradient(135deg,${g1},${g2})">🏢</div>`;
-  }
+  const imgPart = l.photo_url
+    ? `<img src="${l.photo_url}" alt="" loading="lazy"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+       ><div class="cph" style="background:${st.grad};display:none">${st.em}</div>`
+    : `<div class="cph" style="background:${st.grad}">${st.em}</div>`;
 
   const tags = [
-    l.size  ? `📐 ${l.size} m²` : '',
-    l.rooms ? `🛏 ${l.rooms} rooms` : '',
-    dist != null ? `📍 ${distStr} km` : '',
-  ].filter(Boolean);
+    l.size  ? `<span class="tag">📐 ${l.size} m²</span>` : '',
+    l.rooms ? `<span class="tag">🛏 ${l.rooms}</span>` : '',
+    dStr    ? `<span class="tag ${dClass}">📍 ${dStr} km</span>` : '',
+  ].filter(Boolean).join('');
 
   return `
-    <div class="card${old ? ' dim' : ''}" data-i="${l._i}" onclick="window._fly(${l._i})">
+    <div class="card${old&&!newL?' old':''}" data-i="${l._i}"
+         style="animation-delay:${Math.min(idx*35,300)}ms"
+         onclick="window._fly(${l._i})">
       <div class="cimg">
-        ${imgHTML}
-        <div class="cimg-grad"></div>
-        <div class="price-lbl">${fmtPrice(p)}<sub>/mo</sub></div>
-        ${may ? '<div class="badge may">⭐ May 1st</div>' : ''}
-        ${newListing ? '<div class="badge new">NEW</div>' : ''}
-        ${old && !newListing && !may ? '<div class="badge old">30d+</div>' : ''}
+        ${imgPart}
+        <div class="cgrad"></div>
+        <div class="cprice">${fmtP(p)}<sub>/mo</sub></div>
+        ${may  ? '<div class="cbadge may">⭐ May 1st</div>' : ''}
+        ${newL ? '<div class="cbadge new">NEW</div>' : ''}
+        ${old&&!newL ? '<div class="cbadge aged">30d+</div>' : ''}
       </div>
       <div class="cbody">
-        <div class="caddr">${l.address || 'Amsterdam'}</div>
-        <div class="ctags">
-          ${tags.map((t,i) => `<span class="tag${i===2?' '+distClass:''}">${t}</span>`).join('')}
-        </div>
-        ${l.summary ? `<div class="csum">${l.summary}</div>` : ''}
+        <div class="caddr">${l.address||'Amsterdam'}</div>
+        <div class="ctags">${tags}</div>
+        ${l.summary?`<div class="csum">${l.summary}</div>`:''}
         <div class="cfoot">
-          <div class="cdate">${daysSince(l.date_found) || ''}</div>
-          ${l.url ? `<a class="vbtn" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">View →</a>` : ''}
+          <div class="cdate">${daysAgo(l.date_found)}</div>
+          ${l.url?`<a class="vbtn" href="${l.url}" target="_blank" rel="noopener"
+            onclick="event.stopPropagation()">View →</a>`:''}
         </div>
       </div>
     </div>`;
@@ -529,91 +652,180 @@ function cardHTML(l) {
 
 function render() {
   const f = filtered();
-  document.getElementById('rc').textContent = activeFilter !== 'all' ? `${f.length} result${f.length!==1?'s':''}` : '';
+  document.getElementById('rc').textContent = activeF!=='all' ? `${f.length} result${f.length!==1?'s':''}` : '';
+  document.getElementById('sh-count').textContent =
+    `${f.length} apartment${f.length!==1?'s':''}${activeF!=='all'?' (filtered)':''}`;
   const grid = document.getElementById('grid');
   if (!f.length) {
-    grid.innerHTML = `<div class="state"><div class="state-ico">🔍</div><div>No listings match this filter</div></div>`;
+    grid.innerHTML = '<div class="state"><div>🔍</div><div style="margin-top:12px">No listings match this filter</div></div>';
     return;
   }
-  grid.innerHTML = f.map(cardHTML).join('');
+  grid.innerHTML = f.map((l, idx) => cardHTML(l, idx)).join('');
 }
 
+// ── Bottom sheet drag ─────────────────────────────────────────────────────────
+const sheet = document.getElementById('sheet');
+const handle = document.getElementById('sh-handle');
+const mapBtn = document.getElementById('sh-map-btn');
+
+let isMobile = () => window.innerWidth < 768;
+let sheetExpanded = false;
+
+function getSheetH() {
+  return window.innerHeight - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')) || 54;
+}
+const PEEK = 240; // px visible when collapsed
+
+function setSheetY(y, animate=true) {
+  if (!isMobile()) return;
+  if (!animate) sheet.classList.add('dragging');
+  else sheet.classList.remove('dragging');
+  const max = getSheetH() - PEEK;
+  const clamped = Math.max(0, Math.min(max, y));
+  sheet.style.transform = `translateY(${clamped}px)`;
+}
+
+function expandSheet() {
+  if (!isMobile()) return;
+  sheetExpanded = true;
+  sheet.classList.remove('dragging');
+  sheet.style.transform = 'translateY(0)';
+  mapBtn.classList.add('vis');
+}
+
+function collapseSheet() {
+  if (!isMobile()) return;
+  sheetExpanded = false;
+  sheet.classList.remove('dragging');
+  const max = getSheetH() - PEEK;
+  sheet.style.transform = `translateY(${max}px)`;
+  mapBtn.classList.remove('vis');
+}
+
+window.collapseSheet = collapseSheet;
+
+// Touch drag on handle
+let touchStartY = 0, touchStartTranslate = 0, dragging = false;
+
+function getCurrentTranslate() {
+  const t = new WebKitCSSMatrix(getComputedStyle(sheet).transform);
+  return t.m42;
+}
+
+handle.addEventListener('touchstart', e => {
+  if (!isMobile()) return;
+  touchStartY = e.touches[0].clientY;
+  touchStartTranslate = getCurrentTranslate();
+  dragging = true;
+  sheet.classList.add('dragging');
+}, { passive: true });
+
+document.addEventListener('touchmove', e => {
+  if (!dragging || !isMobile()) return;
+  const dy = e.touches[0].clientY - touchStartY;
+  const newY = touchStartTranslate + dy;
+  const max = getSheetH() - PEEK;
+  sheet.style.transform = `translateY(${Math.max(0, Math.min(max, newY))}px)`;
+}, { passive: true });
+
+document.addEventListener('touchend', e => {
+  if (!dragging || !isMobile()) return;
+  dragging = false;
+  sheet.classList.remove('dragging');
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  const velocity = dy / 0.3; // rough
+  if (dy > 60 || velocity > 300) {
+    collapseSheet();
+  } else if (dy < -60 || velocity < -300) {
+    expandSheet();
+  } else {
+    // Snap to nearest
+    const cur = getCurrentTranslate();
+    const max = getSheetH() - PEEK;
+    if (cur < max / 2) expandSheet();
+    else collapseSheet();
+  }
+}, { passive: true });
+
+// Tapping the "peek" area (top of collapsed sheet) expands it
+handle.addEventListener('click', () => {
+  if (!isMobile()) return;
+  if (!sheetExpanded) expandSheet();
+});
+
+// Init sheet position after load
+function initSheet() {
+  if (isMobile()) collapseSheet();
+}
+window.addEventListener('resize', () => {
+  if (!isMobile()) {
+    sheet.style.transform = '';
+    sheet.classList.remove('dragging');
+  } else {
+    if (!sheetExpanded) collapseSheet();
+  }
+});
+
+// ── Grid scroll → FAB ────────────────────────────────────────────────────────
+const fab = document.getElementById('fab');
+const gridWrap = document.getElementById('grid-wrap');
+gridWrap.addEventListener('scroll', () => fab.classList.toggle('vis', gridWrap.scrollTop > 400));
+fab.addEventListener('click', () => gridWrap.scrollTo({ top: 0, behavior: 'smooth' }));
+
 // ── Validation banner ─────────────────────────────────────────────────────────
-function showValidation(listings, meta) {
+function checkData(listings, meta) {
   const issues = [];
-  const now = Date.now();
-
-  // Check freshness
   if (meta?.updated) {
-    const age = (now - new Date(meta.updated)) / 3600000;
-    if (age > 26) issues.push(`⚠️ Data is ${Math.round(age)}h old — daily update may have failed`);
+    const age = (Date.now()-new Date(meta.updated))/3600000;
+    if (age>26) issues.push(`⚠️ Data is ${Math.round(age)}h old — daily update may have failed`);
   }
-
-  // Check for furnished listings (shouldn't exist)
-  const furnished = listings.filter(l => /gemeubileerd|gestoffeerd|furnished/i.test(l.furnished || '') && !/unfurnished|kaal/i.test(l.furnished || ''));
-  if (furnished.length > 0) issues.push(`⚠️ ${furnished.length} potentially furnished listing(s) in data`);
-
-  const banner = document.getElementById('val-banner');
-  if (issues.length) {
-    banner.innerHTML = issues.map(i => `<div class="val-warn">${i}</div>`).join('');
-  }
+  const furn = listings.filter(l => /gemeubileerd|gestoffeerd/i.test(l.furnished||'') && !/unfurnished|kaal/i.test(l.furnished||''));
+  if (furn.length) issues.push(`⚠️ ${furn.length} possibly furnished listing(s) detected`);
+  document.getElementById('vbanner').textContent = issues.join(' · ');
 }
 
 // ── Load ──────────────────────────────────────────────────────────────────────
 async function load() {
   try {
-    const [dataRes, metaRes] = await Promise.all([
-      fetch(DATA_URL + '?t=' + Math.floor(Date.now() / 3600000)),
-      fetch(META_URL + '?t=' + Math.floor(Date.now() / 3600000)).catch(() => null),
+    const [dRes, mRes] = await Promise.all([
+      fetch(DATA_URL + '?t=' + Math.floor(Date.now()/3600000)),
+      fetch(META_URL + '?t=' + Math.floor(Date.now()/3600000)).catch(()=>null),
     ]);
+    if (!dRes.ok) throw new Error(`HTTP ${dRes.status}`);
+    const listings = await dRes.json();
+    const meta = mRes?.ok ? await mRes.json() : null;
 
-    if (!dataRes.ok) throw new Error(`HTTP ${dataRes.status}`);
-    const listings = await dataRes.json();
-    const meta = metaRes?.ok ? await metaRes.json() : null;
+    ALL = listings.map((l,i) => ({...l, _i:i}));
+    document.getElementById('hdr-n').textContent = ALL.length;
 
-    all = listings.map((l, i) => ({ ...l, _i: i }));
-
-    // Header badges
-    document.getElementById('hdr-count').textContent = all.length;
-    const updEl = document.getElementById('hdr-updated');
+    const upd = document.getElementById('hpill-upd');
     if (meta?.updated) {
-      const age = (Date.now() - new Date(meta.updated)) / 3600000;
-      updEl.textContent = `Updated ${new Date(meta.updated).toLocaleDateString('en-GB', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' })}`;
-      updEl.className = `pill ${age > 26 ? 'stale' : 'fresh'}`;
-    } else {
-      updEl.textContent = 'Data loaded';
-      updEl.className = 'pill';
-    }
+      const age = (Date.now()-new Date(meta.updated))/3600000;
+      upd.textContent = new Date(meta.updated).toLocaleDateString('en-GB', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+      upd.className = `hpill ${age>26?'err':'ok'}`;
+    } else { upd.textContent = 'Live'; upd.className = 'hpill'; }
 
-    showValidation(all, meta);
+    checkData(ALL, meta);
     render();
-    geocodeAll(all);
+    initSheet();
+    geocodeAll(ALL);
 
-  } catch (err) {
-    document.getElementById('grid').innerHTML = `
-      <div class="state">
-        <div class="state-ico">⚠️</div>
-        <div>Could not load listings<br><small>${err.message}</small></div>
-      </div>`;
+  } catch(err) {
+    document.getElementById('grid').innerHTML =
+      `<div class="state"><div style="font-size:2em">⚠️</div><div style="margin-top:12px">Could not load listings<br><small style="opacity:.6">${err.message}</small></div></div>`;
     document.getElementById('map-hint').textContent = 'Error loading data';
+    initSheet();
   }
 }
 
 // ── Events ────────────────────────────────────────────────────────────────────
 document.getElementById('filters').addEventListener('click', e => {
-  const chip = e.target.closest('.chip');
-  if (!chip) return;
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
-  chip.classList.add('on');
-  activeFilter = chip.dataset.f;
+  const c = e.target.closest('.chip'); if (!c) return;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on'); activeF = c.dataset.f;
   render();
 });
-
 document.getElementById('sorter').addEventListener('change', render);
-
-const fab = document.getElementById('fab');
-window.addEventListener('scroll', () => fab.classList.toggle('show', scrollY > 400));
-fab.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
 initMap();
