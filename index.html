@@ -27,7 +27,7 @@
       --m2:     #2d4a62;
       --hh:     54px;
       --safe-b: env(safe-area-inset-bottom, 0px);
-      --peek:   76px;
+      --peek:   44px;
     }
 
     html, body { height: 100%; overflow: hidden; }
@@ -102,67 +102,95 @@
     #list-btn:active { transform: translateX(-50%) scale(.96); }
     #list-btn.hidden { opacity: 0; pointer-events: none; }
 
-    /* ─── PREVIEW CARD (slides up when pin is tapped) ─────────────────── */
-    #preview {
-      position: fixed; left: 12px; right: 12px; z-index: 200;
-      bottom: calc(var(--peek) + 12px);
+    /* ─── POPUP CARD (floating, springs up on pin tap) ──────────────────── */
+    #popup {
+      position: fixed; left: 12px; right: 12px;
+      max-width: 460px; margin: 0 auto;
+      z-index: 200;
+      bottom: calc(var(--peek) + 14px);
       background: var(--card);
-      border: 1px solid var(--b2); border-radius: 18px;
-      box-shadow: 0 -4px 40px rgba(0,0,0,.6), 0 8px 32px rgba(0,0,0,.4);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 22px;
+      box-shadow: 0 12px 60px rgba(0,0,0,.8), 0 4px 20px rgba(0,0,0,.5);
       transform: translateY(calc(100% + 80px));
-      transition: transform .38s cubic-bezier(.25,.46,.45,.94);
+      transition: transform .4s cubic-bezier(.22,.68,0,1.2);
       overflow: hidden;
     }
-    #preview.show { transform: translateY(0); }
+    #popup.show { transform: translateY(0); }
 
-    .pv-img {
-      position: relative; height: 130px; overflow: hidden; background: var(--card2);
+    #pp-img { position: relative; height: 190px; overflow: hidden; background: var(--card2); }
+    #pp-slides {
+      position: absolute; inset: 0; display: flex;
+      overflow-x: scroll; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
     }
-    .pv-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .pv-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 44px; }
-    .pv-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.65)); }
-    .pv-price {
-      position: absolute; bottom: 10px; left: 12px;
-      font-size: 20px; font-weight: 800; color: #fff;
-      text-shadow: 0 1px 8px rgba(0,0,0,.6); line-height: 1;
-      font-variant-numeric: tabular-nums;
+    #pp-slides::-webkit-scrollbar { display: none; }
+    .pp-slide { flex-shrink: 0; width: 100%; height: 100%; scroll-snap-align: start; }
+    .pp-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pp-slide .cph { width: 100%; height: 100%; font-size: 60px; }
+    #pp-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 35%, rgba(0,0,0,.7)); pointer-events: none; }
+    #pp-price {
+      position: absolute; bottom: 12px; left: 14px;
+      font-size: 24px; font-weight: 800; color: #fff; line-height: 1;
+      text-shadow: 0 1px 8px rgba(0,0,0,.6); font-variant-numeric: tabular-nums;
     }
-    .pv-price sub { font-size: 11px; font-weight: 400; opacity: .7; vertical-align: baseline; }
-    .pv-may {
-      position: absolute; top: 10px; right: 10px;
+    #pp-price sub { font-size: 12px; font-weight: 400; opacity: .7; vertical-align: baseline; }
+    #pp-maybadge {
+      position: absolute; top: 12px; right: 12px;
       background: rgba(31,204,151,.2); border: 1px solid rgba(31,204,151,.4);
-      color: var(--green); font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 7px;
-      backdrop-filter: blur(8px);
+      color: var(--green); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px;
+      backdrop-filter: blur(8px); display: none;
     }
-    #pv-close {
-      position: absolute; top: 10px; left: 10px;
-      width: 28px; height: 28px; border-radius: 50%; border: none; cursor: pointer;
-      background: rgba(0,0,0,.5); backdrop-filter: blur(8px); color: rgba(255,255,255,.8);
-      display: flex; align-items: center; justify-content: center; font-size: 14px; z-index: 5;
+    #pp-close {
+      position: absolute; top: 12px; left: 12px; z-index: 10;
+      width: 30px; height: 30px; border-radius: 50%; border: none;
+      background: rgba(0,0,0,.55); backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.9); font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
     }
-    .pv-body { padding: 12px 14px 14px; }
-    .pv-addr { font-size: 14px; font-weight: 650; margin-bottom: 7px; line-height: 1.3; }
-    .pv-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 11px; }
-    .pv-tag {
-      padding: 3px 9px; border-radius: 6px; font-size: 11px;
-      background: var(--card2); border: 1px solid var(--b); color: var(--m1);
+    .pp-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(0,0,0,.55); backdrop-filter: blur(10px);
+      color: #fff; font-size: 20px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+      transition: background .15s;
     }
-    .pv-tag.near { color: var(--green); border-color: rgba(31,204,151,.2); background: rgba(31,204,151,.05); }
-    .pv-tag.mid  { color: var(--blue2); border-color: rgba(61,136,240,.2);  background: rgba(61,136,240,.05); }
-    .pv-actions { display: flex; gap: 8px; }
-    .pv-mapbtn {
-      flex: 0 0 auto; padding: 9px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
-      background: var(--card2); border: 1px solid var(--b2); color: var(--m1); cursor: pointer;
-      -webkit-tap-highlight-color: transparent; transition: all .15s;
-    }
-    .pv-view {
-      flex: 1; padding: 9px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
-      text-decoration: none; color: #fff; text-align: center;
+    .pp-nav:active { background: rgba(61,136,240,.4); }
+    #pp-prev { left: 10px; }
+    #pp-next { right: 10px; }
+    .pp-nav.hidden { opacity: 0; pointer-events: none; }
+    #pp-phcount { position: absolute; bottom: 8px; right: 12px; z-index: 5; pointer-events: none;
+      display: flex; gap: 3px; }
+    .pp-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.35); transition: all .2s; flex-shrink: 0; }
+    .pp-dot.on { background: #fff; width: 14px; border-radius: 3px; }
+
+    #pp-body { padding: 14px 16px 16px; }
+    #pp-addr { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    #pp-info { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;
+      padding-bottom: 8px; border-bottom: 1px solid var(--b); }
+    .pp-avail { font-size: 12px; font-weight: 600; color: var(--green); }
+    .pp-contract { font-size: 12px; color: var(--amber); }
+    #pp-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 9px; }
+    .pp-tag { padding: 3px 9px; border-radius: 6px; font-size: 11px; background: var(--card2); border: 1px solid var(--b); color: var(--m1); }
+    .pp-tag.near { color: var(--green); border-color: rgba(31,204,151,.2); background: rgba(31,204,151,.05); }
+    .pp-tag.mid { color: var(--blue2); border-color: rgba(61,136,240,.2); background: rgba(61,136,240,.05); }
+    #pp-sum { font-size: 12.5px; color: var(--m1); line-height: 1.6; margin-bottom: 12px; }
+    #pp-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    #pp-counter { font-size: 11px; color: var(--m2); }
+    #pp-actions { display: flex; gap: 8px; }
+    .pp-listbtn { padding: 9px 14px; border-radius: 10px; font-size: 13px; font-weight: 600;
+      background: var(--card2); border: 1px solid var(--b2); color: var(--m1);
+      cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .pp-viewbtn { padding: 9px 18px; border-radius: 10px; font-size: 13px; font-weight: 600;
+      text-decoration: none; color: #fff;
       background: linear-gradient(135deg, var(--blue), #5ba8ff);
       box-shadow: 0 2px 12px rgba(61,136,240,.3);
-      -webkit-tap-highlight-color: transparent; transition: opacity .15s;
-    }
-    .pv-view:active, .pv-mapbtn:active { opacity: .8; }
+      -webkit-tap-highlight-color: transparent; }
+    .pp-listbtn:active, .pp-viewbtn:active { opacity: .8; }
 
     /* ─── BOTTOM SHEET ────────────────────────────────────────────────── */
     #sheet {
@@ -178,17 +206,17 @@
     }
     #sheet.no-anim { transition: none; }
 
-    /* handle */
+    /* handle — minimal, map-first */
     #sh-handle {
-      flex-shrink: 0; padding: 10px 16px 8px;
+      flex-shrink: 0; padding: 8px 16px 6px;
       touch-action: none; cursor: grab; user-select: none;
       -webkit-tap-highlight-color: transparent;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
     }
     #sh-handle:active { cursor: grabbing; }
-    #sh-pip-wrap { display: flex; justify-content: center; margin-bottom: 10px; }
     #sh-pip { width: 36px; height: 4px; border-radius: 2px; background: var(--m2); }
-    #sh-top { display: flex; align-items: center; justify-content: space-between; }
-    #sh-count { font-size: 15px; font-weight: 700; letter-spacing: -.3px; }
+    #sh-top { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    #sh-count { font-size: 13px; font-weight: 600; color: var(--m1); letter-spacing: -.2px; }
     #sh-mapbtn {
       display: none; padding: 6px 14px; border-radius: 20px;
       font-size: 12px; font-weight: 600; cursor: pointer;
@@ -427,17 +455,29 @@
   </div>
 </div>
 
-<!-- Preview card (slides up when pin tapped, mobile) -->
-<div id="preview">
-  <div class="pv-img" id="pv-img">
-    <button id="pv-close" onclick="closePreview()">✕</button>
+<!-- Popup card — springs up on pin tap, swipe left/right to browse -->
+<div id="popup">
+  <div id="pp-img">
+    <div id="pp-slides"></div>
+    <div id="pp-grad"></div>
+    <div id="pp-price"></div>
+    <div id="pp-maybadge">⭐ May 1st</div>
+    <button id="pp-close" onclick="closePopup()">✕</button>
+    <button class="pp-nav hidden" id="pp-prev" onclick="navigatePopup(-1)">‹</button>
+    <button class="pp-nav hidden" id="pp-next" onclick="navigatePopup(1)">›</button>
+    <div id="pp-phcount"></div>
   </div>
-  <div class="pv-body">
-    <div class="pv-addr" id="pv-addr"></div>
-    <div class="pv-tags" id="pv-tags"></div>
-    <div class="pv-actions">
-      <button class="pv-mapbtn" onclick="showInList()">☰ Show in list</button>
-      <a class="pv-view" id="pv-link" href="#" target="_blank" rel="noopener">View listing →</a>
+  <div id="pp-body">
+    <div id="pp-addr"></div>
+    <div id="pp-info"></div>
+    <div id="pp-tags"></div>
+    <div id="pp-sum"></div>
+    <div id="pp-foot">
+      <div id="pp-counter"></div>
+      <div id="pp-actions">
+        <button class="pp-listbtn" onclick="showInList()">☰ List</button>
+        <a class="pp-viewbtn" id="pp-link" href="#" target="_blank" rel="noopener">View →</a>
+      </div>
     </div>
   </div>
 </div>
@@ -590,7 +630,7 @@ function initMap() {
 
   // Tapping map background dismisses preview
   map.on('click', () => {
-    closePreview();
+    closePopup();
     clearSelPin();
   });
 }
@@ -615,7 +655,7 @@ function addPin(l) {
     clearSelPin();
     m._icon?.querySelector('.mpin')?.classList.add('sel');
     activeListing = l;
-    showPreview(l);
+    showPopup(l);
   });
 
   markers.push({ m, l });
@@ -624,75 +664,169 @@ function addPin(l) {
 }
 
 // ── Preview card (mobile) ──────────────────────────────────────────────────
-let previewListing = null;
+// ── Popup card state ──────────────────────────────────────────────────────
+let popupListing = null;
+let popupIdx = -1;  // index in filtered() array
 
-function showPreview(l) {
-  previewListing = l;
+function renderPopup(l) {
   const st = GRADS[l._i % GRADS.length];
-  const p  = price(l);
-  const dj = distJava(l);
-  const dw = distWork(l);
+  const p = price(l), dj = distJava(l), dw = distWork(l);
 
-  // Image
-  const imgWrap = document.getElementById('pv-img');
-  const existImg = imgWrap.querySelector('img, .pv-ph');
-  if (existImg) existImg.remove();
-  const gradDiv = imgWrap.querySelector('.pv-grad') || (() => { const d=document.createElement('div'); d.className='pv-grad'; imgWrap.appendChild(d); return d; })();
-  const priceEl = imgWrap.querySelector('.pv-price') || (() => { const d=document.createElement('div'); d.className='pv-price'; imgWrap.appendChild(d); return d; })();
-  const existMay = imgWrap.querySelector('.pv-may');
-  if (existMay) existMay.remove();
+  // Photos
+  const photos = l.photo_urls?.length ? l.photo_urls
+               : l.photo_url ? [l.photo_url]
+               : getCachedPhotos(l.url);
 
-  const pvPhotos = l.photo_urls?.length ? l.photo_urls : l.photo_url ? [l.photo_url] : getCachedPhotos(l.url);
-  const pvPhoto = pvPhotos[0] || null;
-  if (pvPhoto) {
-    const img = document.createElement('img');
-    img.src = pvPhoto;
-    img.onerror = () => { img.remove(); const ph2=document.createElement('div'); ph2.className='pv-ph'; ph2.style.background=st.g; ph2.textContent=st.e; imgWrap.insertBefore(ph2,gradDiv); };
-    imgWrap.insertBefore(img, gradDiv);
+  // Slides
+  const slides = document.getElementById('pp-slides');
+  slides.innerHTML = '';
+  if (photos.length) {
+    photos.forEach((url, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'pp-slide';
+      const img = document.createElement('img');
+      img.loading = i === 0 ? 'eager' : 'lazy';
+      img.onerror = () => slide.remove();
+      img.src = url;
+      slide.appendChild(img);
+      slides.appendChild(slide);
+    });
   } else {
-    const ph = document.createElement('div');
-    ph.className = 'pv-ph'; ph.style.background = st.g; ph.textContent = st.e;
-    imgWrap.insertBefore(ph, gradDiv);
+    const slide = document.createElement('div');
+    slide.className = 'pp-slide';
+    slide.innerHTML = `<div class="cph" style="background:${st.g}">${st.e}</div>`;
+    slides.appendChild(slide);
   }
 
-  priceEl.innerHTML = `${fmtP(p)}<sub>/mo</sub>`;
-  if (isMay(l)) { const b=document.createElement('div'); b.className='pv-may'; b.textContent='⭐ May 1st'; imgWrap.appendChild(b); }
+  // Dots
+  const dots = document.getElementById('pp-phcount');
+  dots.innerHTML = '';
+  if (photos.length > 1) {
+    photos.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = `pp-dot${i===0?' on':''}`;
+      dots.appendChild(d);
+    });
+    // Update dots on scroll
+    slides.onscroll = () => {
+      const idx = Math.round(slides.scrollLeft / (slides.offsetWidth || 1));
+      dots.querySelectorAll('.pp-dot').forEach((d,i) => d.classList.toggle('on', i===idx));
+    };
+  }
+  slides.scrollLeft = 0;
+
+  // Price + badges
+  document.getElementById('pp-price').innerHTML = `${fmtP(p)}<sub>/mo</sub>`;
+  document.getElementById('pp-maybadge').style.display = isMay(l) ? '' : 'none';
 
   // Body
-  document.getElementById('pv-addr').textContent = l.address || 'Amsterdam';
-  const tags = document.getElementById('pv-tags');
+  document.getElementById('pp-addr').textContent = l.address || 'Amsterdam';
+
+  // Info row
+  const info = document.getElementById('pp-info');
+  info.innerHTML = '';
+  if (l.available_from || isMay(l)) {
+    const a = document.createElement('span');
+    a.className = 'pp-avail';
+    a.textContent = `🗓 ${l.available_from || 'May 2026'}`;
+    info.appendChild(a);
+  }
+  if (l.min_contract) {
+    const c = document.createElement('span');
+    c.className = 'pp-contract';
+    c.textContent = `📋 ${l.min_contract} min`;
+    info.appendChild(c);
+  }
+  info.style.display = info.children.length ? '' : 'none';
+
+  // Tags
+  const tags = document.getElementById('pp-tags');
   tags.innerHTML = '';
-  const addTag = (txt, cls='') => { const s=document.createElement('span'); s.className=`pv-tag${cls?' '+cls:''}`; s.textContent=txt; tags.appendChild(s); };
-  // Availability + contract — most critical info first
-  if (l.available_from) addTag(`🗓 ${l.available_from}`, 'near');
-  else if (isMay(l))    addTag('⭐ May 2026', 'near');
-  if (l.min_contract)   addTag(`📋 ${l.min_contract} min`, '');
-  if (l.size)  addTag(`📐 ${l.size} m²`);
-  if (l.rooms) addTag(`🛏 ${l.rooms} rooms`);
-  if (dj!=null) addTag(`📍 ${dj.toFixed(1)} km`, dj<=1.5?'near':dj<=3?'mid':'');
-  if (dw!=null) addTag(`🚲 ${dw.toFixed(1)} km to work`, dw<=2?'near':'');
+  const tag = (txt, cls='') => {
+    const s = document.createElement('span');
+    s.className = `pp-tag${cls?' '+cls:''}`;
+    s.textContent = txt;
+    tags.appendChild(s);
+  };
+  if (l.size)  tag(`📐 ${l.size} m²`);
+  if (l.rooms) tag(`🛏 ${l.rooms}`);
+  if (dj!=null) tag(`📍 ${dj.toFixed(1)} km`, dj<=1.5?'near':dj<=3?'mid':'');
+  if (dw!=null) tag(`🚲 ${dw.toFixed(1)} km`, dw<=2?'near':'');
 
-  document.getElementById('pv-link').href = l.url || '#';
+  // Summary
+  document.getElementById('pp-sum').textContent = l.summary || '';
 
-  document.getElementById('preview').classList.add('show');
-  // Keep list button hidden while preview is showing
-  document.getElementById('list-btn').classList.add('hidden');
+  // Link
+  document.getElementById('pp-link').href = l.url || '#';
+
+  // Counter + nav arrows
+  const f = filtered();
+  const total = f.length;
+  const pos = f.findIndex(x => x._i === l._i);
+  popupIdx = pos;
+  document.getElementById('pp-counter').textContent = total > 1 ? `${pos+1} of ${total}` : '';
+  document.getElementById('pp-prev').classList.toggle('hidden', total <= 1);
+  document.getElementById('pp-next').classList.toggle('hidden', total <= 1);
+
+  popupListing = l;
 }
 
-function closePreview() {
-  document.getElementById('preview').classList.remove('show');
-  previewListing = null;
+function showPopup(l) {
+  renderPopup(l);
+  document.getElementById('popup').classList.add('show');
+  document.getElementById('list-btn').classList.add('hidden');
+  // Collapse sheet if open
+  if (sheetExpanded && isMobile()) collapseSheet();
+}
+
+function closePopup() {
+  document.getElementById('popup').classList.remove('show');
+  popupListing = null;
   clearSelPin();
   if (isMobile() && !sheetExpanded) {
     document.getElementById('list-btn').classList.remove('hidden');
   }
 }
-window.closePreview = closePreview;
+window.closePopup = closePopup;
+// Legacy aliases used in HTML
+const closePreview = closePopup;
+window.closePreview = closePopup;
+
+function navigatePopup(dir) {
+  const f = filtered();
+  if (f.length <= 1) return;
+  const newIdx = ((popupIdx + dir) + f.length) % f.length;
+  const l = f[newIdx];
+  renderPopup(l);
+  // Fly map to new pin
+  const mk = markers.find(m => m.l._i === l._i);
+  if (mk && l.lat) {
+    map.panTo([l.lat, l.lng], { animate: true, duration: 0.4 });
+    clearSelPin();
+    mk.m._icon?.querySelector('.mpin')?.classList.add('sel');
+  }
+}
+window.navigatePopup = navigatePopup;
+
+// Swipe left/right on popup to navigate
+let _ppSwipeX = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.getElementById('popup');
+  if (!popup) return;
+  popup.addEventListener('touchstart', e => { _ppSwipeX = e.touches[0].clientX; }, { passive: true });
+  popup.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - _ppSwipeX;
+    const slides = document.getElementById('pp-slides');
+    const slidesW = slides?.offsetWidth || 0;
+    // Only navigate if swipe is on the body (not slides), or swipe is large
+    if (Math.abs(dx) > 60 && !slides?.contains(e.target)) navigatePopup(dx < 0 ? 1 : -1);
+  }, { passive: true });
+});
 
 function showInList() {
-  if (!previewListing) return;
-  const i = previewListing._i;
-  closePreview();
+  if (!popupListing) return;
+  const i = popupListing._i;
+  closePopup();
   expandSheet();
   setTimeout(() => {
     const el = document.querySelector(`[data-i="${i}"]`);
@@ -704,18 +838,30 @@ function showInList() {
 }
 window.showInList = showInList;
 
-// Show a listing on map from list (called by card's map button)
 window._showOnMap = function(i) {
   const mk = markers.find(x => x.l._i === i);
   if (!mk) return;
   collapseSheet();
-  closePreview();
+  closePopup();
+  setTimeout(() => {
+    map.flyTo([mk.l.lat, mk.l.lng], 16, { duration: 0.6 });
+    clearSelPin();
+    mk.m._icon?.querySelector('.mpin')?.classList.add('sel');
+    setTimeout(() => showPopup(mk.l), 650);
+  }, isMobile() ? 350 : 0);
+};
+
+
+  const mk = markers.find(x => x.l._i === i);
+  if (!mk) return;
+  collapseSheet();
+  closePopup();
   setTimeout(() => {
     map.flyTo([mk.l.lat, mk.l.lng], 16, { duration: 0.6 });
     clearSelPin();
     mk.m._icon?.querySelector('.mpin')?.classList.add('sel');
     activeListing = mk.l;
-    setTimeout(() => showPreview(mk.l), 650);
+    setTimeout(() => showPopup(mk.l), 650);
   }, isMobile() ? 350 : 0);
 };
 
@@ -909,7 +1055,7 @@ function expandSheet() {
   shFilters.classList.add('vis');
   shSort.classList.add('vis');
   listBtn.classList.add('hidden');
-  closePreview();
+  closePopup();
 }
 window.expandSheet = expandSheet;
 
