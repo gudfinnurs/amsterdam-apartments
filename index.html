@@ -371,11 +371,6 @@
     .spin { width: 34px; height: 34px; border: 3px solid var(--b2); border-top-color: var(--blue); border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 12px; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* OSM dark-mode filter (applied to tile images only, not overlays) */
-    .osm-tiles {
-      filter: invert(100%) hue-rotate(180deg) brightness(0.72) contrast(0.88) saturate(0.82);
-    }
-
     /* ─── LANDMARK LABELS ───────────────────────────────────────────── */
     .lmark {
       background: rgba(4,13,26,.82); border-radius: 5px; padding: 2px 8px;
@@ -590,16 +585,15 @@ function initMap() {
     zoomControl: false, attributionControl: false,
     preferCanvas: true,   // Canvas renderer is faster for many GeoJSON features
   });
-  // OpenStreetMap base layer — shows parks (green), water (blue), landmarks naturally.
-  // CSS class applies a dark-mode invert+hue-rotate so it looks good on dark UI.
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
+  // CartoDB dark tiles — fast CDN, low bandwidth, good base for dark UI
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
+    subdomains: 'abcd',
     maxZoom: 20,
-    keepBuffer: 4,       // Cache more tiles when panning
-    className: 'osm-tiles',
+    keepBuffer: 4,
   }).addTo(map);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
-  L.control.attribution({ position: 'bottomleft', prefix: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>' }).addTo(map);
+  L.control.attribution({ position: 'bottomleft', prefix: '©OSM ©CARTO' }).addTo(map);
 
   // 3km search radius
   L.circle(JAVAPLEIN, {
