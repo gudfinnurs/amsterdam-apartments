@@ -846,18 +846,7 @@ window._showOnMap = function(i) {
 };
 
 
-  const mk = markers.find(x => x.l._i === i);
-  if (!mk) return;
-  collapseSheet();
-  closePopup();
-  setTimeout(() => {
-    map.flyTo([mk.l.lat, mk.l.lng], 16, { duration: 0.6 });
-    clearSelPin();
-    mk.m._icon?.querySelector('.mpin')?.classList.add('sel');
-    activeListing = mk.l;
-    setTimeout(() => showPopup(mk.l), 650);
-  }, isMobile() ? 350 : 0);
-};
+
 
 // ── Geocoding ──────────────────────────────────────────────────────────────
 let gQ=[], gRunning=false;
