@@ -138,17 +138,45 @@ def _extract_listing_details(html):
 
 
 def fetch_listing_details(url):
-    """Fetch photos, available_from, min_contract for a Pararius listing. Returns dict or None."""
+    """Fetch photos, available_from, min_contract for a Pararius listing.
+    Tries: Playwright (full JS render) → cloudscraper → urllib."""
     if not url or 'pararius' not in url:
         return None
+
     html = None
+
+    # Strategy 1: Playwright — renders full JS, gets __NEXT_DATA__ with all photos
     try:
-        import cloudscraper  # type: ignore
-        scraper = cloudscraper.create_scraper(browser={'browser':'chrome','platform':'darwin','mobile':False})
-        r = scraper.get(url, timeout=25, headers={'Accept-Language':'nl-NL,nl;q=0.9'})
-        if r.status_code == 200: html = r.text
-    except ImportError: pass
-    except Exception as e: print(f'    cloudscraper: {e}')
+        from playwright.sync_api import sync_playwright  # type: ignore
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(headless=True)
+            ctx = browser.new_context(
+                user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+                locale='nl-NL',
+                viewport={'width': 1280, 'height': 800}
+            )
+            page = ctx.new_page()
+            page.goto(url, wait_until='domcontentloaded', timeout=30000)
+            page.wait_for_timeout(1500)  # let JS hydrate __NEXT_DATA__
+            html = page.content()
+            browser.close()
+        print('    📸 Playwright rendered page OK')
+    except ImportError:
+        pass
+    except Exception as e:
+        print(f'    Playwright: {e}')
+
+    # Strategy 2: cloudscraper (handles Cloudflare, no JS rendering)
+    if not html:
+        try:
+            import cloudscraper  # type: ignore
+            scraper = cloudscraper.create_scraper(browser={'browser':'chrome','platform':'darwin','mobile':False})
+            r = scraper.get(url, timeout=25, headers={'Accept-Language':'nl-NL,nl;q=0.9'})
+            if r.status_code == 200: html = r.text
+        except ImportError: pass
+        except Exception as e: print(f'    cloudscraper: {e}')
+
+    # Strategy 3: plain urllib
     if not html:
         try:
             req = urllib.request.Request(url, headers={
@@ -159,6 +187,7 @@ def fetch_listing_details(url):
             with urllib.request.urlopen(req, timeout=20) as r:
                 html = r.read().decode('utf-8', errors='ignore')
         except Exception as e: print(f'    urllib: {e}')
+
     if not html: return None
     return _extract_listing_details(html)
 

@@ -21,7 +21,10 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install gspread google-auth requests cloudscraper
+        run: pip install gspread google-auth requests cloudscraper playwright
+
+      - name: Install Playwright browser (headless Chromium for JS-rendered pages)
+        run: python -m playwright install chromium --with-deps
 
       - name: Fetch listings, geocode, compute distances
         env:

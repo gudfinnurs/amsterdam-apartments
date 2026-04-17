@@ -343,6 +343,11 @@
     .spin { width: 34px; height: 34px; border: 3px solid var(--b2); border-top-color: var(--blue); border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 12px; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* OSM dark-mode filter (applied to tile images only, not overlays) */
+    .osm-tiles {
+      filter: invert(100%) hue-rotate(180deg) brightness(0.72) contrast(0.88) saturate(0.82);
+    }
+
     /* ─── LANDMARK LABELS ───────────────────────────────────────────── */
     .lmark {
       background: rgba(4,13,26,.82); border-radius: 5px; padding: 2px 8px;
@@ -540,12 +545,21 @@ const gcSet=c=>{try{localStorage.setItem(GEO_KEY,JSON.stringify(c))}catch{}};
 let map, pinLayer, markers = [], activeListing = null;
 
 function initMap() {
-  map = L.map('map', { center: JAVAPLEIN, zoom: 13, zoomControl: false, attributionControl: false });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd', maxZoom: 20
+  map = L.map('map', {
+    center: JAVAPLEIN, zoom: 13,
+    zoomControl: false, attributionControl: false,
+    preferCanvas: true,   // Canvas renderer is faster for many GeoJSON features
+  });
+  // OpenStreetMap base layer — shows parks (green), water (blue), landmarks naturally.
+  // CSS class applies a dark-mode invert+hue-rotate so it looks good on dark UI.
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
+    maxZoom: 20,
+    keepBuffer: 4,       // Cache more tiles when panning
+    className: 'osm-tiles',
   }).addTo(map);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
-  L.control.attribution({ position: 'bottomleft', prefix: '©OSM ©CARTO' }).addTo(map);
+  L.control.attribution({ position: 'bottomleft', prefix: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>' }).addTo(map);
 
   // 3km search radius
   L.circle(JAVAPLEIN, {
@@ -1082,29 +1096,49 @@ function pCacheKey(url) { return url.split('/').filter(Boolean).slice(-2).join('
 
 function extractPhotos(html) {
   const seen = new Set();
-  const add = u => { if (u?.startsWith('http') && !seen.has(u)) { seen.add(u); return true; } return false; };
+  // Only add real image URLs, filter out icons/thumbnails/sprites
+  const add = u => {
+    if (typeof u !== 'string' || !u.startsWith('http') || seen.has(u)) return false;
+    if (!/(images\.pararius|pararius\.com\/.*\.(jpg|jpeg|webp|png))/i.test(u)) {
+      if (!/\.(jpg|jpeg|webp|png)(\?|$)/i.test(u)) return false;
+    }
+    if (/(thumb|100x|200x|300x|icon|logo|sprite|favicon)/i.test(u)) return false;
+    seen.add(u); return true;
+  };
 
-  // 1. og:image (canonical main photo, always present)
+  // 1. og:image (canonical, always in raw HTML)
   const og = (html.match(/property=["']og:image["'][^>]+content=["']([^"']+)["']/) ||
                html.match(/content=["']([^"']+)["'][^>]+property=["']og:image["']/))?.[1];
   if (og) add(og);
 
-  // 2. JSON-LD images (often contains full gallery)
-  for (const block of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+  // 2. __NEXT_DATA__ — Next.js embeds FULL listing data incl. all gallery photos
+  //    This is the key fix for Pararius (a Next.js app)
+  const nextData = html.match(/<script[^>]+id=["']__NEXT_DATA__["'][^>]*>([\s\S]*?)<\/script>/i)?.[1];
+  if (nextData) {
     try {
-      const obj = JSON.parse(block[1]);
-      for (const u of [].concat(obj.image || obj.photo || [])) {
-        if (typeof u === 'string') add(u);
-      }
+      const walk = v => {
+        if (typeof v === 'string') add(v);
+        else if (Array.isArray(v)) v.forEach(walk);
+        else if (v && typeof v === 'object') Object.values(v).forEach(walk);
+      };
+      walk(JSON.parse(nextData));
     } catch {}
   }
 
-  // 3. Pararius CDN direct matches
-  for (const u of html.matchAll(/https:\/\/images\.pararius\.com\/[^\s"'<>]+?\.(?:jpg|jpeg|webp)/gi)) {
-    if (!/(thumb|100x|200x|icon|logo)/i.test(u[0])) add(u[0]);
+  // 3. JSON-LD schema images
+  for (const b of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const obj = JSON.parse(b[1]);
+      [].concat(obj.image || obj.photo || []).forEach(u => typeof u === 'string' && add(u));
+    } catch {}
   }
 
-  return [...seen].slice(0, 10);
+  // 4. Pararius CDN fallback (for when raw HTML has direct img tags)
+  for (const m of html.matchAll(/https:\/\/images\.pararius\.com\/[^\s"'<>]+?\.(?:jpg|jpeg|webp)/gi)) {
+    add(m[0]);
+  }
+
+  return [...seen].slice(0, 12);
 }
 
 async function proxyFetchPhoto(url) {
@@ -1256,16 +1290,19 @@ function renderMapFeatures(elements) {
     }
   }));
 
+  // Use Canvas renderer for much faster rendering of many polygons
   L.geoJSON({ type:'FeatureCollection', features }, {
+    renderer: L.canvas(),
     style: f => {
       const t = f.properties;
       if (t.leisure==='park' || t.landuse==='park' || t.landuse==='recreation_ground')
-        return { fillColor:'#1b4a1b', fillOpacity:.3, color:'#2d6e2d', weight:.7, opacity:.6 };
+        // Brighter green since OSM dark tiles already show some park colour
+        return { fillColor:'#1e5e1e', fillOpacity:.22, color:'#2a7a2a', weight:.5, opacity:.5 };
       if (t.natural==='water' || t.waterway==='riverbank')
-        return { fillColor:'#0a2848', fillOpacity:.5, color:'#1a4878', weight:.7, opacity:.7 };
+        return { fillColor:'#0c2e56', fillOpacity:.35, color:'#1a5090', weight:.5, opacity:.6 };
       return { opacity:0, fillOpacity:0 };
     },
-    onEachFeature: () => {} // no popups
+    onEachFeature: () => {}
   }).addTo(map);
 }
 
