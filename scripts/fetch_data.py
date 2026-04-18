@@ -45,7 +45,17 @@ def fetch_sheet():
     creds  = Credentials.from_service_account_info(json.loads(sa_raw),
                scopes=['https://www.googleapis.com/auth/spreadsheets.readonly'])
     client = gspread.authorize(creds)
-    return client.open_by_key(sheet_id).sheet1.get_all_records()
+    ws = client.open_by_key(sheet_id).sheet1
+    # Use expected_headers to handle any duplicate/empty header columns gracefully
+    all_vals = ws.get_all_values()
+    if not all_vals:
+        return []
+    headers = all_vals[0]
+    return [
+        {h: row[i] if i < len(row) else '' for i, h in enumerate(headers) if h.strip()}
+        for row in all_vals[1:]
+        if any(cell.strip() for cell in row)
+    ]
 
 # ── Geocode (Nominatim) ───────────────────────────────────────────────────────
 def geocode(address):
