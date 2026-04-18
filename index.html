@@ -1170,12 +1170,12 @@ function collapseSheet() {
   if (!isMobile()) return;
   sheetExpanded = false;
   sheet.classList.remove('no-anim');
-  sheet.style.transform = `translateY(${getMaxTranslate()}px)`;
+  // Clear inline transform — let CSS default (translateY(100%)) hide the sheet
+  sheet.style.transform = 'translateY(100%)';
   shMapBtn.classList.remove('vis');
   shFilters.classList.remove('vis');
   shSort.classList.remove('vis');
   listBtn.classList.remove('hidden');
-  // Show tray again
   document.getElementById('tray')?.classList.remove('hidden');
 }
 window.collapseSheet = collapseSheet;
