@@ -306,6 +306,12 @@ def main():
         url       = str(row.get('Link', '')).strip()
         available = str(row.get('Available ~May 1?', '')).strip()
         furnished = str(row.get('Furnished', '')).strip()
+        status    = str(row.get('Status', 'active')).strip().lower()
+
+        # Skip archived or rented listings
+        if status in ('archived', 'rented'):
+            print(f'  Skipping {address[:50]} ({status})')
+            continue
         price_raw = str(row.get('Price (€/mo)', '')).strip()
         size_raw  = str(row.get('Size (m²)', '')).strip()
 

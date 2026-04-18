@@ -26,6 +26,12 @@ jobs:
       - name: Install Playwright browser (headless Chromium for JS-rendered pages)
         run: python -m playwright install chromium --with-deps
 
+      - name: Check listing statuses (mark archived/rented)
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python scripts/check_statuses.py
+
       - name: Fetch listings, geocode, compute distances
         env:
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
