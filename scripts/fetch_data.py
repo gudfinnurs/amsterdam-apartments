@@ -78,63 +78,98 @@ def _extract_og(html):
 def _extract_listing_details(html):
     """Extract photos array, available_from, min_contract from Pararius HTML."""
     seen, photos = set(), []
+
     def add(u):
         if u and u.startswith('http') and u not in seen:
-            seen.add(u); photos.append(u)
+            seen.add(u)
+            photos.append(u)
 
-    # og:image (canonical main photo)
-    for pat in [r'property=["\'']og:image["\''][^>]+content=["\'']([^"\']+)["\'']',
-                r'content=["\'']([^"\']+)["\''][^>]+property=["\'']og:image["\'']']:
+    # og:image (try both attribute orderings)
+    for pat in [
+        r'property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+        r'content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+    ]:
         m = re.search(pat, html)
-        if m: add(m.group(1)); break
+        if m:
+            add(m.group(1))
+            break
 
     # JSON-LD image arrays (often the full gallery)
-    for block in re.findall(r'<script[^>]+type=["\'']application/ld\+json["\''][^>]*>([\s\S]*?)</script>', html, re.I):
+    for block in re.findall(
+        r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>',
+        html, re.I
+    ):
         try:
             import json as _json
             obj = _json.loads(block)
             imgs = obj.get('image', [])
-            if isinstance(imgs, str): imgs = [imgs]
+            if isinstance(imgs, str):
+                imgs = [imgs]
             for u in imgs:
-                if isinstance(u, str): add(u)
+                if isinstance(u, str):
+                    add(u)
         except Exception:
             pass
 
-    # Pararius CDN direct
-    for u in re.findall(r'https://images\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp)', html, re.I):
-        if not any(t in u for t in ['thumb','100x','200x','icon','logo']): add(u)
+    # __NEXT_DATA__ (Next.js full listing data)
+    nd = re.search(r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>([\s\S]*?)</script>', html, re.I)
+    if nd:
+        try:
+            import json as _json2
 
-    # Available from — Dutch/English patterns
+            def walk(v):
+                if isinstance(v, str) and v.startswith('http') and re.search(r'\.(jpg|jpeg|webp|png)', v, re.I):
+                    add(v)
+                elif isinstance(v, list):
+                    for x in v:
+                        walk(x)
+                elif isinstance(v, dict):
+                    for x in v.values():
+                        walk(x)
+            walk(_json2.loads(nd.group(1)))
+        except Exception:
+            pass
+
+    # Pararius CDN images
+    for u in re.findall(r'https://images\.pararius\.com/[^\s"\'<>]+?\.(?:jpg|jpeg|webp)', html, re.I):
+        if not any(t in u for t in ['thumb', '100x', '200x', 'icon', 'logo']):
+            add(u)
+
+    # Available from date
     available_from = None
-    avail_pats = [
-        r'(?:Beschikbaar\s*per|Aanvaarding)\s*[:\s]*([^<\n]{3,35})',
-        r'(?:Available\s+from)\s*[:\s]*([^<\n]{3,35})',
+    for pat in [
+        r'(?:Beschikbaar\s*per|Aanvaarding)\s*[:\s]*([^\n<]{3,35})',
+        r'(?:Available\s+from)\s*[:\s]*([^\n<]{3,35})',
         r'"availableFrom"\s*:\s*"([^"]{3,35})"',
         r'(Per\s+direct)',
         r'(In\s+overleg)',
-    ]
-    for pat in avail_pats:
+    ]:
         m = re.search(pat, html, re.I)
         if m:
-            txt = re.sub(r'<[^>]+>', '', m.group(1) if m.lastindex else m.group(0)).strip()
+            txt = re.sub(r'<[^>]+>', '', m.group(1)).strip()
             if 2 < len(txt) < 40:
-                available_from = txt; break
+                available_from = txt
+                break
 
-    # Min contract — Dutch patterns
+    # Min contract
     min_contract = None
-    contract_pats = [
-        r'(?:Minimum\s*huur(?:periode|duur)|Minimumduur\s*huurovereenkomst|Contractduur)\s*[:\s]*([^<\n]{2,30})',
+    for pat in [
+        r'(?:Minimum\s*huur(?:periode|duur)|Minimumduur\s*huurovereenkomst|Contractduur)\s*[:\s]*([^\n<]{2,30})',
         r'"minimumRentalPeriod"\s*:\s*"?([^",}\n]{2,20})"?',
         r'(\d+\s*(?:maanden|jaar|months|years))',
-    ]
-    for pat in contract_pats:
+    ]:
         m = re.search(pat, html, re.I)
         if m:
             txt = re.sub(r'<[^>]+>', '', m.group(1)).strip()
             if 1 < len(txt) < 30:
-                min_contract = txt; break
+                min_contract = txt
+                break
 
-    return {'photo_urls': photos[:10], 'available_from': available_from, 'min_contract': min_contract}
+    return {
+        'photo_urls':     photos[:10],
+        'available_from': available_from,
+        'min_contract':   min_contract,
+    }
 
 
 def fetch_listing_details(url):
