@@ -600,6 +600,10 @@
       <option value="sz↓">Largest first</option>
     </select>
     <span id="rc"></span>
+    <span id="map-ind" style="display:none;align-items:center;gap:5px;margin-left:auto;font-size:11px;color:var(--m1)">
+      📍 <b id="map-ind-n"></b> in view
+      <button onclick="clearMapFilter()" style="color:var(--blue2);background:none;border:none;cursor:pointer;font-size:11px;padding:0">· show all</button>
+    </span>
   </div>
 
   <div id="grid-wrap">
@@ -1010,10 +1014,17 @@ function updateMapPins() {
 }
 
 // ── Filter / sort ──────────────────────────────────────────────────────────
-let ALL=[], activeF='all';
+let ALL=[], activeF='all', mapBoundsFilter=false;
 
 function filtered() {
   let r=[...ALL];
+  // On desktop: filter to listings visible in current map view
+  if (mapBoundsFilter && !isMobile() && map) {
+    try {
+      const b = map.getBounds();
+      r = r.filter(l => !l.lat || !l.lng || b.contains([l.lat, l.lng]));
+    } catch {}
+  }
   switch(activeF) {
     case 'may':   r=r.filter(isMay); break;
     case 'u2k':   r=r.filter(l=>price(l)>0&&price(l)<2000); break;
@@ -1111,8 +1122,17 @@ function render() {
     return;
   }
   grid.innerHTML = f.map((l,i)=>cardHTML(l,i)).join('');
-  // Also update tray on mobile
   if (typeof renderTray === 'function') renderTray();
+  // Update map filter indicator
+  const ind = document.getElementById('map-ind');
+  if (ind) {
+    if (mapBoundsFilter && !isMobile()) {
+      ind.style.display = 'flex';
+      ind.querySelector('#map-ind-n').textContent = f.length;
+    } else {
+      ind.style.display = 'none';
+    }
+  }
 }
 
 // ── Bottom sheet ───────────────────────────────────────────────────────────
@@ -1620,8 +1640,23 @@ function selectTrayCard(i) {
 }
 window.selectTrayCard = selectTrayCard;
 
+// ── Map bounds filter (desktop only) ────────────────────────────────────
+function initMapBoundsFilter() {
+  map.on('moveend zoomend', () => {
+    if (isMobile() || !ALL.length) return;
+    mapBoundsFilter = true;
+    render();
+  });
+}
+function clearMapFilter() {
+  mapBoundsFilter = false;
+  render();
+}
+window.clearMapFilter = clearMapFilter;
+
 // ── Boot ───────────────────────────────────────────────────────────────────
 initMap();
+initMapBoundsFilter();
 load();
 </script>
 </body>
