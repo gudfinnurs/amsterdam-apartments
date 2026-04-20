@@ -1,9 +1,7 @@
 {
-  "updated": "2026-04-20T12:13:23.519238+00:00",
-  "count": 11,
-  "geocoded": 8,
-  "photos": 8,
-  "errors": [
-    "Row 32: price 225032750 outside 1000\u20135000"
-  ]
+  "updated": "2026-04-20T21:41:56.734197+00:00",
+  "count": 131,
+  "geocoded": 127,
+  "photos": 4,
+  "errors": []
 }
