@@ -340,5 +340,41 @@
     "photo_urls": null,
     "available_from": null,
     "min_contract": null
+  },
+  {
+    "date_found": "2026-04-23",
+    "address": "For rent: Flat Pieter Goosstraat 28 in Amsterdam, Amsterdam",
+    "price": "1900",
+    "size": "73",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "may 1\\n- there is no separate",
+    "summary": "https://www.pararius.nl/apartment-for-rent/amsterdam/1f16aa6e/pieter-goosstraat",
+    "url": "",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-04-23",
+    "address": "For rent: Flat Daguerrestraat 9 in Amsterdam, Amsterdam",
+    "price": "2150",
+    "size": "98",
+    "rooms": "3",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "https://www.pararius.nl/apartment-for-rent/amsterdam/312a3600/daguerrestraat",
+    "url": "",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   }
 ]
