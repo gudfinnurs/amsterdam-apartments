@@ -376,5 +376,26 @@
     "photo_urls": null,
     "available_from": null,
     "min_contract": null
+  },
+  {
+    "date_found": "2026-04-24",
+    "address": "Faas Wilkesstraat 177 B, 1095 MD Amsterdam (Zeeburgereiland)",
+    "price": "€2,250/mo",
+    "size": "98 m²",
+    "rooms": "3 rooms (2 bed)",
+    "furnished": "Unfurnished",
+    "available": "⭐ Per direct",
+    "summary": "New 2019-built 3-room family home on Zeeburgereiland with 98 m², A-label, airco, alarm, French balcony; unfurnished and available per direct with 12-month minimum contract.",
+    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/aedbdcc4/faas-wilkesstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/aedbdcc4-efe0-5f1e-922d-d3ac7efa86bc/baa8401584ad284088f41d399fb76f1d.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/aedbdcc4-efe0-5f1e-922d-d3ac7efa86bc/baa8401584ad284088f41d399fb76f1d.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/aedbdcc4-efe0-5f1e-922d-d3ac7efa86bc/baa8401584ad284088f41d399fb76f1d.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": "12 maanden"
   }
 ]
