@@ -448,5 +448,23 @@
     "photo_urls": null,
     "available_from": null,
     "min_contract": null
+  },
+  {
+    "date_found": "2026-04-26",
+    "address": "For rent: Flat S. F. van Ossstraat in Amsterdam, Amsterdam",
+    "price": "2450",
+    "size": "64",
+    "rooms": "3",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "https://www.pararius.nl/apartment-for-rent/amsterdam/5ff8ff1a/s-f-van-ossstraat",
+    "url": "",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   }
 ]
