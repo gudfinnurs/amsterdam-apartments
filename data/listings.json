@@ -682,5 +682,26 @@
     "photo_urls": null,
     "available_from": null,
     "min_contract": null
+  },
+  {
+    "date_found": "2026-05-02",
+    "address": "Sumatrastraat, 1094 NP Amsterdam (Indische Buurt-West)",
+    "price": "€2,000/mo",
+    "size": "60 m²",
+    "rooms": "2 rooms",
+    "furnished": "Kaal (unfurnished)",
+    "available": "⭐ Per direct",
+    "summary": "Newly listed unfurnished 2-room top-floor apartment near Javastraat and Muiderpoort station, available immediately.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/09f74a3a/sumatrastraat",
+    "lat": 52.358876,
+    "lng": 4.9390454,
+    "distance_km": 0.62,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/09f74a3a-712f-5122-bf73-6618fcdb76f4/ae9757b31c87795467cf917534f13ce4.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/09f74a3a-712f-5122-bf73-6618fcdb76f4/ae9757b31c87795467cf917534f13ce4.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/09f74a3a-712f-5122-bf73-6618fcdb76f4/ae9757b31c87795467cf917534f13ce4.jpg?width=600&auto=webp"
+    ],
+    "available_from": "per direct",
+    "min_contract": "12 maanden"
   }
 ]
