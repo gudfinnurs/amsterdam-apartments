@@ -685,27 +685,6 @@
   },
   {
     "date_found": "2026-05-02",
-    "address": "Sumatrastraat, 1094 NP Amsterdam (Indische Buurt-West)",
-    "price": "€2,000/mo",
-    "size": "60 m²",
-    "rooms": "2 rooms",
-    "furnished": "Kaal (unfurnished)",
-    "available": "⭐ Per direct",
-    "summary": "Newly listed unfurnished 2-room top-floor apartment near Javastraat and Muiderpoort station, available immediately.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/09f74a3a/sumatrastraat",
-    "lat": 52.358876,
-    "lng": 4.9390454,
-    "distance_km": 0.62,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/09f74a3a-712f-5122-bf73-6618fcdb76f4/ae9757b31c87795467cf917534f13ce4.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/09f74a3a-712f-5122-bf73-6618fcdb76f4/ae9757b31c87795467cf917534f13ce4.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/09f74a3a-712f-5122-bf73-6618fcdb76f4/ae9757b31c87795467cf917534f13ce4.jpg?width=600&auto=webp"
-    ],
-    "available_from": "per direct",
-    "min_contract": "12 maanden"
-  },
-  {
-    "date_found": "2026-05-02",
     "address": "For rent: Flat Haarlemmerweg 872 in Amsterdam, Amsterdam",
     "price": "1774",
     "size": "57",
@@ -775,5 +754,26 @@
     "photo_urls": null,
     "available_from": null,
     "min_contract": null
+  },
+  {
+    "date_found": "2026-05-03",
+    "address": "Faas Wilkesstraat 159 D, 1095 MD (Zeeburgereiland/Bovendiep)",
+    "price": "€ 2.450/mo",
+    "size": "98 m²",
+    "rooms": "4 (3 bed)",
+    "furnished": "Unfurnished",
+    "available": "Per 31-05-2026",
+    "summary": "Modern 2019-built 4-room family home on Zeeburgereiland with energy label A, AC, alarm, fiber internet and French balcony, available end of May with 12-month minimum.",
+    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/9e5b24f0/faas-wilkesstraat",
+    "lat": 52.3735929,
+    "lng": 4.9680989,
+    "distance_km": 1.95,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e5b24f0-27d6-5971-9408-193167df144d/fb8404646ef70c420966695f598dff18.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9e5b24f0-27d6-5971-9408-193167df144d/fb8404646ef70c420966695f598dff18.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9e5b24f0-27d6-5971-9408-193167df144d/fb8404646ef70c420966695f598dff18.jpg?width=600&auto=webp"
+    ],
+    "available_from": null,
+    "min_contract": "12 maanden"
   }
 ]
