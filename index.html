@@ -1102,7 +1102,7 @@ function cardHTML(l, idx) {
           <div class="cdate">${daysAgo(l.date_found)}</div>
           <div class="cactions">
             ${l.lat ? `<button class="mapbtn" onclick="event.preventDefault();event.stopPropagation();window._showOnMap(${l._i})">🗺</button>` : ''}
-            <span class="viewbtn">View →</span>
+            <a class="viewbtn" href="${l.url||'#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()">View →</a>
           </div>
         </div>
       </div>
@@ -1199,6 +1199,16 @@ shHandle.addEventListener('touchstart', e => {
   shY0 = getCurrentY();
   dragging = true;
   sheet.classList.add('no-anim');
+  e.stopPropagation();
+}, { passive: true });
+
+// Also allow dragging from anywhere on the sheet header area
+document.getElementById('sh-header')?.addEventListener('touchstart', e => {
+  if (!isMobile()) return;
+  ty0 = ty1 = e.touches[0].clientY;
+  shY0 = getCurrentY();
+  dragging = true;
+  sheet.classList.add('no-anim');
 }, { passive: true });
 
 document.addEventListener('touchmove', e => {
@@ -1209,8 +1219,14 @@ document.addEventListener('touchmove', e => {
   sheet.style.transform = `translateY(${newY}px)`;
 }, { passive: true });
 
-document.addEventListener('touchend', () => {
+document.addEventListener('touchend', e => {
   if (!dragging || !isMobile()) return;
+  // Don't interfere if the touch target is a link or button (card tap)
+  const tgt = e.target;
+  if (tgt.closest('a[href]') || tgt.closest('.viewbtn') || tgt.closest('.card')) {
+    dragging = false;
+    return;
+  }
   dragging = false;
   const dy = ty1 - ty0;
   const cur = getCurrentY();
