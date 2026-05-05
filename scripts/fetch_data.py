@@ -303,7 +303,14 @@ def main():
 
     for i, row in enumerate(rows):
         address   = str(row.get('Address', '')).strip()
-        url       = str(row.get('Link', '')).strip()
+        # URL may be in 'Link', 'URL', or 'Summary' column (sheet stores URL in Summary)
+        url = str(row.get('Link', '') or row.get('URL', '') or '').strip()
+        if not url:
+            # Fall back: extract URL from Summary column
+            summary_raw = str(row.get('Summary', '')).strip()
+            m = re.search(r'https?://[^\s"<>]+', summary_raw)
+            if m:
+                url = m.group(0).rstrip('.,;)')
         available = str(row.get('Available ~May 1?', '')).strip()
         furnished = str(row.get('Furnished', '')).strip()
         status    = str(row.get('Status', 'active')).strip().lower()
@@ -323,7 +330,7 @@ def main():
             'rooms':       str(row.get('Rooms', '')).strip(),
             'furnished':   furnished,
             'available':   available,
-            'summary':     str(row.get('Summary', '')).strip(),
+            'summary':     '' if str(row.get('Summary','')).strip().startswith('http') else str(row.get('Summary','')).strip(),
             'url':         url,
             # Enriched fields
             'lat':         None,
