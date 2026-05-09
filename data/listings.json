@@ -115,26 +115,5 @@
     ],
     "available_from": null,
     "min_contract": "12 months"
-  },
-  {
-    "date_found": "2026-05-03",
-    "address": "Faas Wilkesstraat 159 D, 1095 MD (Zeeburgereiland/Bovendiep)",
-    "price": "€ 2.450/mo",
-    "size": "98 m²",
-    "rooms": "4 (3 bed)",
-    "furnished": "Unfurnished",
-    "available": "Per 31-05-2026",
-    "summary": "Modern 2019-built 4-room family home on Zeeburgereiland with energy label A, AC, alarm, fiber internet and French balcony, available end of May with 12-month minimum.",
-    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/9e5b24f0/faas-wilkesstraat",
-    "lat": 52.3735929,
-    "lng": 4.9680989,
-    "distance_km": 1.95,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e5b24f0-27d6-5971-9408-193167df144d/fb8404646ef70c420966695f598dff18.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/9e5b24f0-27d6-5971-9408-193167df144d/fb8404646ef70c420966695f598dff18.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/9e5b24f0-27d6-5971-9408-193167df144d/fb8404646ef70c420966695f598dff18.jpg?width=600&auto=webp"
-    ],
-    "available_from": null,
-    "min_contract": "12 maanden"
   }
 ]
