@@ -1,24 +1,6 @@
 [
   {
     "date_found": "2026-04-20",
-    "address": "Rietlandpark 81, Amsterdam",
-    "price": "2500",
-    "size": "82",
-    "rooms": "3",
-    "furnished": "Unknown",
-    "available": "",
-    "summary": "",
-    "url": "https://www.funda.nl/detail/huur/amsterdam/appartement-rietlandpark-81/89761977/",
-    "lat": 52.373362,
-    "lng": 4.935891,
-    "distance_km": 1.3,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
-  },
-  {
-    "date_found": "2026-04-20",
     "address": "Sprinklerstraat 75, Amsterdam",
     "price": "2800",
     "size": "94",
