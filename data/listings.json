@@ -223,5 +223,26 @@
     ],
     "available_from": "Per direct",
     "min_contract": null
+  },
+  {
+    "date_found": "2026-05-14",
+    "address": "For rent: Flat Zandstrooierstraat 65 in Amsterdam, Amsterdam",
+    "price": "2211",
+    "size": "80",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/f088543b/zandstrooierstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&auto=webp"
+    ],
+    "available_from": null,
+    "min_contract": "12 months"
   }
 ]
