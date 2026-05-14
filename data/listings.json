@@ -181,5 +181,47 @@
     ],
     "available_from": null,
     "min_contract": "12 months"
+  },
+  {
+    "date_found": "2026-05-14",
+    "address": "Graaf Florisstraat 10-4, 1091 TG Amsterdam (Weesperzijde)",
+    "price": "€1,800/mo",
+    "size": "41 m²",
+    "rooms": "1 kamer (studio)",
+    "furnished": "Kaal (unfurnished)",
+    "available": "Per direct",
+    "summary": "Light partially renovated 4th-floor studio near the Amstel with a generous roof terrace and no upstairs neighbors.",
+    "url": "https://www.pararius.nl/studio-te-huur/amsterdam/cd738d55/graaf-florisstraat",
+    "lat": 52.3523106,
+    "lng": 4.9124452,
+    "distance_km": 2.52,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": "12 maanden"
+  },
+  {
+    "date_found": "2026-05-14",
+    "address": "Tilanusstraat 75-H, 1091 BG Amsterdam (Oosterparkbuurt)",
+    "price": "€2,400/mo",
+    "size": "68 m²",
+    "rooms": "2 kamers",
+    "furnished": "Kaal (no furnishing field; not mentioned)",
+    "available": "Per direct",
+    "summary": "Ground-floor apartment with a 36 m² back garden near Oosterpark and Beukenplein, kitchen with appliances and one bedroom.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/21220256/tilanusstraat",
+    "lat": 52.3590568,
+    "lng": 4.9135759,
+    "distance_km": 2.18,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": null
   }
 ]
