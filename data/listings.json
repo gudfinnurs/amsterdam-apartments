@@ -69,9 +69,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&auto=webp"
+    ],
+    "available_from": "May 1st\\n- There is no separate ext",
     "min_contract": null
   },
   {
@@ -264,24 +267,24 @@
     "min_contract": null
   },
   {
-    "date_found": "2026-05-17",
-    "address": "Edisonstraat, 1098 TA Amsterdam (Middenmeer)",
-    "price": "€2200/mo",
-    "size": "70 m²",
-    "rooms": "2 rooms (1 bedroom)",
-    "furnished": "Kaal (unfurnished)",
-    "available": "⭐ Per direct",
-    "summary": "Newly listed unfurnished 2-room apartment in Middenmeer/Watergraafsmeer near Javastraat, Muiderpoort station and Flevopark, available immediately on a 12-month minimum contract.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/f269785f/edisonstraat",
-    "lat": 52.3499468,
-    "lng": 4.9429274,
-    "distance_km": 1.47,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f269785f-2e69-5813-9d46-62405d824d09/e1322ae283e507a4b4b20436e9a94321.jpg?width=600&amp;auto=webp",
+    "date_found": "2026-05-18",
+    "address": "Celebesstraat, 1094 GB Amsterdam (Indische Buurt-West)",
+    "price": "€2,550/mo",
+    "size": "80 m²",
+    "rooms": "3 rooms (2 bedrooms)",
+    "furnished": "Unfurnished",
+    "available": "3 days ago",
+    "summary": "Spacious 80m² ground-floor apartment with private back garden and shared courtyard, fully renovated 2021, energy label A, 2 bedrooms in quiet Indische Buurt-West near Muiderpoort station.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/f0995954/celebesstraat",
+    "lat": 52.3582827,
+    "lng": 4.9363894,
+    "distance_km": 0.79,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
     "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/f269785f-2e69-5813-9d46-62405d824d09/e1322ae283e507a4b4b20436e9a94321.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/f269785f-2e69-5813-9d46-62405d824d09/e1322ae283e507a4b4b20436e9a94321.jpg?width=600&auto=webp"
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&auto=webp"
     ],
-    "available_from": "per direct",
-    "min_contract": "12 maanden"
+    "available_from": "1 juni;\\n- Volledig gerenoveerd in",
+    "min_contract": null
   }
 ]
