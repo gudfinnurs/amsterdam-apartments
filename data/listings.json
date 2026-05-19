@@ -48,8 +48,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -171,10 +174,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "12 months"
   },
   {
     "date_found": "2026-05-14",
@@ -280,5 +286,26 @@
     ],
     "available_from": "1 juni;\\n- Volledig gerenoveerd in",
     "min_contract": null
+  },
+  {
+    "date_found": "2026-05-19",
+    "address": "Graaf Florisstraat 10 4, 1091 TG Amsterdam (Weesperzijde)",
+    "price": "€1,800",
+    "size": "41 m²",
+    "rooms": "Studio (1 room)",
+    "furnished": "Unfurnished (Shell/Casco)",
+    "available": "in 5 days",
+    "summary": "Bright partially-renovated top-floor studio near the Amstel with private roof terrace, open kitchen and metro literally around the corner.",
+    "url": "https://www.pararius.nl/studio-for-rent/amsterdam/cd738d55/graaf-florisstraat",
+    "lat": 52.3523106,
+    "lng": 4.9124452,
+    "distance_km": 2.52,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&auto=webp"
+    ],
+    "available_from": null,
+    "min_contract": "12 months"
   }
 ]
