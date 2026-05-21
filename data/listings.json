@@ -18,24 +18,6 @@
     "min_contract": null
   },
   {
-    "date_found": "2026-04-20",
-    "address": "Ploegstraat 36, Amsterdam",
-    "price": "2850",
-    "size": "70",
-    "rooms": "4",
-    "furnished": "Unknown",
-    "available": "",
-    "summary": "",
-    "url": "https://www.funda.nl/detail/huur/amsterdam/appartement-ploegstraat-36/43310987/",
-    "lat": 52.3417655,
-    "lng": 4.9465722,
-    "distance_km": 2.37,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
-  },
-  {
     "date_found": "2026-04-21",
     "address": "For rent: Flat Grensstraat in Amsterdam, Amsterdam",
     "price": "1650",
@@ -48,11 +30,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
