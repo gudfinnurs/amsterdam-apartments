@@ -100,48 +100,6 @@
   },
   {
     "date_found": "2026-05-12",
-    "address": "Grensstraat, 1091 SZ Amsterdam (Weesperzijde)",
-    "price": "€2,575/mo",
-    "size": "78 m²",
-    "rooms": "3",
-    "furnished": "Unfurnished",
-    "available": "From 01-06-2026",
-    "summary": "Luxurious new-build 3-room apartment with 2 en-suite bathrooms and balcony near Weesperzijde, available from June 1.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/0fe36cd7/grensstraat",
-    "lat": 52.3544142,
-    "lng": 4.9113798,
-    "distance_km": 2.48,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&auto=webp"
-    ],
-    "available_from": "In overleg",
-    "min_contract": null
-  },
-  {
-    "date_found": "2026-05-12",
-    "address": "Grensstraat, 1091 SZ Amsterdam (Weesperzijde)",
-    "price": "€1,795/mo",
-    "size": "52 m²",
-    "rooms": "2",
-    "furnished": "Unfurnished",
-    "available": "In overleg",
-    "summary": "Bright new-build 1-bedroom apartment with open kitchen, balcony, and shared bike storage on Grensstraat near Weesperzijde.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/e2d9d232/grensstraat",
-    "lat": 52.3544142,
-    "lng": 4.9113798,
-    "distance_km": 2.48,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/e2d9d232-e8c7-592a-b14e-a37e8cc97f46/ed49310ca71d172466186fb749924a63.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/e2d9d232-e8c7-592a-b14e-a37e8cc97f46/ed49310ca71d172466186fb749924a63.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/e2d9d232-e8c7-592a-b14e-a37e8cc97f46/ed49310ca71d172466186fb749924a63.jpg?width=600&auto=webp"
-    ],
-    "available_from": "In overleg",
-    "min_contract": null
-  },
-  {
-    "date_found": "2026-05-12",
     "address": "For rent: Flat Grensstraat in Amsterdam, Amsterdam",
     "price": "2575",
     "size": "78",
