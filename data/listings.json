@@ -54,13 +54,10 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-05-12",
