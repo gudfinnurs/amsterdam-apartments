@@ -102,10 +102,13 @@
     "lat": 52.3523106,
     "lng": 4.9124452,
     "distance_km": 2.52,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": "12 maanden"
   },
   {
     "date_found": "2026-05-14",
@@ -174,9 +177,12 @@
     "lat": 52.3582827,
     "lng": 4.9363894,
     "distance_km": 0.79,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&auto=webp"
+    ],
+    "available_from": "1 juni;\\n- Volledig gerenoveerd in",
     "min_contract": null
   },
   {
