@@ -12,8 +12,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -66,9 +69,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&auto=webp"
+    ],
+    "available_from": "June 1st, 2026 | Luxurious 2-bedroo",
     "min_contract": null
   },
   {
@@ -84,10 +90,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "12 months"
   },
   {
     "date_found": "2026-05-14",
@@ -144,10 +153,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "12 months"
   },
   {
     "date_found": "2026-05-15",
@@ -162,9 +174,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&auto=webp"
+    ],
+    "available_from": "June 1;\\n- Fully renovated in Novem",
     "min_contract": null
   },
   {
@@ -180,9 +195,12 @@
     "lat": 52.3582827,
     "lng": 4.9363894,
     "distance_km": 0.79,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&auto=webp"
+    ],
+    "available_from": "1 juni;\\n- Volledig gerenoveerd in",
     "min_contract": null
   },
   {
@@ -198,10 +216,13 @@
     "lat": 52.3523106,
     "lng": 4.9124452,
     "distance_km": 2.52,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/cd738d55-c8b4-5139-97f9-10c6925ad42d/7d23ea0d61baa326bc1170758ce25b6a.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "12 months"
   },
   {
     "date_found": "2026-06-02",
@@ -216,9 +237,33 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/6f3f32db-8793-52dd-9e88-8ef2069f7c69/f99e4bb8b5c2dbeb35593db7dcf1e910.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/6f3f32db-8793-52dd-9e88-8ef2069f7c69/f99e4bb8b5c2dbeb35593db7dcf1e910.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/6f3f32db-8793-52dd-9e88-8ef2069f7c69/f99e4bb8b5c2dbeb35593db7dcf1e910.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
+    "min_contract": "12 months"
+  },
+  {
+    "date_found": "2026-06-03",
+    "address": "Reinwardtstraat 81 A, 1093 HB Amsterdam (Dapperbuurt)",
+    "price": "€2,250/mo",
+    "size": "104 m²",
+    "rooms": "4 (3 bedrooms)",
+    "furnished": "Unfurnished (ongemeubileerd)",
+    "available": "30 June 2026",
+    "summary": "Spacious 4-room apartment with garden in Amsterdam-Oost (Dapperbuurt), new luxury kitchen, 3 bedrooms, energy label A, minimum income €108k.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/7a302ed7/reinwardtstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/7a302ed7-de7a-539f-bb77-9b27a51b25ce/33e946cf9370079590df4358401067de.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/7a302ed7-de7a-539f-bb77-9b27a51b25ce/33e946cf9370079590df4358401067de.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/7a302ed7-de7a-539f-bb77-9b27a51b25ce/33e946cf9370079590df4358401067de.jpg?width=600&auto=webp"
+    ],
+    "available_from": "30 juni 2026\\nBouwjaar 2002\\nLabel",
     "min_contract": null
   }
 ]
