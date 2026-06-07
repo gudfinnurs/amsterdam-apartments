@@ -213,11 +213,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -249,6 +246,24 @@
     "available": "",
     "summary": "",
     "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/db04d469/mariotteplein",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-06-07",
+    "address": "Mr. P.N. Arntzeniusweg 47 H, 1098 GL Amsterdam (Middenmeer)",
+    "price": "€2,450/mo",
+    "size": "92 m²",
+    "rooms": "3 (2 bedrooms)",
+    "furnished": "Unfurnished",
+    "available": "⭐",
+    "summary": "Characterful 1929 single-family terraced house in Middenmeer with 92 m² and 2 bedrooms, available immediately.",
+    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/d7c9cc3d/mr-p-n-arntzeniusweg",
     "lat": null,
     "lng": null,
     "distance_km": null,
