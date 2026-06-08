@@ -102,9 +102,12 @@
     "lat": 52.3590568,
     "lng": 4.9135759,
     "distance_km": 2.18,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
     "min_contract": null
   },
   {
@@ -138,9 +141,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f0995954-2275-5906-bb08-8f71f020d5d8/a94a1ffaef882134813316c8bb9e62dd.jpg?width=600&auto=webp"
+    ],
+    "available_from": "June 1;\\n- Fully renovated in Novem",
     "min_contract": null
   },
   {
@@ -213,8 +219,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -267,6 +276,27 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/d7c9cc3d-3e83-5623-a2fa-da341914d168/625a8c0c75a4dd5028b817224afe09b5.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/d7c9cc3d-3e83-5623-a2fa-da341914d168/625a8c0c75a4dd5028b817224afe09b5.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/d7c9cc3d-3e83-5623-a2fa-da341914d168/625a8c0c75a4dd5028b817224afe09b5.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-06-08",
+    "address": "Kea Boumanstraat 96, 1095 MA Amsterdam (Zeeburgereiland/Bovendiep)",
+    "price": "€2,400",
+    "size": "135 m²",
+    "rooms": "4 (3 bedrooms)",
+    "furnished": "Unfurnished",
+    "available": "⭐ Available from April 1st",
+    "summary": "Spacious 4-room ground+1st floor apartment on Zeeburgereiland with 24m² private garden, view over the Buiten-IJ, modern kitchen and 3 bedrooms; explicitly unfurnished.",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/fe5d5716/kea-boumanstraat",
+    "lat": 52.3737942,
+    "lng": 4.9691872,
+    "distance_km": 2.03,
     "photo_url": null,
     "photo_urls": null,
     "available_from": null,
