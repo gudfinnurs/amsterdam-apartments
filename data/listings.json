@@ -102,9 +102,12 @@
     "lat": 52.3590568,
     "lng": 4.9135759,
     "distance_km": 2.18,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
     "min_contract": null
   },
   {
@@ -192,8 +195,11 @@
     "lat": 52.3533032,
     "lng": 4.9309036,
     "distance_km": 1.45,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -336,6 +342,24 @@
     "lat": 52.3727092,
     "lng": 4.9693755,
     "distance_km": 1.97,
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-06-17",
+    "address": "For rent: Flat Pantograafstraat 71 in Amsterdam, Amsterdam",
+    "price": "1845",
+    "size": "65",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/c29c04a9/pantograafstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
     "photo_url": null,
     "photo_urls": null,
     "available_from": null,
