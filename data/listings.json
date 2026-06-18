@@ -195,11 +195,8 @@
     "lat": 52.3533032,
     "lng": 4.9309036,
     "distance_km": 1.45,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -216,8 +213,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -252,8 +252,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -324,9 +327,12 @@
     "lat": 52.3545266,
     "lng": 4.9296095,
     "distance_km": 1.41,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
+    ],
+    "available_from": "per direct",
     "min_contract": null
   },
   {
