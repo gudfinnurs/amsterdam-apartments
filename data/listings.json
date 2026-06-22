@@ -30,9 +30,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&auto=webp"
+    ],
+    "available_from": "May 1st\\n- There is no separate ext",
     "min_contract": null
   },
   {
@@ -66,9 +69,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&auto=webp"
+    ],
+    "available_from": "June 1st, 2026 | Luxurious 2-bedroo",
     "min_contract": null
   },
   {
@@ -120,8 +126,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/f088543b-e857-5f81-b3a9-cfaffc00ca44/e7b135fc9ab3ff8952f5ced367b94529.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -138,24 +147,6 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
-  },
-  {
-    "date_found": "2026-05-18",
-    "address": "Celebesstraat, 1094 GB Amsterdam (Indische Buurt-West)",
-    "price": "€2,550/mo",
-    "size": "80 m²",
-    "rooms": "3 rooms (2 bedrooms)",
-    "furnished": "Unfurnished",
-    "available": "3 days ago",
-    "summary": "Spacious 80m² ground-floor apartment with private back garden and shared courtyard, fully renovated 2021, energy label A, 2 bedrooms in quiet Indische Buurt-West near Muiderpoort station.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/f0995954/celebesstraat",
-    "lat": 52.3582827,
-    "lng": 4.9363894,
-    "distance_km": 0.79,
     "photo_url": null,
     "photo_urls": null,
     "available_from": null,
@@ -180,27 +171,6 @@
     "min_contract": null
   },
   {
-    "date_found": "2026-06-04",
-    "address": "Middenweg, 1097 BR Amsterdam (Frankendael)",
-    "price": "€2.550",
-    "size": "84 m²",
-    "rooms": "2",
-    "furnished": "Unfurnished",
-    "available": "In overleg",
-    "summary": "Bright 84m² 2-room upper apartment in De Telefoondienst overlooking Park Frankendael, with luxury kitchen appliances, oak floors and modern bathrooms, well connected by tram/bus/train.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/85fdfc19/middenweg",
-    "lat": 52.3533032,
-    "lng": 4.9309036,
-    "distance_km": 1.45,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/85fdfc19-0166-57f3-8e5d-600fee42ab35/cd8ce0ac0c72b2adfdff9ece85037591.jpg?width=600&auto=webp"
-    ],
-    "available_from": null,
-    "min_contract": null
-  },
-  {
     "date_found": "2026-06-05",
     "address": "For rent: Flat Veemkade 450 in Amsterdam, Amsterdam",
     "price": "2106",
@@ -213,11 +183,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -234,8 +201,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -252,11 +222,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -312,8 +279,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/8c30ff4b-f6d4-53ea-a0ae-feab29d8a636/baa770afe5210b21bd095724d05c1cd0.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/8c30ff4b-f6d4-53ea-a0ae-feab29d8a636/baa770afe5210b21bd095724d05c1cd0.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/8c30ff4b-f6d4-53ea-a0ae-feab29d8a636/baa770afe5210b21bd095724d05c1cd0.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
