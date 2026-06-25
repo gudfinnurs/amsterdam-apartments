@@ -12,11 +12,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -33,12 +30,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&auto=webp"
-    ],
-    "available_from": "May 1st\\n- There is no separate ext",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -54,11 +48,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -75,9 +66,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&auto=webp"
+    ],
+    "available_from": "June 1st, 2026 | Luxurious 2-bedroo",
     "min_contract": null
   },
   {
@@ -93,8 +87,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -111,13 +108,10 @@
     "lat": 52.3590568,
     "lng": 4.9135759,
     "distance_km": 2.18,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/21220256-7523-5da4-8cbd-5f9e9d5e5b79/153c06e5b140836396896976e835918a.jpg?width=600&auto=webp"
-    ],
-    "available_from": "Per direct",
-    "min_contract": "2 maanden"
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-05-14",
@@ -195,11 +189,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -300,8 +291,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/8c30ff4b-f6d4-53ea-a0ae-feab29d8a636/baa770afe5210b21bd095724d05c1cd0.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/8c30ff4b-f6d4-53ea-a0ae-feab29d8a636/baa770afe5210b21bd095724d05c1cd0.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/8c30ff4b-f6d4-53ea-a0ae-feab29d8a636/baa770afe5210b21bd095724d05c1cd0.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -388,5 +382,26 @@
     ],
     "available_from": "direct voor \\u20ac 2.450 per maand",
     "min_contract": null
+  },
+  {
+    "date_found": "2026-06-25",
+    "address": "For rent: Flat Eerste Van Swindenstraat in Amsterdam, Amsterdam",
+    "price": "2150",
+    "size": "76",
+    "rooms": "3",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/bc199d08/eerste-van-swindenstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&auto=webp"
+    ],
+    "available_from": null,
+    "min_contract": "2 months"
   }
 ]
