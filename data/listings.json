@@ -12,8 +12,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/98444a07-9000-5060-a369-07781c176d06/a331b04d49320c1024ef647f1ee77beb.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -72,12 +75,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/0fe36cd7-8563-567d-83fe-9b309255dd46/6c9aaf1538563780252b8c86205bf7f4.jpg?width=600&auto=webp"
-    ],
-    "available_from": "June 1st, 2026 | Luxurious 2-bedroo",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -366,13 +366,10 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/c29c04a9-d299-5e1e-8571-138605ac77e9/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/c29c04a9-d299-5e1e-8571-138605ac77e9/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/c29c04a9-d299-5e1e-8571-138605ac77e9/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-06-19",
