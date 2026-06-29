@@ -270,7 +270,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/fe5d5716-4490-513d-9787-42e5c6b0d056/11b4c46d7d65fc97e3a16ef53d949a61.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": "2 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-06-11",
@@ -375,7 +375,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/c29c04a9-d299-5e1e-8571-138605ac77e9/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-06-19",
