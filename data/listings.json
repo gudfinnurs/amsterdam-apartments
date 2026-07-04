@@ -432,13 +432,10 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&auto=webp"
-    ],
-    "available_from": "August 1st, 2026\\n- Income requirem",
-    "min_contract": "2 months"
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-07-02",
@@ -522,6 +519,27 @@
       "https://casco-media-prod.global.ssl.fastly.net/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/32be1596f91f37b7d7127a5cf286bed6.jpg?width=600&auto=webp"
     ],
     "available_from": "Per direct",
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-07-04",
+    "address": "For rent: Flat Mr. P.N. Arntzeniusweg 57 1 in Amsterdam, Amsterdam",
+    "price": "2600",
+    "size": "95",
+    "rooms": "1",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/2ba8f5ce/mr-p-n-arntzeniusweg",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/32be1596f91f37b7d7127a5cf286bed6.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/32be1596f91f37b7d7127a5cf286bed6.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/32be1596f91f37b7d7127a5cf286bed6.jpg?width=600&auto=webp"
+    ],
+    "available_from": null,
     "min_contract": null
   }
 ]
