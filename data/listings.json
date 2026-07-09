@@ -33,12 +33,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/1f16aa6e-38f2-5b5f-be6f-923e58c22a6d/ce0e95f3af46e4eab82f10f613ed92b5.jpg?width=600&auto=webp"
-    ],
-    "available_from": "May 1st\\n- There is no separate ext",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -544,5 +541,26 @@
     ],
     "available_from": "2026-07-12",
     "min_contract": "12 maanden"
+  },
+  {
+    "date_found": "2026-07-09",
+    "address": "For rent: Flat Zandstrooierstraat 9 in Amsterdam, Amsterdam",
+    "price": "2634",
+    "size": "117",
+    "rooms": "4",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/1fcb4f3f/zandstrooierstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-08-01",
+    "min_contract": "12 months"
   }
 ]
