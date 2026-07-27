@@ -300,9 +300,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-06-01",
     "min_contract": null
   },
   {
@@ -336,10 +339,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/321d23d5-0057-5d26-b179-0d02e013d0f8/f351920801eba81752c32f8eac0226b5.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/321d23d5-0057-5d26-b179-0d02e013d0f8/f351920801eba81752c32f8eac0226b5.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/321d23d5-0057-5d26-b179-0d02e013d0f8/f351920801eba81752c32f8eac0226b5.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "24 months"
   },
   {
     "date_found": "2026-07-03",
@@ -516,9 +522,12 @@
     "lat": 52.3547143,
     "lng": 4.9293286,
     "distance_km": 1.41,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
     "min_contract": null
   }
 ]
