@@ -192,11 +192,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/db04d469-3015-5735-9c47-25b88a8edd67/9d9adc64d57e828305ea08b2007eeb2d.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -267,13 +264,10 @@
     "lat": 52.3545266,
     "lng": 4.9296095,
     "distance_km": 1.41,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
-    ],
-    "available_from": "per direct",
-    "min_contract": "2 maanden"
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-06-17",
@@ -306,12 +300,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/bc199d08-69d4-5b33-aded-d00d438db173/fe253851b72c7af034d47a93d5ea7af0.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-06-01",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -345,13 +336,10 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/321d23d5-0057-5d26-b179-0d02e013d0f8/f351920801eba81752c32f8eac0226b5.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/321d23d5-0057-5d26-b179-0d02e013d0f8/f351920801eba81752c32f8eac0226b5.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/321d23d5-0057-5d26-b179-0d02e013d0f8/f351920801eba81752c32f8eac0226b5.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
-    "min_contract": "24 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-07-03",
@@ -384,12 +372,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/c52f77b4-27b4-5877-bb98-efe8ca1b589b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/c52f77b4-27b4-5877-bb98-efe8ca1b589b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/c52f77b4-27b4-5877-bb98-efe8ca1b589b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-08-01",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -405,9 +390,12 @@
     "lat": 52.3549554,
     "lng": 4.9359461,
     "distance_km": 1.09,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/32be1596f91f37b7d7127a5cf286bed6.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/32be1596f91f37b7d7127a5cf286bed6.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/32be1596f91f37b7d7127a5cf286bed6.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
     "min_contract": null
   },
   {
@@ -459,13 +447,10 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-08-01",
-    "min_contract": "12 months"
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-07-18",
@@ -498,11 +483,8 @@
     "lat": 52.3547143,
     "lng": 4.9293286,
     "distance_km": 1.41,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -519,13 +501,10 @@
     "lat": 52.3545266,
     "lng": 4.9296095,
     "distance_km": 1.41,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
-    ],
-    "available_from": "per direct",
-    "min_contract": "2 maanden"
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-07-24",
@@ -555,6 +534,42 @@
     "available": "",
     "summary": "",
     "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/20105a96/zandstrooierstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-07-30",
+    "address": "Swammerdamstraat 56 B, 1091 RW Amsterdam (Weesperzijde/Oud-Oost)",
+    "price": "€2,250/mo",
+    "size": "81 m²",
+    "rooms": "2",
+    "furnished": "Unfurnished (no furnishing info)",
+    "available": "Yes ⭐",
+    "summary": "Bright 2-room apartment near the Amstel and Oosterpark, first-floor with open kitchen, spacious bedroom, and full bathroom with bath+shower.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/d00cf1da/swammerdamstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-07-30",
+    "address": "Faas Wilkesstraat 177 C, 1095 MD Amsterdam (Zeeburgereiland/Bovendiep)",
+    "price": "€2,375/mo",
+    "size": "98 m²",
+    "rooms": "4",
+    "furnished": "Unfurnished (no furnishing info)",
+    "available": "Yes ⭐",
+    "summary": "Modern 2019 terraced family home on Zeeburgereiland with 4 rooms, 2 bedrooms, 2 bathrooms, energy label A, and excellent public transport links.",
+    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/676fb17d/faas-wilkesstraat",
     "lat": null,
     "lng": null,
     "distance_km": null,
