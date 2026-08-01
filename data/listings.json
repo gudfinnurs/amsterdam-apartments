@@ -1,23 +1,5 @@
 [
   {
-    "date_found": "2026-04-21",
-    "address": "For rent: Flat Grensstraat in Amsterdam, Amsterdam",
-    "price": "1650",
-    "size": "46",
-    "rooms": "2",
-    "furnished": "Unfurnished",
-    "available": "",
-    "summary": "",
-    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/98444a07/grensstraat",
-    "lat": null,
-    "lng": null,
-    "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": "&quot;,&quot;interaction_id&quot;:&",
-    "min_contract": "2 months"
-  },
-  {
     "date_found": "2026-04-23",
     "address": "For rent: Flat Pieter Goosstraat 28 in Amsterdam, Amsterdam",
     "price": "1900",
@@ -666,6 +648,27 @@
       "https://casco-media-prod.global.ssl.fastly.net/d00cf1da-e345-51d1-9ffc-8eac996005a8/6ce3593d47a65ed2f976e6a336ea8e51.jpg?width=600&auto=webp"
     ],
     "available_from": null,
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-08-01",
+    "address": "For rent: Flat Grensstraat in Amsterdam, Amsterdam",
+    "price": "1895",
+    "size": "53",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "september 1, 2026 | luxury 2-r",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/9ac70d14/grensstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&auto=webp"
+    ],
+    "available_from": "SEPTEMBER 1, 2026 | Luxury 2-room a",
     "min_contract": null
   }
 ]
