@@ -546,27 +546,6 @@
     "min_contract": "12 months"
   },
   {
-    "date_found": "2026-07-30",
-    "address": "For rent: Flat Swammerdamstraat 56 B in Amsterdam, Amsterdam",
-    "price": "2250",
-    "size": "81",
-    "rooms": "2",
-    "furnished": "Unfurnished",
-    "available": "",
-    "summary": "",
-    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/d00cf1da/swammerdamstraat",
-    "lat": null,
-    "lng": null,
-    "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/d00cf1da-e345-51d1-9ffc-8eac996005a8/6ce3593d47a65ed2f976e6a336ea8e51.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/d00cf1da-e345-51d1-9ffc-8eac996005a8/6ce3593d47a65ed2f976e6a336ea8e51.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/d00cf1da-e345-51d1-9ffc-8eac996005a8/6ce3593d47a65ed2f976e6a336ea8e51.jpg?width=600&auto=webp"
-    ],
-    "available_from": null,
-    "min_contract": null
-  },
-  {
     "date_found": "2026-08-01",
     "address": "For rent: Flat Grensstraat in Amsterdam, Amsterdam",
     "price": "1895",
