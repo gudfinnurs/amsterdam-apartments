@@ -186,7 +186,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": "2 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-06-06",
@@ -271,27 +271,6 @@
     ],
     "available_from": null,
     "min_contract": null
-  },
-  {
-    "date_found": "2026-06-13",
-    "address": "Middenweg 37 1, 1098 AB Amsterdam (Middenmeer)",
-    "price": "€2495/mo",
-    "size": "56 m²",
-    "rooms": "2 kamers",
-    "furnished": "unfurnished",
-    "available": "1 week ago",
-    "summary": "Bright 56m² 2-room apartment in a 1885 building on lively Middenweg in Linnaeusparkbuurt — available immediately.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/9e0aaa32/middenweg",
-    "lat": 52.3545266,
-    "lng": 4.9296095,
-    "distance_km": 1.41,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
-    ],
-    "available_from": "per direct",
-    "min_contract": "2 maanden"
   },
   {
     "date_found": "2026-06-17",
@@ -483,27 +462,6 @@
     "min_contract": null
   },
   {
-    "date_found": "2026-07-23",
-    "address": "Middenweg 37 1, 1098 AB Amsterdam (Middenmeer/Watergraafsmeer)",
-    "price": "€2,495",
-    "size": "56 m²",
-    "rooms": "2 rooms (1 bedroom)",
-    "furnished": "unfurnished",
-    "available": "Per direct",
-    "summary": "Character 1885 upper-floor apartment on Middenweg in lively Linnaeusparkbuurt, close to Oostpoort station.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/9e0aaa32/middenweg",
-    "lat": 52.3545266,
-    "lng": 4.9296095,
-    "distance_km": 1.41,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
-    ],
-    "available_from": "per direct",
-    "min_contract": "2 maanden"
-  },
-  {
     "date_found": "2026-07-24",
     "address": "Middenweg 27-1, 1098 AB Amsterdam (Middenmeer)",
     "price": "€2,495/mo",
@@ -586,5 +544,26 @@
     ],
     "available_from": "2026-08-31",
     "min_contract": "12 maanden"
+  },
+  {
+    "date_found": "2026-08-06",
+    "address": "For rent: Flat Insulindeweg 103 1 in Amsterdam, Amsterdam",
+    "price": "2500",
+    "size": "49",
+    "rooms": "3",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/a9db849e/insulindeweg",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-08-31",
+    "min_contract": "12 months"
   }
 ]
