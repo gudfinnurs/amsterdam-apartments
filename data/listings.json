@@ -186,7 +186,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-06-06",
@@ -526,27 +526,6 @@
   },
   {
     "date_found": "2026-08-06",
-    "address": "Insulindeweg 103-1, 1094 PG Amsterdam (Indische Buurt-West)",
-    "price": "€2.500",
-    "size": "49 m²",
-    "rooms": "3",
-    "furnished": "unfurnished",
-    "available": "Per 31-08-2026",
-    "summary": "Fresh 3-room, 49 m² apartment on Insulindeweg in Indische Buurt-West, in a 1924 building near Javaplein — listed yesterday, unfurnished, available end of August.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/a9db849e/insulindeweg",
-    "lat": 52.3616495,
-    "lng": 4.9378453,
-    "distance_km": 0.51,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-08-31",
-    "min_contract": "12 maanden"
-  },
-  {
-    "date_found": "2026-08-06",
     "address": "For rent: Flat Insulindeweg 103 1 in Amsterdam, Amsterdam",
     "price": "2500",
     "size": "49",
@@ -564,6 +543,6 @@
       "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&auto=webp"
     ],
     "available_from": "2026-08-31",
-    "min_contract": "12 months"
+    "min_contract": null
   }
 ]
