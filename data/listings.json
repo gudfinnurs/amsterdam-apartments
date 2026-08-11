@@ -586,5 +586,26 @@
     ],
     "available_from": "2026-09-01",
     "min_contract": "12 months"
+  },
+  {
+    "date_found": "2026-08-11",
+    "address": "Faas Wilkesstraat 177 A, 1095 MD Amsterdam (Zeeburgereiland/Bovendiep)",
+    "price": "€2000",
+    "size": "70 m²",
+    "rooms": "4 kamers (1 bed, 2 bath)",
+    "furnished": "Unfurnished",
+    "available": "1 day old",
+    "summary": "Modern 2019-built 4-room townhouse on Zeeburgereiland with energy label A, near Amsterdam Centraal.",
+    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/06d2d150/faas-wilkesstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/06d2d150-4ae4-5d0f-a936-ee2b8bc34714/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/06d2d150-4ae4-5d0f-a936-ee2b8bc34714/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/06d2d150-4ae4-5d0f-a936-ee2b8bc34714/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-08-31",
+    "min_contract": "12 maanden"
   }
 ]
