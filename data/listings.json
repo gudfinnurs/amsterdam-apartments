@@ -375,7 +375,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/2cfcc942-9d76-5936-b59d-68a51b86adb7/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": "12 months"
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-07-03",
@@ -501,7 +501,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/20105a96-57f2-5c4f-aab8-da7c649357ce/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
     ],
     "available_from": "2026-09-01",
-    "min_contract": "12 months"
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-08-01",
@@ -585,70 +585,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/9fc2d9a9-a03a-5de5-ab8a-effb8848f79e/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&auto=webp"
     ],
     "available_from": "2026-09-01",
-    "min_contract": "12 months"
-  },
-  {
-    "date_found": "2026-08-11",
-    "address": "Faas Wilkesstraat 177 A, 1095 MD Amsterdam (Zeeburgereiland/Bovendiep)",
-    "price": "€2000",
-    "size": "70 m²",
-    "rooms": "4 kamers (1 bed, 2 bath)",
-    "furnished": "Unfurnished",
-    "available": "1 day old",
-    "summary": "Modern 2019-built 4-room townhouse on Zeeburgereiland with energy label A, near Amsterdam Centraal.",
-    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/06d2d150/faas-wilkesstraat",
-    "lat": null,
-    "lng": null,
-    "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/06d2d150-4ae4-5d0f-a936-ee2b8bc34714/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/06d2d150-4ae4-5d0f-a936-ee2b8bc34714/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/06d2d150-4ae4-5d0f-a936-ee2b8bc34714/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-08-31",
-    "min_contract": "12 maanden"
-  },
-  {
-    "date_found": "2026-08-12",
-    "address": "Carolina MacGillavrylaan 156, 1098 XA Amsterdam (Middenmeer)",
-    "price": "€2.850/mo",
-    "size": "137 m²",
-    "rooms": "5 kamers (4 bedrooms)",
-    "furnished": "Unfurnished (no interior label listed)",
-    "available": "16-08-2026",
-    "summary": "Large 5-room top-floor apartment in Middenmeer (Watergraafsmeer), 137 m², built 2007, energy label A, aircon and floor heating — available from 16 August 2026.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/790a1fac/carolina-macgillavrylaan",
-    "lat": 52.3572082,
-    "lng": 4.94225,
-    "distance_km": 0.68,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-08-16",
-    "min_contract": "12 maanden"
-  },
-  {
-    "date_found": "2026-08-12",
-    "address": "Carolina MacGillavrylaan 196, 1098 XA Amsterdam (Middenmeer)",
-    "price": "€2.450/mo",
-    "size": "99 m²",
-    "rooms": "3 kamers (2 bedrooms)",
-    "furnished": "Unfurnished (no interior label listed)",
-    "available": "In overleg",
-    "summary": "Modern 3-room apartment in Middenmeer (Watergraafsmeer), 99 m², built 2007, energy label A with aircon and floor heating — availability in overleg.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/f618c054/carolina-macgillavrylaan",
-    "lat": 52.3571664,
-    "lng": 4.9430871,
-    "distance_km": 0.67,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/f618c054-83e3-5bcf-b698-ba9e2c771c4b/e6a709485d423a1dcb77151cc8d5e066.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/f618c054-83e3-5bcf-b698-ba9e2c771c4b/e6a709485d423a1dcb77151cc8d5e066.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/f618c054-83e3-5bcf-b698-ba9e2c771c4b/e6a709485d423a1dcb77151cc8d5e066.jpg?width=600&auto=webp"
-    ],
-    "available_from": "In overleg",
-    "min_contract": "12 maanden"
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-08-12",
@@ -669,7 +606,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&auto=webp"
     ],
     "available_from": "2026-08-16",
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-08-12",
@@ -690,6 +627,48 @@
       "https://casco-media-prod.global.ssl.fastly.net/f618c054-83e3-5bcf-b698-ba9e2c771c4b/e6a709485d423a1dcb77151cc8d5e066.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": "12 months"
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-08-15",
+    "address": "Hugo de Vrieslaan 1, 1097 ED Amsterdam (Frankendael)",
+    "price": "€2,600",
+    "size": "131 m²",
+    "rooms": "5",
+    "furnished": "Unfurnished",
+    "available": "Yes",
+    "summary": "Spacious 131 m² 5-room family apartment in Frankendael (Watergraafsmeer) with 3 bedrooms and 51 m² outdoor space, available immediately.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/b5cfd5a8/hugo-de-vrieslaan",
+    "lat": 52.34816,
+    "lng": 4.931084,
+    "distance_km": 1.91,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/b5cfd5a8-0d37-5781-966b-286281b97102/37d2b11cf0fe04251926a1a8004caba2.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/b5cfd5a8-0d37-5781-966b-286281b97102/37d2b11cf0fe04251926a1a8004caba2.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/b5cfd5a8-0d37-5781-966b-286281b97102/37d2b11cf0fe04251926a1a8004caba2.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-08-15",
+    "address": "Grensstraat, 1091 SZ Amsterdam (Weesperzijde)",
+    "price": "€1,895",
+    "size": "53 m²",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "Yes",
+    "summary": "Brand-new 53 m² 2-room ground-floor apartment near Amstel with private terrace, energy label A, available from 1 September 2026.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/9ac70d14/grensstraat",
+    "lat": 52.3544142,
+    "lng": 4.9113798,
+    "distance_km": 2.48,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&auto=webp"
+    ],
+    "available_from": "1 SEPTEMBER 2026 | Luxe 2-kamerappa",
+    "min_contract": null
   }
 ]
