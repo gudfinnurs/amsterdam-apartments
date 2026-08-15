@@ -243,11 +243,8 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/6a10ca58-0c9a-5413-901a-f818f777166f/b9bdae22ea51bd345eb4279c508926e9.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/6a10ca58-0c9a-5413-901a-f818f777166f/b9bdae22ea51bd345eb4279c508926e9.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/6a10ca58-0c9a-5413-901a-f818f777166f/b9bdae22ea51bd345eb4279c508926e9.jpg?width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
     "min_contract": null
   },
@@ -669,6 +666,27 @@
       "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&auto=webp"
     ],
     "available_from": "1 SEPTEMBER 2026 | Luxe 2-kamerappa",
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-08-15",
+    "address": "For rent: Flat Hugo de Vrieslaan 1 in Amsterdam, Amsterdam",
+    "price": "2600",
+    "size": "131",
+    "rooms": "5",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/b5cfd5a8/hugo-de-vrieslaan",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/b5cfd5a8-0d37-5781-966b-286281b97102/37d2b11cf0fe04251926a1a8004caba2.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/b5cfd5a8-0d37-5781-966b-286281b97102/37d2b11cf0fe04251926a1a8004caba2.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/b5cfd5a8-0d37-5781-966b-286281b97102/37d2b11cf0fe04251926a1a8004caba2.jpg?width=600&auto=webp"
+    ],
+    "available_from": null,
     "min_contract": null
   }
 ]
