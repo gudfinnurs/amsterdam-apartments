@@ -374,7 +374,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/2cfcc942-9d76-5936-b59d-68a51b86adb7/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&amp;auto=webp",
       "https://casco-media-prod.global.ssl.fastly.net/2cfcc942-9d76-5936-b59d-68a51b86adb7/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&auto=webp"
     ],
-    "available_from": null,
+    "available_from": "2026-08-24",
     "min_contract": "2 months"
   },
   {
@@ -670,5 +670,26 @@
     ],
     "available_from": null,
     "min_contract": null
+  },
+  {
+    "date_found": "2026-08-19",
+    "address": "Carolina MacGillavrylaan 156, 1098 XA Amsterdam (Middenmeer)",
+    "price": "€2.850",
+    "size": "137 m²",
+    "rooms": "5",
+    "furnished": "Unfurnished",
+    "available": "Per direct",
+    "summary": "Spacious 137 m² 5-room top-floor apartment (2007-built) in Middenmeer/Watergraafsmeer with 4 bedrooms, airco and full insulation, available immediately.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/790a1fac/carolina-macgillavrylaan",
+    "lat": 52.3572082,
+    "lng": 4.94225,
+    "distance_km": 0.68,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": "12 maanden"
   }
 ]
