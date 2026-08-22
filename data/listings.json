@@ -33,12 +33,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-06-01",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -543,7 +540,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&auto=webp"
     ],
     "available_from": "2026-08-31",
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-08-07",
@@ -627,7 +624,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/f618c054-83e3-5bcf-b698-ba9e2c771c4b/e6a709485d423a1dcb77151cc8d5e066.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-08-15",
@@ -670,5 +667,26 @@
     ],
     "available_from": null,
     "min_contract": null
+  },
+  {
+    "date_found": "2026-08-22",
+    "address": "Middenweg 37-1, 1098 AB Amsterdam (Middenmeer)",
+    "price": "€ 2.250",
+    "size": "56 m²",
+    "rooms": "2",
+    "furnished": "Unfurnished (Kaal)",
+    "available": "Yes",
+    "summary": "Characterful 56m² 2-room upstairs apartment from 1885 on the Middenweg in Middenmeer/Linnaeusparkbuurt, available per direct with internet included.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/9e0aaa32/middenweg",
+    "lat": 52.3545266,
+    "lng": 4.9296095,
+    "distance_km": 1.41,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9e0aaa32-b565-5ee3-8fb4-66d41affacd2/beb17b5cef3997d763b2de8bb3fdef00.jpg?width=600&auto=webp"
+    ],
+    "available_from": "per direct",
+    "min_contract": "2 maanden"
   }
 ]
