@@ -33,9 +33,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/286ca526-03ff-5555-8acf-27561b64e37b/e4dbef6452f840c447216ed6a31513ce.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-06-01",
     "min_contract": null
   },
   {
@@ -540,7 +543,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&auto=webp"
     ],
     "available_from": "2026-08-31",
-    "min_contract": null
+    "min_contract": "12 months"
   },
   {
     "date_found": "2026-08-07",
@@ -624,7 +627,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/f618c054-83e3-5bcf-b698-ba9e2c771c4b/e6a709485d423a1dcb77151cc8d5e066.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "12 months"
   },
   {
     "date_found": "2026-08-15",
@@ -688,5 +691,26 @@
     ],
     "available_from": "per direct",
     "min_contract": "2 maanden"
+  },
+  {
+    "date_found": "2026-08-22",
+    "address": "For rent: Flat Pantograafstraat 33 in Amsterdam, Amsterdam",
+    "price": "2499",
+    "size": "100",
+    "rooms": "3",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/6fda21c3/pantograafstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/6fda21c3-6fa8-59d1-b370-4a570063f225/f99e4bb8b5c2dbeb35593db7dcf1e910.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/6fda21c3-6fa8-59d1-b370-4a570063f225/f99e4bb8b5c2dbeb35593db7dcf1e910.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/6fda21c3-6fa8-59d1-b370-4a570063f225/f99e4bb8b5c2dbeb35593db7dcf1e910.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-10-01",
+    "min_contract": "2 months"
   }
 ]
