@@ -712,5 +712,47 @@
     ],
     "available_from": "2026-10-01",
     "min_contract": "2 months"
+  },
+  {
+    "date_found": "2026-08-25",
+    "address": "For rent: Flat Zandstrooierstraat 45 in Amsterdam, Amsterdam",
+    "price": "2211",
+    "size": "80",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/aba9f21d/zandstrooierstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/aba9f21d-ca7e-51ed-bcfd-7663c4a1998b/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/aba9f21d-ca7e-51ed-bcfd-7663c4a1998b/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/aba9f21d-ca7e-51ed-bcfd-7663c4a1998b/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-10-01",
+    "min_contract": "2 months"
+  },
+  {
+    "date_found": "2026-08-25",
+    "address": "For rent: Flat Pantograafstraat 39 in Amsterdam, Amsterdam",
+    "price": "1777",
+    "size": "69",
+    "rooms": "2",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/d85cf63d/pantograafstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/d85cf63d-8f75-5db9-9d88-156c82e7db4d/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/d85cf63d-8f75-5db9-9d88-156c82e7db4d/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/d85cf63d-8f75-5db9-9d88-156c82e7db4d/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-10-01",
+    "min_contract": "2 months"
   }
 ]
