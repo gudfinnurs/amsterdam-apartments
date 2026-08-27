@@ -754,5 +754,26 @@
     ],
     "available_from": "2026-10-01",
     "min_contract": "2 months"
+  },
+  {
+    "date_found": "2026-08-27",
+    "address": "For rent: Flat Pretoriusstraat in Amsterdam, Amsterdam",
+    "price": "2850",
+    "size": "70",
+    "rooms": "3",
+    "furnished": "Unfurnished",
+    "available": "",
+    "summary": "",
+    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/9373a167/pretoriusstraat",
+    "lat": null,
+    "lng": null,
+    "distance_km": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9373a167-c780-5918-9108-8236f6bda0bf/10ca5ce52dff6da6598bd5182de32343.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9373a167-c780-5918-9108-8236f6bda0bf/10ca5ce52dff6da6598bd5182de32343.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9373a167-c780-5918-9108-8236f6bda0bf/10ca5ce52dff6da6598bd5182de32343.jpg?width=600&auto=webp"
+    ],
+    "available_from": null,
+    "min_contract": null
   }
 ]
