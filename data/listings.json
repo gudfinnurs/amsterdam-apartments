@@ -1,23 +1,5 @@
 [
   {
-    "date_found": "2026-04-23",
-    "address": "For rent: Flat Pieter Goosstraat 28 in Amsterdam, Amsterdam",
-    "price": "1900",
-    "size": "73",
-    "rooms": "2",
-    "furnished": "Unfurnished",
-    "available": "may 1\\n- there is no separate",
-    "summary": "",
-    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/1f16aa6e/pieter-goosstraat",
-    "lat": null,
-    "lng": null,
-    "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": "&quot;,&quot;interaction_id&quot;:&",
-    "min_contract": "2 months"
-  },
-  {
     "date_found": "2026-05-02",
     "address": "For rent: Flat Pantograafstraat 82 in Amsterdam, Amsterdam",
     "price": "2426",
