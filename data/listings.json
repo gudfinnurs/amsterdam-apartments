@@ -54,12 +54,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/d9a24e23-e444-5857-be26-906b55d5d044/a4b2ddc4e28e7e4757ee17c3cb52e524.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-07-01",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -138,12 +135,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&auto=webp"
-    ],
-    "available_from": "2026-06-20",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -522,7 +516,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/a9db849e-6a5d-509a-9e3c-ea5021015c8c/5bb09bc3e9a9068bdae4e9222ca483ed.jpg?width=600&auto=webp"
     ],
     "available_from": "2026-08-31",
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-08-07",
@@ -606,7 +600,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/f618c054-83e3-5bcf-b698-ba9e2c771c4b/e6a709485d423a1dcb77151cc8d5e066.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": "12 months"
+    "min_contract": null
   },
   {
     "date_found": "2026-08-15",
@@ -753,6 +747,27 @@
       "https://casco-media-prod.global.ssl.fastly.net/9373a167-c780-5918-9108-8236f6bda0bf/10ca5ce52dff6da6598bd5182de32343.jpg?width=600&auto=webp"
     ],
     "available_from": null,
+    "min_contract": null
+  },
+  {
+    "date_found": "2026-08-29",
+    "address": "Pretoriusstraat, 1092 GD Amsterdam (Transvaalbuurt)",
+    "price": "2850",
+    "size": "70",
+    "rooms": "3",
+    "furnished": "Unfurnished (no furnishing info)",
+    "available": "In overleg",
+    "summary": "Recently renovated bright 3-room apartment (70 m²) on the 4th floor with a sunny 23 m² roof terrace, brand-new kitchen and bathroom, and light oak parquet, in the Transvaalbuurt near Oosterpark.",
+    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/9373a167/pretoriusstraat",
+    "lat": 52.3547297,
+    "lng": 4.9216604,
+    "distance_km": 1.84,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9373a167-c780-5918-9108-8236f6bda0bf/10ca5ce52dff6da6598bd5182de32343.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/9373a167-c780-5918-9108-8236f6bda0bf/10ca5ce52dff6da6598bd5182de32343.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/9373a167-c780-5918-9108-8236f6bda0bf/10ca5ce52dff6da6598bd5182de32343.jpg?width=600&auto=webp"
+    ],
+    "available_from": "In overleg",
     "min_contract": null
   }
 ]
