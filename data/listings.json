@@ -1,23 +1,5 @@
 [
   {
-    "date_found": "2026-05-02",
-    "address": "For rent: Flat Pantograafstraat 82 in Amsterdam, Amsterdam",
-    "price": "2426",
-    "size": "94",
-    "rooms": "3",
-    "furnished": "Unfurnished",
-    "available": "",
-    "summary": "",
-    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/286ca526/pantograafstraat",
-    "lat": null,
-    "lng": null,
-    "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": "&quot;,&quot;interaction_id&quot;:&",
-    "min_contract": "2 months"
-  },
-  {
     "date_found": "2026-05-12",
     "address": "For rent: Flat Grensstraat in Amsterdam, Amsterdam",
     "price": "2575",
