@@ -1,24 +1,6 @@
 [
   {
     "date_found": "2026-05-12",
-    "address": "For rent: Flat Grensstraat in Amsterdam, Amsterdam",
-    "price": "2575",
-    "size": "78",
-    "rooms": "3",
-    "furnished": "Unfurnished",
-    "available": "june 1st, 2026 | luxurious 2-b",
-    "summary": "",
-    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/0fe36cd7/grensstraat",
-    "lat": null,
-    "lng": null,
-    "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": "&quot;,&quot;interaction_id&quot;:&",
-    "min_contract": "2 months"
-  },
-  {
-    "date_found": "2026-05-12",
     "address": "For rent: Flat Zandstrooierstraat 33 in Amsterdam, Amsterdam",
     "price": "2485",
     "size": "110",
