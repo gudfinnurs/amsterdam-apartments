@@ -375,7 +375,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&auto=webp"
     ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-07-24",
@@ -396,7 +396,7 @@
       "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&auto=webp"
     ],
     "available_from": "Per direct",
-    "min_contract": null
+    "min_contract": "2 maanden"
   },
   {
     "date_found": "2026-07-28",
@@ -733,5 +733,26 @@
     ],
     "available_from": "2026-10-01",
     "min_contract": "2 months"
+  },
+  {
+    "date_found": "2026-09-03",
+    "address": "Faas Wilkesstraat 187 A, 1095 MD Amsterdam (Zeeburgereiland/Bovendiep)",
+    "price": "€ 2.195",
+    "size": "80 m²",
+    "rooms": "3 kamers",
+    "furnished": "Unfurnished",
+    "available": "Per direct",
+    "summary": "Modern 2019-built 3-room house on Zeeburgereiland with 2 bedrooms, energy label A+ and airconditioning, available immediately.",
+    "url": "https://www.pararius.nl/huis-te-huur/amsterdam/02e59ff6/faas-wilkesstraat",
+    "lat": 52.3732564,
+    "lng": 4.9684121,
+    "distance_km": 1.95,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/02e59ff6-f34f-5d0a-908f-7cc5b2f0e5d6/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/02e59ff6-f34f-5d0a-908f-7cc5b2f0e5d6/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/02e59ff6-f34f-5d0a-908f-7cc5b2f0e5d6/709a41d81cd7af0afe9de9b8c5b27f50.jpg?width=600&auto=webp"
+    ],
+    "available_from": "Per direct",
+    "min_contract": "12 maanden"
   }
 ]
