@@ -357,48 +357,6 @@
     "min_contract": null
   },
   {
-    "date_found": "2026-07-18",
-    "address": "Middenweg 27-1, 1098 AB Amsterdam (Middenmeer)",
-    "price": "€2495",
-    "size": "75 m²",
-    "rooms": "1 room",
-    "furnished": "Unfurnished",
-    "available": "6 hours ago",
-    "summary": "Charming 1906 upper-floor apartment in the popular Linnaeuspark neighbourhood with high ceilings and character details.",
-    "url": "https://www.pararius.nl/apartment-for-rent/amsterdam/7cd219b3/middenweg",
-    "lat": 52.3547143,
-    "lng": 4.9293286,
-    "distance_km": 1.41,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&auto=webp"
-    ],
-    "available_from": null,
-    "min_contract": "2 months"
-  },
-  {
-    "date_found": "2026-07-24",
-    "address": "Middenweg 27-1, 1098 AB Amsterdam (Middenmeer)",
-    "price": "€2,495/mo",
-    "size": "75 m²",
-    "rooms": "1 kamer",
-    "furnished": "Unfurnished",
-    "available": "No",
-    "summary": "Charming 1906 upper-floor apartment on Middenweg in the popular Linnaeusparkbuurt/Middenmeer, with high ceilings and character, close to Oostpoort station.",
-    "url": "https://www.pararius.nl/appartement-te-huur/amsterdam/7cd219b3/middenweg",
-    "lat": 52.3547143,
-    "lng": 4.9293286,
-    "distance_km": 1.41,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/7cd219b3-b86d-5ef7-9649-b196dad04fee/471922940c1573c174cdd229407cdc50.jpg?width=600&auto=webp"
-    ],
-    "available_from": "Per direct",
-    "min_contract": "2 maanden"
-  },
-  {
     "date_found": "2026-07-28",
     "address": "For rent: Flat Zandstrooierstraat 55 in Amsterdam, Amsterdam",
     "price": "2102",
