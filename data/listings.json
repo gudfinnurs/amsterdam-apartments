@@ -146,8 +146,8 @@
     "distance_km": null,
     "photo_url": null,
     "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "available_from": "&quot;,&quot;interaction_id&quot;:&",
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-06-11",
@@ -216,13 +216,10 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&auto=webp"
-    ],
-    "available_from": "August 1st, 2026\\n- Income requirem",
-    "min_contract": "2 months"
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-07-02",
@@ -363,12 +360,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/9ac70d14-3727-5c99-884f-1af4e03d71a6/c8a7c57848189fc9bd56560f3de2f050.jpg?width=600&auto=webp"
-    ],
-    "available_from": "SEPTEMBER 1, 2026 | Luxury 2-room a",
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
     "min_contract": null
   },
   {
@@ -405,13 +399,10 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/5f0e590e-9155-58f4-a825-b8b5b1964bf7/8619b8d72de4c31c5c7a21f019dd24e5.jpg?width=600&amp;auto=webp",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/5f0e590e-9155-58f4-a825-b8b5b1964bf7/8619b8d72de4c31c5c7a21f019dd24e5.jpg?width=600&amp;auto=webp",
-      "https://casco-media-prod.global.ssl.fastly.net/5f0e590e-9155-58f4-a825-b8b5b1964bf7/8619b8d72de4c31c5c7a21f019dd24e5.jpg?width=600&auto=webp"
-    ],
-    "available_from": "SEPTEMBER 1, 2026 | 2 BEDROOMS | CA",
-    "min_contract": "2 months"
+    "photo_url": null,
+    "photo_urls": null,
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-08-07",
@@ -552,10 +543,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/d85cf63d-8f75-5db9-9d88-156c82e7db4d/3d494068-2dfe-511e-a787-b771b099aeff?sig=b5d05fe7da7a6f461f4f1bb3149bf2ed817b47c225588168a5a2b9bbe28a77e1&amp;original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007165-3101486-580.jpg&amp;width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/d85cf63d-8f75-5db9-9d88-156c82e7db4d/3d494068-2dfe-511e-a787-b771b099aeff?sig=b5d05fe7da7a6f461f4f1bb3149bf2ed817b47c225588168a5a2b9bbe28a77e1&amp;original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007165-3101486-580.jpg&amp;width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/d85cf63d-8f75-5db9-9d88-156c82e7db4d/3d494068-2dfe-511e-a787-b771b099aeff?sig=b5d05fe7da7a6f461f4f1bb3149bf2ed817b47c225588168a5a2b9bbe28a77e1&original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007165-3101486-580.jpg&width=600&auto=webp"
+    ],
+    "available_from": "2026-10-01",
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-08-29",
@@ -570,10 +564,13 @@
     "lat": 52.3547297,
     "lng": 4.9216604,
     "distance_km": 1.84,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/9373a167-c780-5918-9108-8236f6bda0bf/0e861fc3-6ed5-579d-9309-6203253d849b?original_uri=https%3A%2F%2Fimages.realworks.nl%2Fservlets%2Fimages%2Fmedia.objectmedia%2F289261737.jpg%3Fportalid%3D8%26check%3Dapi_sha256%253Afbd03e57d810cca5885efc73cf6cdf09c53380e4523b5974ef59c3206c2da0e9%26resize%3D4&amp;sig=26fcd357e16265ed6cc1b0a944de5a69a7bacebc430299204468423cc1263d21&amp;width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/9373a167-c780-5918-9108-8236f6bda0bf/0e861fc3-6ed5-579d-9309-6203253d849b?original_uri=https%3A%2F%2Fimages.realworks.nl%2Fservlets%2Fimages%2Fmedia.objectmedia%2F289261737.jpg%3Fportalid%3D8%26check%3Dapi_sha256%253Afbd03e57d810cca5885efc73cf6cdf09c53380e4523b5974ef59c3206c2da0e9%26resize%3D4&amp;sig=26fcd357e16265ed6cc1b0a944de5a69a7bacebc430299204468423cc1263d21&amp;width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/9373a167-c780-5918-9108-8236f6bda0bf/0e861fc3-6ed5-579d-9309-6203253d849b?original_uri=https%3A%2F%2Fimages.realworks.nl%2Fservlets%2Fimages%2Fmedia.objectmedia%2F289261737.jpg%3Fportalid%3D8%26check%3Dapi_sha256%253Afbd03e57d810cca5885efc73cf6cdf09c53380e4523b5974ef59c3206c2da0e9%26resize%3D4&sig=26fcd357e16265ed6cc1b0a944de5a69a7bacebc430299204468423cc1263d21&width=600&auto=webp"
+    ],
+    "available_from": "In overleg",
+    "min_contract": "40 jaar"
   },
   {
     "date_found": "2026-08-29",
