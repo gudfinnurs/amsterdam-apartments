@@ -50,8 +50,8 @@
     "distance_km": null,
     "photo_url": null,
     "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "available_from": "&quot;,&quot;interaction_id&quot;:&",
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-06-02",
@@ -84,9 +84,12 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/01d83666-3288-5a8f-b88c-369718c36955/ad7432a7eaa40a8dabdaeff1578db3b4.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-06-20",
     "min_contract": null
   },
   {
@@ -125,8 +128,8 @@
     "distance_km": null,
     "photo_url": null,
     "photo_urls": null,
-    "available_from": "&quot;,&quot;interaction_id&quot;:&",
-    "min_contract": "2 months"
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-06-11",
@@ -179,8 +182,8 @@
     "distance_km": null,
     "photo_url": null,
     "photo_urls": null,
-    "available_from": "&quot;,&quot;interaction_id&quot;:&",
-    "min_contract": "2 months"
+    "available_from": null,
+    "min_contract": null
   },
   {
     "date_found": "2026-06-25",
@@ -213,10 +216,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/0eb52232-ead1-547c-8fb6-3bbaaf7c84ae/52f91567ed0795a9417fa8ff9d470e24.jpg?width=600&auto=webp"
+    ],
+    "available_from": "August 1st, 2026\\n- Income requirem",
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-07-02",
@@ -252,10 +258,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/2cfcc942-9d76-5936-b59d-68a51b86adb7/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/2cfcc942-9d76-5936-b59d-68a51b86adb7/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/2cfcc942-9d76-5936-b59d-68a51b86adb7/5c0f463dbc4d02a461dc10fda8bfe372.jpg?width=600&auto=webp"
+    ],
+    "available_from": "2026-08-24",
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-07-03",
@@ -291,10 +300,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/518678dc-e661-56bf-a6be-a53b0bffd4ed?original_uri=https%3A%2F%2Fd1rf1jwua027xh.cloudfront.net%2Fportfolio_c4bc1fb4-fb69-4a81-82f7-1b9edd95f633%2Flistings%2Flisting_9b2e3073-8b4c-4a25-9f5c-4b7eec8cf736%2Fmedia%2FMr._P.N._Arntzeniusweg_57-1_-_1.jpg%3FPolicy%3DeyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6ICJodHRwczovL2QxcmYxand1YTAyN3hoLmNsb3VkZnJvbnQubmV0L3BvcnRmb2xpb19jNGJjMWZiNC1mYjY5LTRhODEtODJmNy0xYjllZGQ5NWY2MzMvbGlzdGluZ3MvbGlzdGluZ185YjJlMzA3My04YjRjLTRhMjUtOWY1Yy00YjdlZWM4Y2Y3MzYvbWVkaWEvTXIuX1AuTi5fQXJudHplbml1c3dlZ181Ny0xXy1fMS5qcGciLCAiQ29uZGl0aW9uIjogeyJEYXRlTGVzc1RoYW4iOiB7IkFXUzpFcG9jaFRpbWUiOiAyMTQ3NDgzNjQ3fX19XX0%253D%26Signature%3DGgkliqhCGUpRGFeQd9b9Nz5JIddrEl%252Bdjiiy0N6Q6M3YRa7ycBVbvpGvYeruFOY5%252F04fw8O04DGXmHCV8Z5Te96jdXHx%252FZv0xF5a0K6qPmId95eS9uN%252FZxZ3xywm4uOfUAjVOzuSs7Ksk2rxUkLPk5C1vWgOa54ZUpag4D4nofUM%252BXxbMUPjneQLOoHNfrFj4ntNV%252FxkqouqHu1ikpC7voFvgc2oqHI%252BshClkZQOTqc5VoD1IKfSJks7q1bwoJDSnAz5i1bWFo4s7ujHqfHFYshEWO39im5II7v1SvlBecsMVs%252FC23063l6xvqyP%252FaxGNzldazetpG%252BxGhk6Y6liOA%253D%253D%26Key-Pair-Id%3DK194587S03REZY&amp;sig=7dcc30ac350ab7d74e95aa37b2063152e9ae823a870ec98f31ce9cfc32725d3a&amp;width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/518678dc-e661-56bf-a6be-a53b0bffd4ed?original_uri=https%3A%2F%2Fd1rf1jwua027xh.cloudfront.net%2Fportfolio_c4bc1fb4-fb69-4a81-82f7-1b9edd95f633%2Flistings%2Flisting_9b2e3073-8b4c-4a25-9f5c-4b7eec8cf736%2Fmedia%2FMr._P.N._Arntzeniusweg_57-1_-_1.jpg%3FPolicy%3DeyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6ICJodHRwczovL2QxcmYxand1YTAyN3hoLmNsb3VkZnJvbnQubmV0L3BvcnRmb2xpb19jNGJjMWZiNC1mYjY5LTRhODEtODJmNy0xYjllZGQ5NWY2MzMvbGlzdGluZ3MvbGlzdGluZ185YjJlMzA3My04YjRjLTRhMjUtOWY1Yy00YjdlZWM4Y2Y3MzYvbWVkaWEvTXIuX1AuTi5fQXJudHplbml1c3dlZ181Ny0xXy1fMS5qcGciLCAiQ29uZGl0aW9uIjogeyJEYXRlTGVzc1RoYW4iOiB7IkFXUzpFcG9jaFRpbWUiOiAyMTQ3NDgzNjQ3fX19XX0%253D%26Signature%3DGgkliqhCGUpRGFeQd9b9Nz5JIddrEl%252Bdjiiy0N6Q6M3YRa7ycBVbvpGvYeruFOY5%252F04fw8O04DGXmHCV8Z5Te96jdXHx%252FZv0xF5a0K6qPmId95eS9uN%252FZxZ3xywm4uOfUAjVOzuSs7Ksk2rxUkLPk5C1vWgOa54ZUpag4D4nofUM%252BXxbMUPjneQLOoHNfrFj4ntNV%252FxkqouqHu1ikpC7voFvgc2oqHI%252BshClkZQOTqc5VoD1IKfSJks7q1bwoJDSnAz5i1bWFo4s7ujHqfHFYshEWO39im5II7v1SvlBecsMVs%252FC23063l6xvqyP%252FaxGNzldazetpG%252BxGhk6Y6liOA%253D%253D%26Key-Pair-Id%3DK194587S03REZY&amp;sig=7dcc30ac350ab7d74e95aa37b2063152e9ae823a870ec98f31ce9cfc32725d3a&amp;width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/2ba8f5ce-43e2-540d-b098-fe3f09d68f78/518678dc-e661-56bf-a6be-a53b0bffd4ed?original_uri=https%3A%2F%2Fd1rf1jwua027xh.cloudfront.net%2Fportfolio_c4bc1fb4-fb69-4a81-82f7-1b9edd95f633%2Flistings%2Flisting_9b2e3073-8b4c-4a25-9f5c-4b7eec8cf736%2Fmedia%2FMr._P.N._Arntzeniusweg_57-1_-_1.jpg%3FPolicy%3DeyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6ICJodHRwczovL2QxcmYxand1YTAyN3hoLmNsb3VkZnJvbnQubmV0L3BvcnRmb2xpb19jNGJjMWZiNC1mYjY5LTRhODEtODJmNy0xYjllZGQ5NWY2MzMvbGlzdGluZ3MvbGlzdGluZ185YjJlMzA3My04YjRjLTRhMjUtOWY1Yy00YjdlZWM4Y2Y3MzYvbWVkaWEvTXIuX1AuTi5fQXJudHplbml1c3dlZ181Ny0xXy1fMS5qcGciLCAiQ29uZGl0aW9uIjogeyJEYXRlTGVzc1RoYW4iOiB7IkFXUzpFcG9jaFRpbWUiOiAyMTQ3NDgzNjQ3fX19XX0%253D%26Signature%3DGgkliqhCGUpRGFeQd9b9Nz5JIddrEl%252Bdjiiy0N6Q6M3YRa7ycBVbvpGvYeruFOY5%252F04fw8O04DGXmHCV8Z5Te96jdXHx%252FZv0xF5a0K6qPmId95eS9uN%252FZxZ3xywm4uOfUAjVOzuSs7Ksk2rxUkLPk5C1vWgOa54ZUpag4D4nofUM%252BXxbMUPjneQLOoHNfrFj4ntNV%252FxkqouqHu1ikpC7voFvgc2oqHI%252BshClkZQOTqc5VoD1IKfSJks7q1bwoJDSnAz5i1bWFo4s7ujHqfHFYshEWO39im5II7v1SvlBecsMVs%252FC23063l6xvqyP%252FaxGNzldazetpG%252BxGhk6Y6liOA%253D%253D%26Key-Pair-Id%3DK194587S03REZY&sig=7dcc30ac350ab7d74e95aa37b2063152e9ae823a870ec98f31ce9cfc32725d3a&width=600&auto=webp"
+    ],
     "available_from": null,
-    "min_contract": null
+    "min_contract": "38 years"
   },
   {
     "date_found": "2026-07-09",
