@@ -303,8 +303,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/1fcb4f3f-a4f1-5012-8478-ccd0e1767a39/68abc2f1d6af21da9a1e9ab118c07fb9.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -357,8 +360,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/a9db849e-6a5d-509a-9e3c-ea5021015c8c/b94f4075-fae2-5a9a-85c0-32ed2bcd18dd?original_uri=https%3A%2F%2Flivresidential.ams3.digitaloceanspaces.com%2Fproduction%2Fproperties%2F50988%2Fc8897e36b81498f5038580d6a46988fdbabfda6295b5d88a36604e586d066122.jpg&amp;sig=f3e7c7d0cd039a08a9080a62c22a5d8ce5e21ba01802cb934a3e39f51b686f20&amp;width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/a9db849e-6a5d-509a-9e3c-ea5021015c8c/b94f4075-fae2-5a9a-85c0-32ed2bcd18dd?original_uri=https%3A%2F%2Flivresidential.ams3.digitaloceanspaces.com%2Fproduction%2Fproperties%2F50988%2Fc8897e36b81498f5038580d6a46988fdbabfda6295b5d88a36604e586d066122.jpg&amp;sig=f3e7c7d0cd039a08a9080a62c22a5d8ce5e21ba01802cb934a3e39f51b686f20&amp;width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/a9db849e-6a5d-509a-9e3c-ea5021015c8c/b94f4075-fae2-5a9a-85c0-32ed2bcd18dd?original_uri=https%3A%2F%2Flivresidential.ams3.digitaloceanspaces.com%2Fproduction%2Fproperties%2F50988%2Fc8897e36b81498f5038580d6a46988fdbabfda6295b5d88a36604e586d066122.jpg&sig=f3e7c7d0cd039a08a9080a62c22a5d8ce5e21ba01802cb934a3e39f51b686f20&width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -411,8 +417,11 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/790a1fac-d23a-5c94-bfe3-4232f585536b/8e95d54a81f8a218882c52bb8f0156c5.jpg?width=600&auto=webp"
+    ],
     "available_from": null,
     "min_contract": null
   },
@@ -501,10 +510,13 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": null,
-    "photo_urls": null,
-    "available_from": null,
-    "min_contract": null
+    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/d85cf63d-8f75-5db9-9d88-156c82e7db4d/3d494068-2dfe-511e-a787-b771b099aeff?sig=b5d05fe7da7a6f461f4f1bb3149bf2ed817b47c225588168a5a2b9bbe28a77e1&amp;original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007165-3101486-580.jpg&amp;width=600&amp;auto=webp",
+    "photo_urls": [
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/d85cf63d-8f75-5db9-9d88-156c82e7db4d/3d494068-2dfe-511e-a787-b771b099aeff?sig=b5d05fe7da7a6f461f4f1bb3149bf2ed817b47c225588168a5a2b9bbe28a77e1&amp;original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007165-3101486-580.jpg&amp;width=600&amp;auto=webp",
+      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/d85cf63d-8f75-5db9-9d88-156c82e7db4d/3d494068-2dfe-511e-a787-b771b099aeff?sig=b5d05fe7da7a6f461f4f1bb3149bf2ed817b47c225588168a5a2b9bbe28a77e1&original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007165-3101486-580.jpg&width=600&auto=webp"
+    ],
+    "available_from": "2026-10-01",
+    "min_contract": "2 months"
   },
   {
     "date_found": "2026-08-29",
