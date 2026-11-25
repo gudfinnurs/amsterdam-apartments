@@ -534,12 +534,9 @@
     "lat": null,
     "lng": null,
     "distance_km": null,
-    "photo_url": "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/022719cf-3fce-5ac3-8740-eb0a39263f99/40e3a4bd-87c4-5aef-8301-5a63272184c0?original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007384-1658047-287.jpg&amp;sig=a323b4c6b704d8632f04f4ffe3d0d65f8082c7b848146b1aba80e6525047d36f&amp;width=1200&amp;auto=webp&amp;height=800&amp;fit=crop",
-    "photo_urls": [
-      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/022719cf-3fce-5ac3-8740-eb0a39263f99/40e3a4bd-87c4-5aef-8301-5a63272184c0?original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007384-1658047-287.jpg&amp;sig=a323b4c6b704d8632f04f4ffe3d0d65f8082c7b848146b1aba80e6525047d36f&amp;width=1200&amp;auto=webp&amp;height=800&amp;fit=crop",
-      "https://casco-media-prod.global.ssl.fastly.net/listings/api/media/022719cf-3fce-5ac3-8740-eb0a39263f99/40e3a4bd-87c4-5aef-8301-5a63272184c0?original_uri=https%3A%2F%2Fwww.verhuurtbeter.nl%2Fafb%2F1280x%2Fobt-007384-1658047-287.jpg&sig=a323b4c6b704d8632f04f4ffe3d0d65f8082c7b848146b1aba80e6525047d36f&width=600&auto=webp"
-    ],
+    "photo_url": null,
+    "photo_urls": null,
     "available_from": null,
-    "min_contract": "2 months"
+    "min_contract": null
   }
 ]
